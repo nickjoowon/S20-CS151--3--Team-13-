@@ -1,6 +1,24 @@
 package stuff;
-
+/**
+ * Models a patient of the clinic. It contains information about itself, including the medications it is currently taking and the visits it has. 
+ * @author johnsonhsiung
+ *
+ */
 public class Patient {
+	/**
+	 * Creates a patient with the required information. 
+	 * @param SocialSecureNumb the SSN of the patient.
+	 * @param insuranceNum the insurance number of the patient. 
+	 * @param dateAdded date this patient was added into the database.
+	 * @param fullName The full name of this patient. 
+	 * @param birthDay The birthday of this patient. 
+	 * @param gender The gender of this patient.
+	 * @param phoneNum The phone number of this patient. 
+	 * @param address The address of this patient. 
+	 */
+	public Patient(int SocialSecureNumb, int insuranceNum, int dateAdded, String fullName, int birthDay, String gender, int phoneNum, String address) {
+		
+	}
 	
 	/**
 	 * @return the sequenceNum the visit number this patient is on 
@@ -180,4 +198,3 @@ public class Patient {
 	}
 
 }
-
