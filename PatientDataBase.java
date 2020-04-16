@@ -1,7 +1,10 @@
 package stuff;
 
 import java.util.ArrayList;
-
+/**
+ * PatientDatabase holds a list of patients
+ *
+ */
 public class PatientDataBase {
 
 	private ArrayList<Patient> patientList;
