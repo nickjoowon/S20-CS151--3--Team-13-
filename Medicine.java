@@ -16,7 +16,16 @@ public class Medicine {
 	private String usualDose;
 	private boolean sideEffect;
 	
-	
+	/*
+	* medecineName is the name of the medicine
+	* doseSize is the size of the dose for the medicine
+	* duration is how long the medicine has been used
+	* chemCategoryName is the name of the chemicals of the medicine
+	* action is how the medication is applied 
+	* application is the description of the purpose for taking the medication
+	* usualDose is the description of how often the patient uses the medication
+	* sideEffect is for indication of whether if there are any side effects from the medication
+	*/
 	public Medicine(String medicineName, String doseSize, String duration, String chemCategoryName, String action, String application, String usualDose, boolean sideEffect) {
 		
 		this.medicineName = medicineName;
