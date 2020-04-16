@@ -24,56 +24,56 @@ public class Visit {
 		
 	}
 /**
- * 
+ * gets order number
  * @return
  */
 	public int getOrderNum() {
 		return orderNum;
 	}
 /**
- * 
+ * sets order number
  * @param orderNum
  */
 	public void setOrderNum(int orderNum) {
 		this.orderNum = orderNum;
 	}
 /**
- * 
+ *  gets full name
  * @return
  */
 	public String getFullName() {
 		return fullName;
 	}
 /**
- * 
+ * sets full name
  * @param fullName
  */
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
 /**
- * 
+ * gets date of visit
  * @return
  */
 	public int getDate() {
 		return date;
 	}
 /**
- * 
+ * sets date of visit
  * @param date
  */
 	public void setDate(int date) {
 		this.date = date;
 	}
 /**
- * 
+ * get number of the visit
  * @return
  */
 	public int getVisitNum() {
 		return visitNum;
 	}
 /**
- * 
+ * set number of the visit
  * @param visitNum
  */
 	public void setVisitNum(int visitNum) {
