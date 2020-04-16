@@ -6,22 +6,22 @@ public class Visit {
 	private String fullName;
 	private int date;
 	private int visitNum;
-	private int orderingNum;
+	private int orderNum;
 	private Evaluations evaluations;
 	
-	public Visit(String fullName, int date, int orderingNum) {
+	public Visit(String fullName, int date, int orderNum) {
 		fullName = this.fullName;
 		date = this.date;
-		orderingNum = this.orderingNum;
+		orderNum = this.orderNum;
 		
 	}
 
-	public int getOrderingNum() {
-		return orderingNum;
+	public int getOrderNum() {
+		return orderNum;
 	}
 
-	public void setOrderingNum(int orderingNum) {
-		this.orderingNum = orderingNum;
+	public void setOrderNum(int orderNum) {
+		this.orderNum = orderNum;
 	}
 
 	public String getFullName() {
