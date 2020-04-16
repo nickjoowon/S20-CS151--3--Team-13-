@@ -1,4 +1,8 @@
 package stuff;
+/**
+ * The visit class deals with the visits the patients schedule
+ * They can contain evaluations, which happen during the patient's visit
+ */
 
 public class Visit {
 
@@ -9,7 +13,7 @@ public class Visit {
 	private int date;
 	private int visitNum;
 	private int orderNum;
-	//private Evaluations evaluations;
+	private Evaluations evaluations;
 	/**
 	 *  takes in full name of the patient, the date of the visit, and the orderNum of the patient
 	 *  
