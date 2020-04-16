@@ -1,9 +1,6 @@
 package stuff;
 
 public class PatientView {
-
-	private int orderNum;
-	private int sequenceNum;
 	
 	public PatientView() {}
 	
