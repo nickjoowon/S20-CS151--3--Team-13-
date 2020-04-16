@@ -18,9 +18,9 @@ public class Visit {
 	 * @param orderNum
 	 */
 	public Visit(String fullName, int date, int orderNum) {
-		fullName = this.fullName;
-		date = this.date;
-		orderNum = this.orderNum;
+		this.fullName = fullName;
+		this.date = date;
+		this.orderNum = orderNum;
 		
 	}
 /**
