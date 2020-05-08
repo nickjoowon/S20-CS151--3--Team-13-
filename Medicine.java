@@ -1,3 +1,4 @@
+package Model;
 
 /*
  * Medicine class deals with the specificity of the medication information. 
@@ -14,9 +15,9 @@ public class Medicine {
 	private String action;
 	private String application;
 	private String usualDose;
-	private boolean sideEffect;
+	private String sideEffect;
 	
-	/*
+	/**
 	* medecineName is the name of the medicine
 	* doseSize is the size of the dose for the medicine
 	* duration is how long the medicine has been used
@@ -24,9 +25,9 @@ public class Medicine {
 	* action is how the medication is applied 
 	* application is the description of the purpose for taking the medication
 	* usualDose is the description of how often the patient uses the medication
-	* sideEffect is for indication of whether if there are any side effects from the medication
+	* sideEffect is for description of the side effects of this medication
 	*/
-	public Medicine(String medicineName, String doseSize, String duration, String chemCategoryName, String action, String application, String usualDose, boolean sideEffect) {
+	public Medicine(String medicineName, String doseSize, String duration, String chemCategoryName, String action, String application, String usualDose, String sideEffect) {
 		
 		this.medicineName = medicineName;
 		this.doseSize = doseSize;
@@ -69,8 +70,7 @@ public class Medicine {
 		return usualDose;
 	}
 
-	public boolean isSideEffect() {
+	public String getSideEffect() {
 		return sideEffect;
 	}
-	
-	
+}
