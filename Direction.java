@@ -1,6 +1,7 @@
 package view;
 
 public enum Direction {
+	//Enums
 	
 	MAINMENU,
 	
@@ -12,7 +13,7 @@ public enum Direction {
 	VISITHISTORY, SPECIFICVISIT, SCHEDULEVISITPOPUP,
 	AUDIOEVAL;
 
-
+	//options for page navigation
 	private Direction next;
 	private Direction previous;
 	private Direction branchA;
