@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 /**
  * Models a patient of the clinic. It contains information about itself, including the medications it is currently taking and the visits it has. 
- * @author johnsonhsiung
+ * @author johnsonhsiung, nickjoowon
  *
  */
 public class Patient {
