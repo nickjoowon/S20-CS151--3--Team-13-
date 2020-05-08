@@ -1,7 +1,7 @@
 package view;
 
 public enum Direction {
-	//Enums
+	//Enums(pages)
 	
 	MAINMENU,
 	
