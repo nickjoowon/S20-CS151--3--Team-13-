@@ -6,11 +6,7 @@ public class MenuPage {
 	private JFrame frame;
 	public MenuPage(JFrame frame)
 	{
-		this.frame = frame; 
-	}
-	
-	public void drawPage()
-	{
+		this.frame = frame;
 		frame.getContentPane().removeAll();
 		registerButton = new JButton("Register New Patient");
 		viewButton = new JButton("View Patients");
@@ -49,7 +45,6 @@ public class MenuPage {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.repaint();
 		frame.revalidate();
-		
 	}
 	
 	public void addRegisterListener(ActionListener listenRegister)
