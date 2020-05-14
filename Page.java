@@ -1,6 +1,6 @@
 package view;
 
-public enum Direction {
+public enum Page {
 	//Enums(pages)
 	
 	MAINMENU,
@@ -14,13 +14,13 @@ public enum Direction {
 	AUDIOEVAL;
 
 	//options for page navigation
-	private Direction next;
-	private Direction previous;
-	private Direction branchA;
-	private Direction branchB;
-	private Direction branchC;
-	private Direction branchD;
-	private Direction branchE;
+	private Page next;
+	private Page previous;
+	private Page branchA;
+	private Page branchB;
+	private Page branchC;
+	private Page branchD;
+	private Page branchE;
 	
 	static { //refer to state diagram
 	MAINMENU.branchA = REGINPUTREQ; //add new patient
@@ -76,31 +76,31 @@ public enum Direction {
 	
 	}
 
-	public Direction getPreviousDirection()
+	public Page getPreviousPage()
 	{
 	  return previous;
 	}
-	public Direction getNextDirection()
+	public Page getNextPage()
 	{
 	  return next;
 	}
-	public Direction getBranchA()
+	public Page getBranchA()
 	{
 	  return branchB;
 	}
-	public Direction getgetBranchB()
+	public Page getgetBranchB()
 	{
 	  return branchA;
 	}
-	public Direction getgetBranchC()
+	public Page getgetBranchC()
 	{
 	  return branchC;
 	}
-	public Direction getgetBranchD()
+	public Page getgetBranchD()
 	{
 	  return branchD;
 	}
-	public Direction getgetBranchE()
+	public Page getgetBranchE()
 	{
 	  return branchE;
 	}
