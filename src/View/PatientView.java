@@ -4,15 +4,11 @@ package view;
  *
  */
 public class PatientView {
+	
+	private Page currPage; //current page
 
 	public PatientView() {}
-	/**
-	 * sets current Page
-	 */
-	public void setEnum(Page newPage)
-	{
-		
-	}
+	
 	/**
 	 * picks correct Page based on Page Enum currently on.
 	 */
@@ -93,5 +89,17 @@ public class PatientView {
 	public void displayScheduleVisitPopup()
 	{
 		
+	}
+	
+	/**
+	 * getter and setters
+	 */
+	public void setEnum(Page newPage)
+	{
+		currPage = newPage;
+	}
+	public Page getPage()
+	{
+		return currPage;
 	}
 }
