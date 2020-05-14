@@ -8,7 +8,7 @@ public class PatientView {
 	public PatientView() {}
 	
 	
-	public void pickUI(Direction newPage)
+	public void pickUI(Page newPage)
 	{
 		
 	}
