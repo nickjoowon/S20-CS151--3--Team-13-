@@ -20,5 +20,78 @@ public class PatientView {
 	{
 		
 	}
+	/**
+	 * below methods are the UI for a specific page
+	 * they are called from within the PickPage method
+	 */
+	public void displayRegInputReq()
+	{
+		
+	}
+	public void displayRegInputOpt()
+	{
+		
+	}
+	public void displayRegInputStatus()
+	{
+		
+	}
+	public void displayRegInputMedHist()
+	{
+		
+	}
 	
+	public void displayRegVisitInfo()
+	{
+		
+	}
+	public void displayRegAudioEval()
+	{
+		
+	}
+	public void displayRegCategory()
+	{
+		
+	}
+	
+	public void displayMainMenu()
+	{
+		
+	}
+	public void displayPatientDatabase()
+	{
+		
+	}
+	public void displaySpecificPatient()
+	{
+		
+	}
+	public void displayReverseReg()
+	{
+		
+	}
+	public void displayMedHistory()
+	{
+		
+	}
+	public void displaySpecMedInfo()
+	{
+		
+	}
+	public void displayVisitHistory()
+	{
+		
+	}
+	public void displaySpecificVisit()
+	{
+		
+	}
+	public void displayAudioEval()
+	{
+		
+	}
+	public void displayScheduleVisitPopup()
+	{
+		
+	}
 }
