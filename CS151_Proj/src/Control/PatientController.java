@@ -6,7 +6,7 @@ public class PatientController {
 	public static void main(String[] args)
 	{
 		
-		PatientView view = new PatientView(frame); 
+		MenuPage view = new MenuPage(frame); 
 		RegisterListener r = new RegisterListener(); 
 		view.addRegisterListener(r); 
 	
@@ -16,7 +16,7 @@ public class PatientController {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			Patient2 page2 = new Patient2(frame); 
+			ReqInfoPage page2 = new ReqInfoPage(frame); 
 			NextListener n = new NextListener();
 			page2.addNextListener(n);
 		}
@@ -25,7 +25,7 @@ public class PatientController {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			PatientView view = new PatientView(frame); 
+			MenuPage view = new MenuPage(frame); 
 			
 			RegisterListener r = new RegisterListener(); 
 			view.addRegisterListener(r); 
