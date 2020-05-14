@@ -6,9 +6,13 @@ package view;
 public class PatientView {
 	
 	private Page currPage; //current page
-
-	public PatientView() {}
-	
+	/**
+	 * constructor starts the user on the first page, which is the main menu
+	 */
+	public PatientView() {
+		currPage = Page.MainMenu
+		pickPage();
+	}
 	/**
 	 * picks correct Page based on Page Enum currently on.
 	 */
