@@ -150,32 +150,151 @@ public class PatientView {
 	 */
 	public void displayRegInputReq()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayRegInputOpt()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayRegInputStatus()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayRegInputMedHist()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	
 	public void displayRegVisitInfo()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayRegAudioEval()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayRegCategory()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	
 	public void displayMainMenu()
@@ -222,39 +341,192 @@ public class PatientView {
 	}
 	public void displayPatientDatabase()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displaySpecificPatient()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayReverseReg()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayMedHistory()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displaySpecMedInfo()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayVisitHistory()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displaySpecificVisit()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayAudioEval()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	public void displayScheduleVisitPopup()
 	{
+		getContentPane().removeAll();
+		tempButton = new JButton("Button Text");
+
 		
+		//temp button
+		JPanel temp = new JPanel(); 
+		temp.setSize(200, 200);
+		add(tempButton, BorderLayout.CENTER);
+		tempButton.setPreferredSize(new Dimension(455, 665));
+		tempButton.setOpaque(true);
+		tempButton.setBackground(new Color(41, 142, 208));
+		tempButton.setForeground(Color.white);
+		tempButton.setBorderPainted(false);
+		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
+		temp.add(registerButton);
+		
+		repaint();
+		revalidate();
 	}
 	
 	/**
