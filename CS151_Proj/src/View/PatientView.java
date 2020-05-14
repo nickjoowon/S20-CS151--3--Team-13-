@@ -167,6 +167,44 @@ public class PatientView {
 	
 	public void displayMainMenu()
 	{
+		getContentPane().removeAll();
+		registerButton = new JButton("Register New Patient");
+		viewButton = new JButton("View Patients");
+		setTitle("Main Menu"); 
+		setSize(910,700); 
+		JPanel register = new JPanel(); 
+		register.setSize(455, 700);
+		add(register, BorderLayout.LINE_START); 
+		
+		
+		registerButton.setPreferredSize(new Dimension(455, 665));
+		registerButton.setOpaque(true);
+		registerButton.setBackground(new Color(41, 142, 208));
+		registerButton.setForeground(Color.white);
+		registerButton.setBorderPainted(false);
+		registerButton.setFont(new Font("Arial", Font.BOLD, 40));
+		register.add(registerButton); 
+		
+		JPanel view = new JPanel(); 
+		view.setOpaque(true);
+
+		view.setSize(455, 700);
+		add(view, BorderLayout.CENTER);
+		
+		
+		viewButton.setPreferredSize(new Dimension(435, 665));
+		viewButton.setOpaque(true);
+		viewButton.setBackground(new Color(41, 142, 208));
+		viewButton.setForeground(Color.white);
+		viewButton.setBorderPainted(false);
+		viewButton.setFont(new Font("Arial", Font.BOLD, 40));
+		view.add(viewButton); 
+		
+		
+		setVisible(true); 
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		repaint();
+		revalidate();
 		
 	}
 	public void displayPatientDatabase()
