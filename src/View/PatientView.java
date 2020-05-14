@@ -18,6 +18,79 @@ public class PatientView {
 	 */
 	public void pickPage()
 	{
+		if(currPage.equals(Page.MAINMENU))
+		{
+			
+		}
+		else if(currPage.equals(Page.REVERSEREG)
+		{
+			
+		}				
+		else if(currPage.equals(Page.REGINPUTREQ)
+		{
+			
+		}
+		else if(currPage.equals(Page.REGINPUTOPT)
+		{
+			
+		}
+		else if(currPage.equals(Page.REGINPUTSTATUS)
+		{
+			
+		}
+		else if(currPage.equals(Page.REGINPUTMEDHIST)
+		{
+			
+		}
+		else if(currPage.equals(Page.REGVISITINFO)
+		{
+			
+		}
+		else if(currPage.equals(Page.REGAUDIOEVAL)
+		{
+			
+		}
+		else if(currPage.equals(Page.REGCATEGORY)
+		{
+			
+		}
+		else if(currPage.equals(Page.MEDHISTORY)
+		{
+			
+		}
+		else if(currPage.equals(Page.SPECIFICMEDINFO)
+		{
+			
+		}
+		else if(currPage.equals(Page.PATIENTDATABASE)
+		{
+			
+		}
+		else if(currPage.equals(Page.SPECIFICPATIENT)
+		{
+			
+		}
+		else if(currPage.equals(Page.VISITHISTORY)
+		{
+			
+		}
+		else if(currPage.equals(Page.SPECIFICVISIT)
+		{
+			
+		}
+		else if(currPage.equals(Page.SCHEDULEVISITPOPUP)
+		{
+			
+		}
+		else if(currPage.equals(Page.AUDIOEVAL)
+		{
+			
+		}
+		else
+		{
+			System.out.println("Enum error in PatientViewClass. Not on a Valid Enum??!!");
+		}
+		//below code is temporarily placed in this method
 		SwingUtilities.updateComponentTreeUI(this);
 		registerButton = new JButton("Register New Patient");
 		viewButton = new JButton("View Patients");
