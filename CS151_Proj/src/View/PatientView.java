@@ -106,7 +106,43 @@ public class PatientView {
 		{
 			System.out.println("Enum error in PatientViewClass. Not on a Valid Enum??!!");
 		}
+		//below code is temporarily placed in this method
+		SwingUtilities.updateComponentTreeUI(this);
+		registerButton = new JButton("Register New Patient");
+		viewButton = new JButton("View Patients");
+		setTitle("Main Menu"); 
+		setSize(910,700); 
+		JPanel register = new JPanel(); 
+		register.setSize(455, 700);
+		add(register, BorderLayout.LINE_START); 
 		
+		
+		registerButton.setPreferredSize(new Dimension(455, 665));
+		registerButton.setOpaque(true);
+		registerButton.setBackground(new Color(41, 142, 208));
+		registerButton.setForeground(Color.white);
+		registerButton.setBorderPainted(false);
+		registerButton.setFont(new Font("Arial", Font.BOLD, 40));
+		register.add(registerButton); 
+		
+		JPanel view = new JPanel(); 
+		view.setOpaque(true);
+
+		view.setSize(455, 700);
+		add(view, BorderLayout.CENTER);
+		
+		
+		viewButton.setPreferredSize(new Dimension(435, 665));
+		viewButton.setOpaque(true);
+		viewButton.setBackground(new Color(41, 142, 208));
+		viewButton.setForeground(Color.white);
+		viewButton.setBorderPainted(false);
+		viewButton.setFont(new Font("Arial", Font.BOLD, 40));
+		view.add(viewButton); 
+		
+		
+		setVisible(true); 
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	/**
 	 * below methods are the UI for a specific page
@@ -114,151 +150,32 @@ public class PatientView {
 	 */
 	public void displayRegInputReq()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayRegInputOpt()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayRegInputStatus()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayRegInputMedHist()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	
 	public void displayRegVisitInfo()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayRegAudioEval()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayRegCategory()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	
 	public void displayMainMenu()
@@ -305,192 +222,39 @@ public class PatientView {
 	}
 	public void displayPatientDatabase()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displaySpecificPatient()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayReverseReg()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayMedHistory()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displaySpecMedInfo()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayVisitHistory()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displaySpecificVisit()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayAudioEval()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	public void displayScheduleVisitPopup()
 	{
-		getContentPane().removeAll();
-		tempButton = new JButton("Button Text");
-
 		
-		//temp button
-		JPanel temp = new JPanel(); 
-		temp.setSize(200, 200);
-		add(tempButton, BorderLayout.CENTER);
-		tempButton.setPreferredSize(new Dimension(455, 665));
-		tempButton.setOpaque(true);
-		tempButton.setBackground(new Color(41, 142, 208));
-		tempButton.setForeground(Color.white);
-		tempButton.setBorderPainted(false);
-		tempButton.setFont(new Font("Arial", Font.BOLD, 40));
-		temp.add(registerButton);
-		
-		repaint();
-		revalidate();
 	}
 	
 	/**
