@@ -43,5 +43,93 @@ public class Evaluation {
 		this.categoryLvl = categoryLvl;
 		this.audioComment = audioComment;
 	}
+
+	public double getRightLDL() {
+		return rightLDL;
+	}
+
+	public void setRightLDL(double rightLDL) {
+		this.rightLDL = rightLDL;
+	}
+
+	public double getLeftLDL() {
+		return leftLDL;
+	}
+
+	public void setLeftLDL(double leftLDL) {
+		this.leftLDL = leftLDL;
+	}
+
+	public double getlAudioTone() {
+		return lAudioTone;
+	}
+
+	public void setlAudioTone(double lAudioTone) {
+		this.lAudioTone = lAudioTone;
+	}
+
+	public double getrAudioTone() {
+		return rAudioTone;
+	}
+
+	public void setrAudioTone(double rAudioTone) {
+		this.rAudioTone = rAudioTone;
+	}
+
+	public String getTinPitch() {
+		return tinPitch;
+	}
+
+	public void setTinPitch(String tinPitch) {
+		this.tinPitch = tinPitch;
+	}
+
+	public String getTinMatch() {
+		return tinMatch;
+	}
+
+	public void setTinMatch(String tinMatch) {
+		this.tinMatch = tinMatch;
+	}
+
+	public double getHearingThreshold() {
+		return hearingThreshold;
+	}
+
+	public void setHearingThreshold(double hearingThreshold) {
+		this.hearingThreshold = hearingThreshold;
+	}
+
+	public int getrMinMasking() {
+		return rMinMasking;
+	}
+
+	public void setrMinMasking(int rMinMasking) {
+		this.rMinMasking = rMinMasking;
+	}
+
+	public int getlMinMasking() {
+		return lMinMasking;
+	}
+
+	public void setlMinMasking(int lMinMasking) {
+		this.lMinMasking = lMinMasking;
+	}
+
+	public int getCategoryLvl() {
+		return categoryLvl;
+	}
+
+	public void setCategoryLvl(int categoryLvl) {
+		this.categoryLvl = categoryLvl;
+	}
+
+	public String getAudioComment() {
+		return audioComment;
+	}
+
+	public void setAudioComment(String audioComment) {
+		this.audioComment = audioComment;
+	}
 	
 }
