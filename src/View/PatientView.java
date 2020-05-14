@@ -10,7 +10,7 @@ public class PatientView {
 	 * constructor starts the user on the first page, which is the main menu
 	 */
 	public PatientView() {
-		currPage = Page.MainMenu
+		currPage = Page.MAINMENU;
 		pickPage();
 	}
 	/**
