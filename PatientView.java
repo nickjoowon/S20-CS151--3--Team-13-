@@ -6,10 +6,19 @@ package view;
 public class PatientView {
 
 	public PatientView() {}
-	
-	
-	public void pickUI(Page newPage)
+	/**
+	 * sets current Page
+	 */
+	public void setEnum(Page newPage)
 	{
 		
 	}
+	/**
+	 * picks correct Page based on Page Enum currently on.
+	 */
+	public void pickPage()
+	{
+		
+	}
+	
 }
