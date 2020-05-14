@@ -6,92 +6,15 @@ package view;
 public class PatientView {
 	
 	private Page currPage; //current page
-	/**
-	 * constructor starts the user on the first page, which is the main menu
-	 */
-	public PatientView() {
-		currPage = Page.MAINMENU;
-		pickPage();
-	}
+
+	public PatientView() {}
+	
 	/**
 	 * picks correct Page based on Page Enum currently on.
 	 */
 	public void pickPage()
 	{
-		if(currPage.equals(Page.MAINMENU))
-		{
-			displayMainMenu();
-		}
-		else if(currPage.equals(Page.REVERSEREG)
-		{
-			displayReverseReg();
-		}				
-		else if(currPage.equals(Page.REGINPUTREQ)
-		{
-			displayRegInputReq();
-		}
-		else if(currPage.equals(Page.REGINPUTOPT)
-		{
-			displayRegInputOpt();
-		}
-		else if(currPage.equals(Page.REGINPUTSTATUS)
-		{
-			displayRegInputStatus();
-		}
-		else if(currPage.equals(Page.REGINPUTMEDHIST)
-		{
-			displayRegInputMedHist();
-		}
-		else if(currPage.equals(Page.REGVISITINFO)
-		{
-			displayRegVisitInfo();
-		}
-		else if(currPage.equals(Page.REGAUDIOEVAL)
-		{
-			displayRegAudioEval();
-		}
-		else if(currPage.equals(Page.REGCATEGORY)
-		{
-			displayRegCategory();
-		}
-		else if(currPage.equals(Page.MEDHISTORY)
-		{
-			displayMedHistory();
-		}
-		else if(currPage.equals(Page.SPECIFICMEDINFO)
-		{
-			displaySpecMedInfo();
-		}
-		else if(currPage.equals(Page.PATIENTDATABASE)
-		{
-			displayPatientDatabase();
-		}
-		else if(currPage.equals(Page.SPECIFICPATIENT)
-		{
-			displaySpecificPatient();
-		}
-		else if(currPage.equals(Page.VISITHISTORY)
-		{
-			displayVisitHistory();
-		}
-		else if(currPage.equals(Page.SPECIFICVISIT)
-		{
-			displaySpecificVisit();
-		}
-		else if(currPage.equals(Page.SCHEDULEVISITPOPUP)
-		{
-			displayScheduleVisitPopup();
-		}
-		else if(currPage.equals(Page.AUDIOEVAL)
-		{
-			displayAudioEval();
-		}
-		else
-		{
-			System.out.println("Enum error in PatientViewClass. Not on a Valid Enum??!!");
-		}
-		//below code is temporarily placed in this method
-		SwingUtilities.updateComponentTreeUI(this);
+		getContentPane().removeAll();
 		registerButton = new JButton("Register New Patient");
 		viewButton = new JButton("View Patients");
 		setTitle("Main Menu"); 
@@ -127,6 +50,8 @@ public class PatientView {
 		
 		setVisible(true); 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		repaint();
+		revalidate();
 	}
 	/**
 	 * below methods are the UI for a specific page
