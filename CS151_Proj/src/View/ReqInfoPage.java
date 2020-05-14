@@ -3,12 +3,9 @@ package View;
 public class ReqInfoPage {
   JFrame frame; 
 	JButton next;
-	public Patient2(JFrame frame)
+	public ReqInfoPage(JFrame frame)
 	{
 		this.frame = frame; 
-	}
-	public void draw()
-	{
 		frame.getContentPane().removeAll(); 
 		frame.setTitle("Patient Registration"); 
 		
@@ -177,8 +174,6 @@ public class ReqInfoPage {
 	
 		frame.repaint();
 		frame.revalidate();
-		
-		
 	}
 	
 	public void addNextListener(ActionListener a)
