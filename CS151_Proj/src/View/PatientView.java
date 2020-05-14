@@ -25,67 +25,67 @@ public class PatientView {
 		{
 			displayMainMenu();
 		}
-		else if(currPage.equals(Page.REVERSEREG)
+		else if(currPage.equals(Page.REVERSEREG))
 		{
 			displayReverseReg();
 		}				
-		else if(currPage.equals(Page.REGINPUTREQ)
+		else if(currPage.equals(Page.REGINPUTREQ))
 		{
 			displayRegInputReq();
 		}
-		else if(currPage.equals(Page.REGINPUTOPT)
+		else if(currPage.equals(Page.REGINPUTOPT))
 		{
 			displayRegInputOpt();
 		}
-		else if(currPage.equals(Page.REGINPUTSTATUS)
+		else if(currPage.equals(Page.REGINPUTSTATUS))
 		{
 			displayRegInputStatus();
 		}
-		else if(currPage.equals(Page.REGINPUTMEDHIST)
+		else if(currPage.equals(Page.REGINPUTMEDHIST))
 		{
 			displayRegInputMedHist();
 		}
-		else if(currPage.equals(Page.REGVISITINFO)
+		else if(currPage.equals(Page.REGVISITINFO))
 		{
 			displayRegVisitInfo();
 		}
-		else if(currPage.equals(Page.REGAUDIOEVAL)
+		else if(currPage.equals(Page.REGAUDIOEVAL))
 		{
 			displayRegAudioEval();
 		}
-		else if(currPage.equals(Page.REGCATEGORY)
+		else if(currPage.equals(Page.REGCATEGORY))
 		{
 			displayRegCategory();
 		}
-		else if(currPage.equals(Page.MEDHISTORY)
+		else if(currPage.equals(Page.MEDHISTORY))
 		{
 			displayMedHistory();
 		}
-		else if(currPage.equals(Page.SPECIFICMEDINFO)
+		else if(currPage.equals(Page.SPECIFICMEDINFO))
 		{
 			displaySpecMedInfo();
 		}
-		else if(currPage.equals(Page.PATIENTDATABASE)
+		else if(currPage.equals(Page.PATIENTDATABASE))
 		{
 			displayPatientDatabase();
 		}
-		else if(currPage.equals(Page.SPECIFICPATIENT)
+		else if(currPage.equals(Page.SPECIFICPATIENT))
 		{
 			displaySpecificPatient();
 		}
-		else if(currPage.equals(Page.VISITHISTORY)
+		else if(currPage.equals(Page.VISITHISTORY))
 		{
 			displayVisitHistory();
 		}
-		else if(currPage.equals(Page.SPECIFICVISIT)
+		else if(currPage.equals(Page.SPECIFICVISIT))
 		{
 			displaySpecificVisit();
 		}
-		else if(currPage.equals(Page.SCHEDULEVISITPOPUP)
+		else if(currPage.equals(Page.SCHEDULEVISITPOPUP))
 		{
 			displayScheduleVisitPopup();
 		}
-		else if(currPage.equals(Page.AUDIOEVAL)
+		else if(currPage.equals(Page.AUDIOEVAL))
 		{
 			displayAudioEval();
 		}
