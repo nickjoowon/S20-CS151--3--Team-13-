@@ -14,29 +14,40 @@ public class PatientController {
 	public static void main(String[] args)
 	{
 		
-		MenuPage view = new MenuPage(frame); 
-		RegisterListener r = new RegisterListener(); 
-		view.addRegisterListener(r); 
+		MenuPage menu = new MenuPage(frame); 
+		RegisterMenuListener r = new RegisterMenuListener(); 
+		menu.addRegisterListener(r); 
 	
 	}
 	//add what the model should do with the information for each actionlistener
-	static class RegisterListener implements ActionListener
+	static class RegisterMenuListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			ReqInfoPage page2 = new ReqInfoPage(frame); 
-			BackListener b = new BackListener();
-			page2.addBackListener(b);
+			ReqInfoPage reqInfo = new ReqInfoPage(frame); 
+			BackReqListener b = new BackReqListener();
+			reqInfo.addBackListener(b);
 		}
 	}
-	static class BackListener implements ActionListener
+	static class BackReqListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			MenuPage view = new MenuPage(frame); 
+			MenuPage menu = new MenuPage(frame); 
 			
-			RegisterListener r = new RegisterListener(); 
-			view.addRegisterListener(r); 
+			RegisterMenuListener r = new RegisterMenuListener(); 
+			menu.addRegisterListener(r); 
+			
+		}
+		
+	}
+	static class NextReqListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			
+			
 			
 		}
 		
