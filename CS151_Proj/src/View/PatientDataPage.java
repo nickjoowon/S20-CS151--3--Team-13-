@@ -8,6 +8,7 @@ import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 
+
 /**
  * page 7
  * @author Marco
@@ -43,8 +44,8 @@ public class PatientDataPage {
 		top.add(topDecoration, BorderLayout.NORTH);
 		
 		//Panel to organize back and next buttons 
-				JPanel backAndNext = new JPanel(); 
-				backAndNext.setLayout(new BorderLayout());
+				JPanel backAndNew = new JPanel(); 
+				backAndNew.setLayout(new BorderLayout());
 				
 				back = new JButton("Back"); 
 				back.setPreferredSize(new Dimension(125,50));
@@ -52,20 +53,39 @@ public class PatientDataPage {
 				back.setForeground(Color.white);
 				back.setBackground(new Color(41,142,208));
 				back.setBorderPainted(false);
-				backAndNext.add(back, BorderLayout.WEST);
+				backAndNew.add(back, BorderLayout.WEST);
 				
 				
-				next = new JButton("Next");
+				next = new JButton("Add New");
 				next.setPreferredSize(new Dimension(125,50));
 				next.setOpaque(true);
 				next.setForeground(Color.white);
 				next.setBackground(new Color(41,142,208));
 				next.setBorderPainted(false);
-				backAndNext.add(next, BorderLayout.EAST); 
+				backAndNew.add(next, BorderLayout.EAST); 
 				
 			// For space between buttons and bottom 
 			JPanel bottomDecorationWhite = new JPanel();
 				
-			backAndNext.add(bottomDecorationWhite, BorderLayout.SOUTH);		
+			backAndNew.add(bottomDecorationWhite, BorderLayout.SOUTH);	
+			
+			//add the panels into the frame 
+			frame.add(top, BorderLayout.NORTH); 
+			frame.add(backAndNew, BorderLayout.SOUTH); 
+			
+			frame.repaint();
+			frame.revalidate();
+	}
+
+
+	public void addBackListener(ActionListener b) 
+	{
+		back.addActionListener(b);
+	}
+
+
+	public void addNextListener(ActionListener a) 
+	{
+		next.addActionListener(a);
 	}
 }

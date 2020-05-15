@@ -16,8 +16,10 @@ public class PatientController {
 	{
 		
 		MenuPage menu = new MenuPage(frame); 
-		gotoReqInputListener r = new gotoReqInputListener(); 
+		gotoReqInputListener r = new gotoReqInputListener();
+		gotoDatabaseListener d = new gotoDatabaseListener();
 		menu.addRegisterListener(r); 
+		menu.addViewListener(d);
 	
 	}
 	//add what the model should do with the information for each actionlistener
@@ -41,7 +43,9 @@ public class PatientController {
 			MenuPage menu = new MenuPage(frame); 
 			
 			gotoReqInputListener r = new gotoReqInputListener(); 
-			menu.addRegisterListener(r); 
+			gotoDatabaseListener d = new gotoDatabaseListener();
+			menu.addRegisterListener(r);
+			menu.addViewListener(d);
 			
 		}
 		
@@ -77,7 +81,7 @@ public class PatientController {
 				
 			OptInfoPage optInfo = new OptInfoPage(frame);
 			gotoReqInputListener b = new gotoReqInputListener(); 
-			GotoTinHypStatusListener n = new GotoTinHypStatusListener(); 
+			gotoTinHypStatusListener n = new gotoTinHypStatusListener(); 
 			optInfo.addBackListener(b);
 			
 			optInfo.addNextListener(n);
@@ -86,13 +90,13 @@ public class PatientController {
 		}
 		
 	}
-	static class GotoTinHypStatusListener implements ActionListener
+	static class gotoTinHypStatusListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
 			TinHypInputPage tinHyp = new TinHypInputPage(frame);
 			gotoOptInfoListener b = new gotoOptInfoListener(); 
-			InputMedListener n = new InputMedListener(); 
+			gotoInputMedListener n = new gotoInputMedListener(); 
 			tinHyp.addBackListener(b);
 			tinHyp.addNextListener(n);
 			
@@ -101,19 +105,30 @@ public class PatientController {
 		}
 		
 	}
-	static class InputMedListener implements ActionListener
+	static class gotoInputMedListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
 			InputMedPage inputMedPage = new InputMedPage(frame);
-			GotoTinHypStatusListener b = new GotoTinHypStatusListener();
-			InputMedListener m = new InputMedListener();
+			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
+			gotoInputMedListener m = new gotoInputMedListener();
 			inputMedPage.addBackListener(b);
 			inputMedPage.addNextListener(m);
 		}
 		
 	}
-	
+	static class gotoDatabaseListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			PatientDataPage database = new PatientDataPage(frame);
+			gotoMenuListener m = new gotoMenuListener();
+			gotoReqInputListener n = new gotoReqInputListener();
+			database.addBackListener(m);
+			database.addNextListener(n);
+		}
+		
+	}
 		
 }
   
