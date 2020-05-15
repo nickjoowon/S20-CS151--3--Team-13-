@@ -23,7 +23,7 @@ public class TinHypInputPage {
 	{
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
-		frame.setTitle("Patient Registration"); 
+		frame.setTitle("Tinnitus and Hyperacusus Status"); 
 		
 		//panel for the top blue part 
 		JPanel top = new JPanel(); 

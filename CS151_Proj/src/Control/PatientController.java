@@ -66,9 +66,20 @@ public class PatientController {
 		{
 			TinHypInputPage tinHyp = new TinHypInputPage(frame);
 			gotoOptInfoListener b = new gotoOptInfoListener(); 
+			inputMedListener n = new inputMedListener(); 
 			tinHyp.addBackListener(b);
+			tinHyp.addNextListener(n);
 			
 			
+			
+		}
+		
+	}
+	static class inputMedListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			InputMedPage inputMedPage = new InputMedPage(frame);
 			
 		}
 		

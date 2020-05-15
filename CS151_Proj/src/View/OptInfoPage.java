@@ -25,7 +25,7 @@ public class OptInfoPage {
 	{
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
-		frame.setTitle("Patient Registration"); 
+		frame.setTitle("Optional Information"); 
 		
 		//panel for the top blue part 
 		JPanel top = new JPanel(); 
