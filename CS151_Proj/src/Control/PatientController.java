@@ -1,5 +1,13 @@
 package Control;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+
+import View.MenuPage;
+import View.ReqInfoPage;
+
 public class PatientController {
   
   static JFrame frame = new JFrame();
@@ -34,7 +42,7 @@ public class PatientController {
 		
 	}
 		
-	}
+}
   
 
-}
+
