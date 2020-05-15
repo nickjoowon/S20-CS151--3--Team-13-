@@ -51,7 +51,23 @@ public class PatientController {
 		{
 			OptInfoPage optInfo = new OptInfoPage(frame);
 			gotoReqInputListener b = new gotoReqInputListener(); 
+			gotoTinHypStatusListener n = new gotoTinHypStatusListener(); 
 			optInfo.addBackListener(b);
+			
+			optInfo.addNextListener(n);
+			
+			
+		}
+		
+	}
+	static class gotoTinHypStatusListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			TinHypInputPage tinHyp = new TinHypInputPage(frame);
+			gotoOptInfoListener b = new gotoOptInfoListener(); 
+			tinHyp.addBackListener(b);
+			
 			
 			
 		}
