@@ -6,12 +6,26 @@ import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
 
-
 import javax.swing.*;
-
 public class ReqInfoPage {
-  JFrame frame; 
+    JFrame frame; 
 	JButton next;
+	JButton back;
+	private JTextField iDNumberText;
+	private JTextField dateAddedText;
+	private JTextField firstNameText;
+	private JTextField lastNameText;
+	private JTextField birthdayText;
+	private JTextField genderText;
+	private JTextField phoneNumberText;
+	private JTextField ssnText;
+	private JTextField address1Text;
+	private JTextField address2Text;
+	private JTextField cityText;
+	private JTextField stateText;
+	private JTextField zipText;
+	private JTextField countryText;
+	private JTextField insuranceNumberText;
 	public ReqInfoPage(JFrame frame)
 	{
 		this.frame = frame; 
@@ -45,50 +59,50 @@ public class ReqInfoPage {
 		JLabel IDNumber = new JLabel("ID Number"); 
 		IDNumber.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(IDNumber); 
-		JTextField IDNumberText = new JTextField(); 
-		centerLeft.add(IDNumberText); 
+		iDNumberText = new JTextField(); 
+		centerLeft.add(iDNumberText); 
 		
 		
 		JLabel dateAdded = new JLabel("Date Added"); 
 		dateAdded.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(dateAdded);
-		JTextField dateAddedText = new JTextField(); 
+		dateAddedText = new JTextField(); 
 		centerLeft.add(dateAddedText); 
 		
 		JLabel firstName = new JLabel("First Name"); 
 		firstName.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(firstName);
-		JTextField firstNameText = new JTextField(); 
+		firstNameText = new JTextField(); 
 		centerLeft.add(firstNameText); 
 		
 		JLabel lastName = new JLabel("Last Name"); 
 		lastName.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(lastName);
-		JTextField lastNameText = new JTextField(); 
+		lastNameText = new JTextField(); 
 		centerLeft.add(lastNameText); 
 		
 		JLabel birthday = new JLabel("Birthday"); 
 		birthday.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(birthday);
-		JTextField birthdayText = new JTextField(); 
+		birthdayText = new JTextField(); 
 		centerLeft.add(birthdayText); 
 		
 		JLabel gender = new JLabel("Gender"); 
 		gender.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(gender);
-		JTextField genderText = new JTextField(); 
+		genderText = new JTextField(); 
 		centerLeft.add(genderText); 
 		
 		JLabel phoneNumber = new JLabel("Phone Number"); 
 		phoneNumber.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(phoneNumber);
-		JTextField phoneNumberText = new JTextField(); 
+		phoneNumberText = new JTextField(); 
 		centerLeft.add(phoneNumberText); 
 		
 		JLabel ssn = new JLabel("Social Security Number"); 
 		ssn.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerLeft.add(ssn);
-		JTextField ssnText = new JTextField(); 
+		ssnText = new JTextField(); 
 		centerLeft.add(ssnText); 
 		
 		//Centerright. Street address1 till insurance number 
@@ -99,43 +113,43 @@ public class ReqInfoPage {
 		JLabel address1 = new JLabel("Street Address 1"); 
 		address1.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(address1);
-		JTextField address1Text = new JTextField(); 
+		address1Text = new JTextField(); 
 		centerRight.add(address1Text); 
 		
 		JLabel address2 = new JLabel("Street Address 2"); 
 		address2.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(address2);
-		JTextField address2Text = new JTextField(); 
+		address2Text = new JTextField(); 
 		centerRight.add(address2Text); 
 		
 		JLabel city = new JLabel("City"); 
 		city.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(city);
-		JTextField cityText = new JTextField(); 
+		cityText = new JTextField(); 
 		centerRight.add(cityText); 
 		
 		JLabel state = new JLabel("State"); 
 		state.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(state);
-		JTextField stateText = new JTextField(); 
+		stateText = new JTextField(); 
 		centerRight.add(stateText); 
 		
 		JLabel zip = new JLabel("Zip Code"); 
 		zip.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(zip);
-		JTextField zipText = new JTextField(); 
+		zipText = new JTextField(); 
 		centerRight.add(zipText); 
 		
 		JLabel country = new JLabel("Country"); 
 		country.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(country);
-		JTextField countryText = new JTextField(); 
+		countryText = new JTextField(); 
 		centerRight.add(countryText); 
 		
 		JLabel insuranceNumber = new JLabel("Insurance Number"); 
 		insuranceNumber.setFont(new Font("Arial", Font.PLAIN, 20));
 		centerRight.add(insuranceNumber);
-		JTextField insuranceNumberText = new JTextField(); 
+		insuranceNumberText = new JTextField(); 
 		centerRight.add(insuranceNumberText); 
 		
 		
@@ -143,7 +157,7 @@ public class ReqInfoPage {
 		JPanel backAndNext = new JPanel(); 
 		backAndNext.setLayout(new BorderLayout());
 		
-		JButton back = new JButton("Back"); 
+		back = new JButton("Back"); 
 		back.setPreferredSize(new Dimension(125,50));
 		back.setOpaque(true);
 		back.setForeground(Color.white);
@@ -189,6 +203,33 @@ public class ReqInfoPage {
 	{
 		next.addActionListener(a);
 	}
+	public void addBackListener(ActionListener b)
+	{
+		back.addActionListener(b);
+	}
+	public String[] getRequiredInfo()
+	{
+		String[] info = new String[] {iDNumberText.getText(), 
+				dateAddedText.getText(),
+				firstNameText.getText(),
+				lastNameText.getText(),
+				birthdayText.getText(),
+				genderText.getText(),
+				phoneNumberText.getText(),
+				ssnText.getText(),
+				address1Text.getText(),
+				address2Text.getText(),
+				cityText.getText(),
+				stateText.getText(),
+				zipText.getText(),
+				countryText.getText(),
+				insuranceNumberText.getText()} ;
+		return info; 
+		
+	}
+	
+	
+	
 
 
 }

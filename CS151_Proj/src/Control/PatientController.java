@@ -19,17 +19,17 @@ public class PatientController {
 		view.addRegisterListener(r); 
 	
 	}
-	
+	//add what the model should do with the information for each actionlistener
 	static class RegisterListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
 			ReqInfoPage page2 = new ReqInfoPage(frame); 
-			NextListener n = new NextListener();
-			page2.addNextListener(n);
+			BackListener b = new BackListener();
+			page2.addBackListener(b);
 		}
 	}
-	static class NextListener implements ActionListener
+	static class BackListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
