@@ -1,3 +1,5 @@
+package View;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -105,6 +107,7 @@ public class PatientView {
 			System.out.println("Enum error in PatientViewClass. Not on a Valid Enum??!!");
 		}
 		//below code is temporarily placed in this method
+		/*
 		SwingUtilities.updateComponentTreeUI(this);
 		registerButton = new JButton("Register New Patient");
 		viewButton = new JButton("View Patients");
@@ -141,6 +144,7 @@ public class PatientView {
 		
 		setVisible(true); 
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		*/
 	}
 	/**
 	 * below methods are the UI for a specific page
@@ -148,6 +152,7 @@ public class PatientView {
 	 */
 	public void displayRegInputReq()
 	{
+		/*
 		getContentPane().removeAll(); 
 		setTitle("Patient Registration"); 
 		
@@ -308,6 +313,7 @@ public class PatientView {
 	
 		repaint();
 		revalidate();
+		*/
 		
 		
 		
@@ -340,6 +346,7 @@ public class PatientView {
 	
 	public void displayMainMenu()
 	{
+		/*
 		getContentPane().removeAll();
 		registerButton = new JButton("Register New Patient");
 		viewButton = new JButton("View Patients");
@@ -378,6 +385,7 @@ public class PatientView {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		repaint();
 		revalidate();
+		*/
 		
 	}
 	public void displayPatientDatabase()
