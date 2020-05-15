@@ -5,8 +5,9 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
-import View.MenuPage;
-import View.ReqInfoPage;
+
+import View.*;
+
 
 public class PatientController {
   
@@ -15,43 +16,48 @@ public class PatientController {
 	{
 		
 		MenuPage menu = new MenuPage(frame); 
-		RegisterMenuListener r = new RegisterMenuListener(); 
+		gotoReqInputListener r = new gotoReqInputListener(); 
 		menu.addRegisterListener(r); 
 	
 	}
 	//add what the model should do with the information for each actionlistener
-	static class RegisterMenuListener implements ActionListener
+	//call the approrpiate actionlisteners for each page it goes to 
+	static class gotoReqInputListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
 			ReqInfoPage reqInfo = new ReqInfoPage(frame); 
-			BackReqListener b = new BackReqListener();
+			gotoMenuListener b = new gotoMenuListener();
+			gotoOptInfoListener n = new gotoOptInfoListener(); 
 			reqInfo.addBackListener(b);
+			reqInfo.addNextListener(n);
 		}
 	}
-	static class BackReqListener implements ActionListener
+	static class gotoMenuListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
 			MenuPage menu = new MenuPage(frame); 
 			
-			RegisterMenuListener r = new RegisterMenuListener(); 
+			gotoReqInputListener r = new gotoReqInputListener(); 
 			menu.addRegisterListener(r); 
 			
 		}
 		
 	}
-	static class NextReqListener implements ActionListener
+	static class gotoOptInfoListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			
-			
+			OptInfoPage optInfo = new OptInfoPage(frame);
+			gotoReqInputListener b = new gotoReqInputListener(); 
+			optInfo.addBackListener(b);
 			
 			
 		}
 		
 	}
+	
 		
 }
   

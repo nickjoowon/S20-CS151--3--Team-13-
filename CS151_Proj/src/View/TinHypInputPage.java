@@ -4,6 +4,6 @@ package View;
  * @author Nick
  *
  */
-public class TinHypStatusPage {
+public class TinHypInputPage {
 
 }
