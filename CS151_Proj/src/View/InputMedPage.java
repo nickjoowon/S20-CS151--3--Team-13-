@@ -41,7 +41,7 @@ public class InputMedPage {
 		
 		
 		
-		JLabel titleOfTop = new JLabel("Required Registration Information"); 
+		JLabel titleOfTop = new JLabel("Medical History"); 
 		titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
 		titleOfTop.setForeground(Color.white);
 		top.add(titleOfTop, BorderLayout.WEST); 
@@ -188,6 +188,10 @@ public class InputMedPage {
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
+	}
+	public void addFinishListener(ActionListener f)
+	{
+		finish.addActionListener(f);
 	}
 	public String[] getRequiredInfo()
 	{
