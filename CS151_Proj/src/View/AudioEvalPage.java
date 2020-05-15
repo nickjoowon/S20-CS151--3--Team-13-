@@ -6,5 +6,8 @@ package View;
  *
  */
 public class AudioEvalPage {
-
+	
+	public AudioEvalPage(){
+		
+	}
 }
