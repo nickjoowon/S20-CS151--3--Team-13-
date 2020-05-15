@@ -1,9 +1,9 @@
 package View;
 /**
- * page 11
+ * page 5
  * @author Nick
  *
  */
-public class VisitInfoPage {
+public class InputMedPage {
 
 }
