@@ -2,15 +2,19 @@ package Control;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-
+import Model.Patient;
 import View.*;
 
 
 public class PatientController {
   
+	
+	static ArrayList<Patient> patientList;
+	
   static JFrame frame = new JFrame();
 	public static void main(String[] args)
 	{
@@ -27,6 +31,9 @@ public class PatientController {
 	//should check if the previous page's text is filled out
 	static class gotoReqInputListener implements ActionListener
 	{
+		
+		
+		
 		public void actionPerformed(ActionEvent e)
 		{
 			ReqInfoPage reqInfo = new ReqInfoPage(frame); 
@@ -76,14 +83,23 @@ public class PatientController {
 						//error message 
 					}
 				}
+				//adding a new patient into the patient list
+				patientList.add(new Patient(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], 
+											info[9], info[10], info[11], info[12], info[13], info[14], "", "", "", ""));
+				
 			}
 			
 				
 			OptInfoPage optInfo = new OptInfoPage(frame);
 			gotoReqInputListener b = new gotoReqInputListener(); 
 			gotoTinHypStatusListener n = new gotoTinHypStatusListener(); 
-			optInfo.addBackListener(b);
 			
+			//adding the rest of optional information of a patient
+			patientList.get(patientList.size()).setOccupation(optInfo.getOccupation());
+			patientList.get(patientList.size()).setWorkStatus(optInfo.getWorkStatus());
+			patientList.get(patientList.size()).setEduDeg(optInfo.getEducationDegree());
+			
+			optInfo.addBackListener(b);
 			optInfo.addNextListener(n);
 			
 			
