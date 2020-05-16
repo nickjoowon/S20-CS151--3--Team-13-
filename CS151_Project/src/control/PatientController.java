@@ -17,8 +17,10 @@ public class PatientController {
 	static ArrayList<Patient> patientList;
 	
   static JFrame frame = new JFrame();
+
 	public static void main(String[] args)
 	{
+		
 		
 		MenuPage menu = new MenuPage(frame); 
 		gotoReqInputListener r = new gotoReqInputListener();
@@ -74,32 +76,36 @@ public class PatientController {
 		}
 		public void actionPerformed(ActionEvent e)
 		{
+			
 			if (isCheckReqInfo)
 			{
 				String[] info = reqInfo.getRequiredInfo();
+				
 				for (String a: info)
 				{
+					System.out.println(a);
 					if (a.isEmpty())
 					{
 						return; 
 						//error message 
 					}
 				}
+			
 				//adding a new patient into the patient list
-//				patientList.add(new Patient(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], 
-//											info[9], info[10], info[11], info[12], info[13], info[14], "", "", "", ""));
+			Patient patient = new Patient(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], 
+					info[9], info[10], info[11], info[12], info[13], info[14]);
+			patientList = new ArrayList<Patient>();
+			patientList.add(patient);
 				
 			}
 			
 				
 			OptInfoPage optInfo = new OptInfoPage(frame);
 			gotoReqInputListener b = new gotoReqInputListener(); 
-			gotoTinHypStatusListener n = new gotoTinHypStatusListener(); 
+			gotoTinHypStatusListener n = new gotoTinHypStatusListener(optInfo); 
 			
 			//adding the rest of optional information of a patient
-//			patientList.get(patientList.size()).setOccupation(optInfo.getOccupation());
-//			patientList.get(patientList.size()).setWorkStatus(optInfo.getWorkStatus());
-//			patientList.get(patientList.size()).setEduDeg(optInfo.getEducationDegree());
+
 			
 			optInfo.addBackListener(b);
 			optInfo.addNextListener(n);
@@ -110,13 +116,32 @@ public class PatientController {
 	}
 	static class gotoTinHypStatusListener implements ActionListener
 	{
+		OptInfoPage optInfo;
+		boolean isCheckOptional; 
+		public gotoTinHypStatusListener()
+		{
+			isCheckOptional = false; 
+		}
+		public gotoTinHypStatusListener(OptInfoPage optInfo)
+		{
+			this.optInfo = optInfo; 
+			isCheckOptional = true; 
+		}
 		public void actionPerformed(ActionEvent e)
 		{
+			if (isCheckOptional)
+			{
+				patientList.get(patientList.size()-1).setOccupation(optInfo.getOccupation());
+				patientList.get(patientList.size()-1).setWorkStatus(optInfo.getWorkStatus());
+				patientList.get(patientList.size()-1).setEduDeg(optInfo.getEducationDegree());
+				
+			}
 			TinHypInputPage tinHyp = new TinHypInputPage(frame);
 			gotoOptInfoListener b = new gotoOptInfoListener(); 
 			gotoInputMedListener n = new gotoInputMedListener(); 
 			tinHyp.addBackListener(b);
 			tinHyp.addNextListener(n);
+			System.out.println(patientList.get(patientList.size()-1)); 
 			
 			
 			

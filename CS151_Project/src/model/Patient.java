@@ -42,8 +42,8 @@ public class Patient {
 	
 	 
 	public Patient(String patientID, String dateAdded, String firstName, String lastName, String birthDay, String gender, String phoneNum, 
-			String socialSecureNum, String address1, String address2, String city, String state, String zip, String country, String insuranceNum,
-			String occupation, String workStatus, String educationDeg, String tinAndCusDesc) 
+			String socialSecureNum, String address1, String address2, String city, String state, String zip, String country, String insuranceNum
+			)
 	{
 		this.patientID  = patientID;
 		this.dateAdded = dateAdded;
@@ -60,10 +60,6 @@ public class Patient {
 		this.zip = zip;
 		this.country = country;
 		this.insuranceNum = insuranceNum;
-		this.occupation = occupation;
-		this.workStatus = workStatus;
-		this.educationDeg = educationDeg;
-		this.tinAndCusDesc = tinAndCusDesc;
 	}
 	
 
@@ -309,6 +305,7 @@ public class Patient {
 	 * @param occupation the occupation to set
 	 */
 	public void setOccupation(String occupation) {
+		this.occupation = occupation;
 	}
 
 
@@ -381,6 +378,43 @@ public class Patient {
 	 */
 	public void deleteMedicine() {
 		medList.remove(medList.size());
+	}
+
+
+
+
+	public String getTinAndCusDesc() {
+		return tinAndCusDesc;
+	}
+
+
+
+
+	public void setTinAndCusDesc(String tinAndCusDesc) {
+		this.tinAndCusDesc = tinAndCusDesc;
+	}
+	
+	public String toString()
+	{
+		return patientID +
+		dateAdded +
+		  firstName +
+		  lastName +
+		  birthDay +
+		  gender +
+		  phoneNum +
+		  socialSecureNum +
+		  address1 +
+		  address2 + 
+		  city +
+		  state +
+		  zip +
+		  country +
+		 insuranceNum +
+		occupation +
+		workStatus +
+		educationDeg;
+		
 	}
 
 
