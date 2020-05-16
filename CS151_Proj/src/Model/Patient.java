@@ -10,22 +10,28 @@ import java.util.ArrayList;
 public class Patient {
 
 	//required info
-	private int socialSecureNum;
-	private int insuranceNum;
+	//private int sequenceNum;
+	private String patientID;
 	private String dateAdded;
-	private String fullName;
+	private String firstName;
+	private String lastName;
 	private String birthDay;
 	private String gender;
-	private int phoneNum;
-	private String address;
-	private int patientID;
-	private int sequenceNum;
+	private String phoneNum;
+	private String socialSecureNum;
+	private String address1;
+	private String address2;
+	private String city;
+	private String state;
+	private String zip;
+	private String country;
+	private String insuranceNum;
 	//optional info
 	private String occupation;
 	private String workStatus;
 	private String educationDeg;
 	//Tinnitus and Hyperacusus status
-	private String tinAndCusStatus;
+	private String tinAndCusDesc;
 	//medicine list
 	ArrayList<Medicine> medList;
 	//Schedules of appointments
@@ -33,103 +39,69 @@ public class Patient {
 	ArrayList<Visit> doneSchedule;
 
 
-	/**
-	 * Creates a patient with the required information. 
-	 * @param socialSecureNum the SSN of the patient.
-	 * @param insuranceNum the insurance number of the patient. 
-	 * @param dateAdded date this patient was added into the database.
-	 * @param fullName The full name of this patient. 
-	 * @param birthDay The birthday of this patient. 
-	 * @param gender The gender of this patient.
-	 * @param phoneNum The phone number of this patient. 
-	 * @param address The address of this patient. 
-	 * @param patientID The id number of this patient
-	 * @param sequenceNum The sequence number for the number of visits of this patient
-	 */
-	public Patient(int socialSecureNum, int insuranceNum, String dateAdded, String fullName, String birthDay, String gender, int phoneNum, 
-			String address, int patientID, int sequenceNum, String occupation, String workStatus, String educationDeg, String tinAndCusStatus,
-			ArrayList<Medicine> medList, ArrayList<Visit> nextSchedule, ArrayList<Visit> doneSchedule) 
+	
+	 
+	public Patient(String patientID, String dateAdded, String firstName, String lastName, String birthDay, String gender, String phoneNum, 
+			String socialSecureNum, String address1, String address2, String city, String state, String zip, String country, String insuranceNum,
+			String occupation, String workStatus, String educationDeg, String tinAndCusDesc) 
 	{
-		this.socialSecureNum = socialSecureNum;
-		this.insuranceNum = insuranceNum;
+		this.patientID  = patientID;
 		this.dateAdded = dateAdded;
-		this.fullName = fullName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 		this.birthDay = birthDay;
 		this.gender = gender;
 		this.phoneNum = phoneNum;
-		this.address = address;
-		this.patientID = patientID;
-		this.sequenceNum = sequenceNum;
+		this.socialSecureNum = socialSecureNum;
+		this.address1 = address1;
+		this.address2 = address2;
+		this.city = city;
+		this.state = state;
+		this.zip = zip;
+		this.country = country;
+		this.insuranceNum = insuranceNum;
 		this.occupation = occupation;
 		this.workStatus = workStatus;
 		this.educationDeg = educationDeg;
-		this.tinAndCusStatus = tinAndCusStatus;
+		this.tinAndCusDesc = tinAndCusDesc;
 	}
-
-
+	
 
 
 
 	/**
 	 * @return the sequenceNum the visit number this patient is on 
 	 */
-	public int getSequenceNum() {
-		return sequenceNum;
-	}
+//	public int getSequenceNum() {
+//		return sequenceNum;
+//	}
 
 
 	/**
 	 * @param sequenceNum the sequenceNum to set
 	 */
-	public void setSequenceNum(int x) {
-		sequenceNum = x;
-	}
+//	public void setSequenceNum(int x) {
+//		sequenceNum = x;
+//	}
 
 	/**
 	 * increments the number of visits by 1
 	 */
-	public void updateSeqNum() {
-		sequenceNum++;
-	}
+//	public void updateSeqNum() {
+//		sequenceNum++;
+//	}
 
 
 	/**
 	 * @return the id the number of the patient 
 	 */
-	public int getPatientID() {
+	public String getPatientID() {
 		return patientID;
 	}
-
-
-	/**
-	 * @return the socialSecureNumb the patient's SSN 
-	 */
-	public int getSocialSecureNum() {
-		return socialSecureNum;
-	}
-
-
-	/**
-	 * @param socialSecureNumb the socialSecureNumb to set
-	 */
-	public void setSocialSecureNum(int x) {
-		socialSecureNum = x;
-	}
-
-
-	/**
-	 * @return the insuranceNum
-	 */
-	public int getInsuranceNum() {
-		return insuranceNum;
-	}
-
-
-	/**
-	 * @param insuranceNum the insuranceNum to set
-	 */
-	public void setInsuranceNum(int x) {
-		insuranceNum = x;
+	
+	
+	public void setPatientID(String s) {
+		patientID = s;
 	}
 
 
@@ -148,23 +120,27 @@ public class Patient {
 		dateAdded = s;
 	}
 
-
-	/**
-	 * @return the fullName
-	 */
-	public String getFullName() {
-		return fullName;
+	
+	public String getFirstName() {
+		return firstName;
 	}
-
-
-	/**
-	 * @param fullName the fullName to set
-	 */
-	public void setFullName(String s) {
-		fullName = s;
+	
+	
+	public void setFirstName(String s) {
+		firstName = s;
 	}
-
-
+	
+	
+	public String getLastName() {
+		return lastName;
+	}
+	
+	
+	public void setLastName(String s) {
+		lastName = s;
+	}
+	
+	
 	/**
 	 * @return the birthDay
 	 */
@@ -179,8 +155,8 @@ public class Patient {
 	public void setBirthDay(String s) {
 		birthDay = s;
 	}
-
-
+	
+	
 	/**
 	 * @return the gender
 	 */
@@ -195,12 +171,13 @@ public class Patient {
 	public void setGender(String s) {
 		gender = s;
 	}
-
-
+	
+	
+	
 	/**
 	 * @return the phoneNum
 	 */
-	public int getPhoneNum() {
+	public String getPhoneNum() {
 		return phoneNum;
 	}
 
@@ -208,16 +185,33 @@ public class Patient {
 	/**
 	 * @param phoneNum the phoneNum to set
 	 */
-	public void setPhoneNum(int x) {
-		phoneNum = x;
+	public void setPhoneNum(String s) {
+		phoneNum = s;
+	}
+	
+	
+	
+	/**
+	 * @return the socialSecureNumb the patient's SSN 
+	 */
+	public String getSocialSecureNum() {
+		return socialSecureNum;
 	}
 
 
 	/**
+	 * @param socialSecureNumb the socialSecureNumb to set
+	 */
+	public void setSocialSecureNum(String s) {
+		socialSecureNum = s;
+	}
+
+	
+	/**
 	 * @return the address
 	 */
-	public String getAddress() {
-		return address;
+	public String getAddress1() {
+		return address1;
 	}
 
 
@@ -225,7 +219,81 @@ public class Patient {
 	 * @param address the address to set
 	 */
 	public void setAddress(String s) {
-		address = s;
+		address1 = s;
+	}
+
+	
+	
+	/**
+	 * @return the address
+	 */
+	public String getAddress2() {
+		return address2;
+	}
+
+
+	/**
+	 * @param address the address to set
+	 */
+	public void setAddress2(String s) {
+		address2 = s;
+	}
+	
+	
+	
+	public String getCity() {
+		return city;
+	}
+	
+	
+	public void setCity(String s) {
+		address2 = s;
+	}
+	
+	
+	public String getState() {
+		return state;
+	}
+	
+	
+	public void setState(String s) {
+		state = s;
+	}
+	
+	
+	public String getZip() {
+		return zip;
+	}
+	
+	
+	public void setZip(String s) {
+		zip = s;
+	}
+	
+	
+	public String getCountry() {
+		return country;
+	}
+	
+	
+	public void setCountry(String s) {
+		country = s;
+	}
+	
+
+	/**
+	 * @return the insuranceNum
+	 */
+	public String getInsuranceNum() {
+		return insuranceNum;
+	}
+
+
+	/**
+	 * @param insuranceNum the insuranceNum to set
+	 */
+	public void setInsuranceNum(String s) {
+		insuranceNum = s;
 	}
 
 
