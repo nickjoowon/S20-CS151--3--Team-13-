@@ -20,6 +20,7 @@ public class PatientController {
 		gotoDatabaseListener d = new gotoDatabaseListener();
 		menu.addRegisterListener(r); 
 		menu.addViewListener(d);
+		System.out.println("hi");
 	
 	}
 	//add what the model should do with the information for each actionlistener
@@ -121,6 +122,7 @@ public class PatientController {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
+			System.out.println("hi");
 			PatientDataPage database = new PatientDataPage(frame);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();

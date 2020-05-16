@@ -148,4 +148,5 @@ public class PatientDataPage {
 	{
 		next.addActionListener(a);
 	}
+
 }

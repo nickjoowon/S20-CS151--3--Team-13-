@@ -41,7 +41,7 @@ public class MenuPage {
 		frame.add(view, BorderLayout.CENTER);
 		
 		
-		viewButton.setPreferredSize(new Dimension(435, 665));
+		viewButton.setPreferredSize(new Dimension(455, 665));
 		viewButton.setOpaque(true);
 		viewButton.setBackground(new Color(41, 142, 208));
 		viewButton.setForeground(Color.white);
@@ -63,6 +63,7 @@ public class MenuPage {
 	public void addViewListener(ActionListener listenView)
 	{
 		viewButton.addActionListener(listenView);
+		System.out.println("hi");
 	}
 
 }
