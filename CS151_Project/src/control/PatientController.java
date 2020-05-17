@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
+import model.Medicine;
 import model.Patient;
 import model.PatientList;
 import model.PatientModel;
@@ -150,7 +151,7 @@ public class PatientController {
 			gotoInputMedListener n = new gotoInputMedListener(); 
 			tinHyp.addBackListener(b);
 			tinHyp.addNextListener(n);
-			System.out.println(patientModel.getPatient(patientModel.getSize()-1)); 
+			 
 			
 			
 			
@@ -159,11 +160,45 @@ public class PatientController {
 	}
 	static class gotoInputMedListener implements ActionListener
 	{
+		private InputMedPage inputMedPage; 
+		private boolean isCheckMedicine; 
+		public gotoInputMedListener()
+		{
+			isCheckMedicine = false; 
+		}
+		public gotoInputMedListener(InputMedPage page)
+		{
+			inputMedPage = page; 
+			isCheckMedicine = true; 
+		}
 		public void actionPerformed(ActionEvent e)
 		{
+			if (isCheckMedicine)
+			{
+				String[] medInfo = inputMedPage.getRequiredInfo(); 
+				for (String a: medInfo)
+				{
+					if(a.isEmpty())
+					{
+						//error
+						return;
+					}
+					
+				}
+				Medicine med = new Medicine(medInfo[0],medInfo[1],medInfo[2],medInfo[3],medInfo[4],medInfo[5],medInfo[6],medInfo[7],medInfo[8]); 
+				System.out.println(medInfo[0] + medInfo[1] + medInfo[2] + medInfo[3] + medInfo[4] + medInfo[5] + medInfo[6] + medInfo[7] + medInfo[8]);
+				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
+				
+				patient.addMedicine(med);
+				for (Medicine a: patient.getMedicine())
+				{
+					System.out.println(a); 
+				}
+				
+			}
 			InputMedPage inputMedPage = new InputMedPage(frame);
 			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
-			gotoInputMedListener m = new gotoInputMedListener();
+			gotoInputMedListener m = new gotoInputMedListener(inputMedPage);
 			inputMedPage.addBackListener(b);
 			inputMedPage.addNextListener(m);
 		}

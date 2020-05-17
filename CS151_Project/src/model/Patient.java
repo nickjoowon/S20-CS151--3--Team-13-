@@ -60,6 +60,9 @@ public class Patient {
 		this.zip = zip;
 		this.country = country;
 		this.insuranceNum = insuranceNum;
+		medList = new ArrayList<Medicine>(); 
+		nextSchedule = new ArrayList<Visit>(); 
+		doneSchedule = new ArrayList<Visit>(); 
 	}
 	
 
@@ -392,6 +395,11 @@ public class Patient {
 
 	public void setTinAndCusDesc(String tinAndCusDesc) {
 		this.tinAndCusDesc = tinAndCusDesc;
+	}
+	
+	public ArrayList<Medicine> getMedicine()
+	{
+		return medList; 
 	}
 	
 	public String toString()

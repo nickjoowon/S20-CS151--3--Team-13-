@@ -18,9 +18,6 @@ public class InputMedPage {
 	private JTextField doseText;
 	private JTextField durationText;
 	private JTextField chemicalCategoryText;
-	private JTextField genderText;
-	private JTextField phoneNumberText;
-	private JTextField ssnText;
 	private JTextField actionText;
 	private JTextField applicationText;
 	private JTextField usualDoseText;
@@ -196,21 +193,16 @@ public class InputMedPage {
 	}
 	public String[] getRequiredInfo()
 	{
-		String[] info = new String[] {iDNumberText.getText(), 
-				dateAddedText.getText(),
+		String[] info = new String[] {
+				currentMedText.getText(),
+				nameText.getText(), 
 				doseText.getText(),
 				durationText.getText(),
 				chemicalCategoryText.getText(),
-				genderText.getText(),
-				phoneNumberText.getText(),
-				ssnText.getText(),
 				actionText.getText(),
 				applicationText.getText(),
 				usualDoseText.getText(),
-				sideEffectText.getText(),
-				zipText.getText(),
-				countryText.getText(),
-				insuranceNumberText.getText()} ;
+				sideEffectText.getText()};
 		return info; 
 		
 	}

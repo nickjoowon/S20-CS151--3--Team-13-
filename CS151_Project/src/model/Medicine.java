@@ -9,6 +9,7 @@ public class Medicine {
 	
 	
 	private String medicineName;
+	private String medicantName; 
 	private String doseSize; 
 	private String duration;
 	private String chemCategoryName;
@@ -27,13 +28,15 @@ public class Medicine {
 	* usualDose is the description of how often the patient uses the medication
 	* sideEffect is for description of the side effects of this medication
 	*/
-	public Medicine(String medicineName, String doseSize, String duration, String chemCategoryName, String action, String application, String usualDose, String sideEffect) {
+	public Medicine(String medicineName, String medicantName, String doseSize, String duration, String chemCategoryName, String action, String application, String usualDose, String sideEffect) {
 		
 		this.medicineName = medicineName;
+		this.medicantName = medicantName; 
 		this.doseSize = doseSize;
 		this.duration = duration;
 		this.chemCategoryName = chemCategoryName;
 		this.action = action;
+		this.application = application; 
 		this.usualDose = usualDose;
 		this.sideEffect = sideEffect;
 	}
@@ -72,5 +75,27 @@ public class Medicine {
 
 	public String getSideEffect() {
 		return sideEffect;
+	}
+
+
+	public String getMedicantName() {
+		return medicantName;
+	}
+
+
+	public void setMedicantName(String medicantName) {
+		this.medicantName = medicantName;
+	}
+	public String toString()
+	{
+		return medicantName +
+		doseSize + 
+		duration + 
+		chemCategoryName +
+		action +
+		 application +
+		usualDose +
+		 sideEffect;
+		
 	}
 }
