@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import model.Patient;
+import model.PatientList;
+import model.PatientModel;
 import view.*;
 
 
@@ -14,14 +16,18 @@ import view.*;
 public class PatientController {
   
 	
-	static ArrayList<Patient> patientList;
+	static JFrame frame = new JFrame();
+	private static PatientModel patientModel; 
 	
-  static JFrame frame = new JFrame();
+	public PatientController(PatientModel model)
+	{
+		patientModel = model; 
+	}
 
 	public static void main(String[] args)
 	{
-		
-		
+		PatientModel model = new PatientModel(); 
+		PatientController control = new PatientController(model); 
 		MenuPage menu = new MenuPage(frame); 
 		gotoReqInputListener r = new gotoReqInputListener();
 		gotoDatabaseListener d = new gotoDatabaseListener();
@@ -92,10 +98,12 @@ public class PatientController {
 				}
 			
 				//adding a new patient into the patient list
+				//what if you go next next and then come back again? Maybe have it delete the first patient everytime because if you dont 
+				//need to check if texts are empty, then you are going back. Going back means you already created a new patient but now want to go back. 
 			Patient patient = new Patient(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], 
 					info[9], info[10], info[11], info[12], info[13], info[14]);
-			patientList = new ArrayList<Patient>();
-			patientList.add(patient);
+			
+			patientModel.addPatient(patient);
 				
 			}
 			
@@ -131,9 +139,10 @@ public class PatientController {
 		{
 			if (isCheckOptional)
 			{
-				patientList.get(patientList.size()-1).setOccupation(optInfo.getOccupation());
-				patientList.get(patientList.size()-1).setWorkStatus(optInfo.getWorkStatus());
-				patientList.get(patientList.size()-1).setEduDeg(optInfo.getEducationDegree());
+				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
+				patient.setOccupation(optInfo.getOccupation());
+				patient.setWorkStatus(optInfo.getWorkStatus());
+				patient.setEduDeg(optInfo.getEducationDegree());
 				
 			}
 			TinHypInputPage tinHyp = new TinHypInputPage(frame);
@@ -141,7 +150,7 @@ public class PatientController {
 			gotoInputMedListener n = new gotoInputMedListener(); 
 			tinHyp.addBackListener(b);
 			tinHyp.addNextListener(n);
-			System.out.println(patientList.get(patientList.size()-1)); 
+			System.out.println(patientModel.getPatient(patientModel.getSize()-1)); 
 			
 			
 			
