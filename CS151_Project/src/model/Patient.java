@@ -421,7 +421,8 @@ public class Patient {
 		 insuranceNum +
 		occupation +
 		workStatus +
-		educationDeg;
+		educationDeg +
+		tinAndCusDesc; 
 		
 	}
 

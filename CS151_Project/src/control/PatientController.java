@@ -148,7 +148,7 @@ public class PatientController {
 			}
 			TinHypInputPage tinHyp = new TinHypInputPage(frame);
 			gotoOptInfoListener b = new gotoOptInfoListener(); 
-			gotoInputMedListener n = new gotoInputMedListener(); 
+			gotoInputMedListener n = new gotoInputMedListener(tinHyp); 
 			tinHyp.addBackListener(b);
 			tinHyp.addNextListener(n);
 			 
@@ -162,14 +162,24 @@ public class PatientController {
 	{
 		private InputMedPage inputMedPage; 
 		private boolean isCheckMedicine; 
+		private TinHypInputPage page; 
+		private boolean isCheckStatus; 
 		public gotoInputMedListener()
 		{
 			isCheckMedicine = false; 
+			isCheckStatus = false; 
 		}
 		public gotoInputMedListener(InputMedPage page)
 		{
 			inputMedPage = page; 
 			isCheckMedicine = true; 
+			isCheckStatus = false; 
+		}
+		public gotoInputMedListener(TinHypInputPage page)
+		{
+			isCheckMedicine = false;
+			isCheckStatus = true;
+			this.page = page; 
 		}
 		public void actionPerformed(ActionEvent e)
 		{
@@ -195,6 +205,12 @@ public class PatientController {
 					System.out.println(a); 
 				}
 				
+			}
+			if (isCheckStatus)
+			{
+				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
+				patient.setTinAndCusDesc(page.getTinHypStatus());
+				System.out.print(patient);
 			}
 			InputMedPage inputMedPage = new InputMedPage(frame);
 			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
