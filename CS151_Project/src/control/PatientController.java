@@ -215,8 +215,11 @@ public class PatientController {
 			InputMedPage inputMedPage = new InputMedPage(frame);
 			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
 			gotoInputMedListener m = new gotoInputMedListener(inputMedPage);
+			//figure out how do to do undo button
+			gotoMenuListener f = new gotoMenuListener(); 
 			inputMedPage.addBackListener(b);
 			inputMedPage.addNextListener(m);
+			inputMedPage.addFinishListener(f);
 		}
 		
 	}
