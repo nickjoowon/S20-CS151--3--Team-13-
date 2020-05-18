@@ -27,5 +27,18 @@ public class PatientModel {
 	{
 		return patientList.size(); 
 	}
+	public void undoPatient()
+	{
+		patientList.remove(patientList.size()-1); 
+	}
+	public String toString()
+	{
+		String patientNames =" ";
+		for (Patient a: patientList)
+		{
+			patientNames += a.getLastName() + " "; 
+		}
+		return patientNames; 
+	}
 
 }

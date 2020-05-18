@@ -17,18 +17,20 @@ import view.*;
 public class PatientController {
   
 	
-	static JFrame frame = new JFrame();
+	private static JFrame frame; 
 	private static PatientModel patientModel; 
 	
-	public PatientController(PatientModel model)
+	public PatientController(JFrame frame, PatientModel model)
 	{
+		this.frame = frame; 
 		patientModel = model; 
 	}
 
 	public static void main(String[] args)
 	{
+		JFrame frame = new JFrame(); 
 		PatientModel model = new PatientModel(); 
-		PatientController control = new PatientController(model); 
+		PatientController control = new PatientController(frame,model); 
 		MenuPage menu = new MenuPage(frame); 
 		gotoReqInputListener r = new gotoReqInputListener();
 		gotoDatabaseListener d = new gotoDatabaseListener();
@@ -58,8 +60,13 @@ public class PatientController {
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			MenuPage menu = new MenuPage(frame); 
 			
+			MenuPage menu = new MenuPage(frame); 
+			if (menu.isUndo())
+			{
+				menu.hideUndo();
+			}
+
 			gotoReqInputListener r = new gotoReqInputListener(); 
 			gotoDatabaseListener d = new gotoDatabaseListener();
 			menu.addRegisterListener(r);
@@ -216,23 +223,54 @@ public class PatientController {
 			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
 			gotoInputMedListener m = new gotoInputMedListener(inputMedPage);
 			//figure out how do to do undo button
-			gotoMenuListener f = new gotoMenuListener(); 
+			GotoUndoMenuListener f = new GotoUndoMenuListener(); 
 			inputMedPage.addBackListener(b);
 			inputMedPage.addNextListener(m);
 			inputMedPage.addFinishListener(f);
 		}
 		
 	}
+	static class GotoUndoMenuListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			MenuPage undoMenu = new MenuPage(frame, true); 
+			gotoReqInputListener r = new gotoReqInputListener(); 
+			gotoDatabaseListener d = new gotoDatabaseListener();
+			UndoPatientListener m = new UndoPatientListener(); 
+			
+			undoMenu.addRegisterListener(r);
+			undoMenu.addViewListener(d);
+			undoMenu.addUndoListener(m);
+		}
+		
+		
+	}
+	static class UndoPatientListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			MenuPage undoMenu = new MenuPage(frame); 
+			patientModel.undoPatient(); 
+			gotoReqInputListener r = new gotoReqInputListener(); 
+			gotoDatabaseListener d = new gotoDatabaseListener();
+			undoMenu.addRegisterListener(r);
+			undoMenu.addViewListener(d);
+			
+			
+		}
+	}
 	static class gotoDatabaseListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
-			System.out.println("hi");
+			
 			PatientDataPage database = new PatientDataPage(frame);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
 			database.addBackListener(m);
 			database.addNextListener(n);
+			System.out.println(patientModel); 
 		}
 		
 	}
