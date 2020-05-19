@@ -449,6 +449,10 @@ public class Patient {
 				tinAndCusDesc}; 
 		return info; 
 	}
-
+	
+	public ArrayList<Visit> getDoneVisit()
+	{
+		return doneSchedule;
+	}
 
 }
