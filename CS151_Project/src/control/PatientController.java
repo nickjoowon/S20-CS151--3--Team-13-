@@ -268,7 +268,11 @@ public class PatientController {
 		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				//add stuff
+			}
 			
 		}
 	}
@@ -281,7 +285,11 @@ public class PatientController {
 		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				//add stuff
+			}
 			
 		}
 	}
@@ -294,7 +302,11 @@ public class PatientController {
 		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				//add stuff
+			}
 			
 		}
 	}
@@ -307,7 +319,11 @@ public class PatientController {
 		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				//add stuff
+			}
 			
 		}
 	}
@@ -320,8 +336,11 @@ public class PatientController {
 		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
 			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				//add stuff
+			}
 			
 		}
 	}
@@ -357,3 +376,4 @@ public class PatientController {
 	}
 		
 }
+
