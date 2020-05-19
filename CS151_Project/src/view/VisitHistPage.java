@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
@@ -27,6 +28,7 @@ public class VisitHistPage {
 	JButton back;
 	JButton info;
 	JButton editInfo;
+	JButton eval;
 	JList list;
 	ArrayList<Visit> visits;
 	String name;
@@ -133,14 +135,14 @@ public class VisitHistPage {
 			//JPanel leftAudioDecorationWhite = new JPanel();
 			//VisitButtons.add(leftAudioDecorationWhite, BorderLayout.WEST);
 			//info
-			info = new JButton("View Evaluation"); 
-			info.setFont(new Font("Arial", Font.BOLD, 30));
-			info.setPreferredSize(new Dimension(125,50));
-			info.setOpaque(true);
-			info.setForeground(Color.white);
-			info.setBackground(new Color(41,142,208));
-			info.setBorderPainted(false);
-			VisitButtons.add(info, BorderLayout.WEST);
+			eval = new JButton("View Evaluation"); 
+			eval.setFont(new Font("Arial", Font.BOLD, 30));
+			eval.setPreferredSize(new Dimension(125,50));
+			eval.setOpaque(true);
+			eval.setForeground(Color.white);
+			eval.setBackground(new Color(41,142,208));
+			eval.setBorderPainted(false);
+			VisitButtons.add(eval, BorderLayout.WEST);
 			//for space between info and right
 			JPanel rightAudioDecorationWhite = new JPanel();
 			VisitButtons.add(rightAudioDecorationWhite, BorderLayout.EAST);
@@ -161,6 +163,23 @@ public class VisitHistPage {
 			frame.repaint();
 			frame.revalidate();
 	}
+	public void addBackListener(ActionListener b) 
+	{
+		back.addActionListener(b);
+	}
+	public void addEditInfoListener(ActionListener e) 
+	{
+		editInfo.addActionListener(e);
+	}
+	public void addInfoListener(ActionListener i) 
+	{
+		info.addActionListener(i);
+	}
+	public void addEvaluationListener(ActionListener ev) 
+	{
+		eval.addActionListener(ev);
+	}
+	
 	public boolean isVisitSelected()
 	{
 		for(int i = 0; i < visits.size();i++)
