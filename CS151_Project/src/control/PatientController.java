@@ -298,14 +298,10 @@ public class PatientController {
 					patient.setWorkStatus(info[16]);
 					patient.setEduDeg(info[17]);
 					patient.setTinAndCusDesc(info[18]);	
-					for (String x: info)
-					{
-						System.out.println(patient); 
-					}
 				}
 				
 				//make medication listener 
-				//infoPage.addNextListener(medicationP);
+				//infoPage.addNextListener(patient);
 				);
 			}
 			
