@@ -21,7 +21,11 @@ public class PatientInfoPage {
     JFrame frame; 
 	JButton next;
 	JButton back;
+	JButton updateInfo; 
+	JTable table1;
+	JTable table2; 
 	String[] info; 
+	JTextArea etiologyText; 
 	
 	public PatientInfoPage(JFrame frame, String[] info) {
 		this.info = info; 
@@ -39,7 +43,7 @@ public class PatientInfoPage {
 		
 		
 	
-		JLabel titleOfTop = new JLabel("Information of " + info[2] + " "+ info[3]); 
+		JLabel titleOfTop = new JLabel("Information of " + info[3]); 
 		titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
 		titleOfTop.setForeground(Color.white);
 		top.add(titleOfTop, BorderLayout.WEST); 
@@ -49,38 +53,73 @@ public class PatientInfoPage {
 		top.add(topDecoration, BorderLayout.NORTH);
 		
 		JTable infoTable = new JTable(); 
-		String[] columnNames = {"Patient ID",
+		String[] columnNames1 = {"ID",
 				"Date Added",
-				  "First Name",
-				  "Last Name",
+				  "FirstName",
+				  "LastName",
 				  "Birthday",
 				  "Gender",
-				  "Phone Number",
-				  "Social Security Number",
-				  "Address1",
-				  "Address2",
-				  "City",
+				  "PhoneNumber",
+				  "SSN",
+				  "Address1"
+				  
+				}; 
+		String [] columnNames2 = {"Address2",
+					"City",
 				  "State",
 				  "Zip",
 				  "Country",
-				 "Insurance Number",
+				 "Insurance #",
 				"Occupation",
 				"WorkStatus",
-				"Education Degree",
-				}; 
+				"Education"
+				
+		}; 
 		
-		String[][] data = {{info[0],info[1],info[2],info[3],
+		String[][] data1 = {{info[0],info[1],info[2],info[3],
 							info[4],info[5],info[6],info[7],
-							info[8],info[9],info[10],info[11],
-							info[12],info[13],info[14],info[15],info[16],info[17]}};
-		JTable table = new JTable(data, columnNames); 
+							info[8]}};
+		String[][] data2 = {{info[9],info[10],info[11],
+			info[12],info[13],info[14],info[15],info[16],info[17]}};
+		
 		JPanel center = new JPanel(new BorderLayout());
-		center.add(table.getTableHeader(),BorderLayout.PAGE_START); 
-		center.add(table,BorderLayout.CENTER); 
-		//table.setFillsViewportHeight(true);
-		frame.add(center,BorderLayout.CENTER); 
+		
+		 table1 = new JTable(data1, columnNames1); 
+		
+		JPanel tableNorth = new JPanel(new BorderLayout()); 
+		center.add(tableNorth, BorderLayout.NORTH); 
+		tableNorth.add(table1.getTableHeader(),BorderLayout.NORTH); 
+		tableNorth.add(table1,BorderLayout.CENTER); 
+		table1.setFillsViewportHeight(true);
+		
+		JPanel tableSouth = new JPanel(new BorderLayout()); 
+		 table2 = new JTable(data2, columnNames2); 
+		tableSouth.add(table2.getTableHeader(),BorderLayout.NORTH);
+		tableSouth.add(table2,BorderLayout.CENTER); 
+		center.add(tableSouth,BorderLayout.CENTER); 
+		table2.setFont(new Font("Arial", Font.PLAIN, 15));
+		table1.setFont(new Font("Arial", Font.PLAIN, 15));
+		updateInfo = new JButton("Update Inputted Info of Table and Description"); 
 		
 		
+		updateInfo.setOpaque(true);
+		updateInfo.setForeground(Color.black);
+	
+	
+		updateInfo.setFont(new Font("Arial", Font.BOLD, 30));
+		
+		JPanel centerSouth = new JPanel(new BorderLayout()); 
+		centerSouth.add(updateInfo, BorderLayout.NORTH); 
+		centerSouth.setPreferredSize(new Dimension(200,200));
+		center.add(centerSouth, BorderLayout.SOUTH); 
+		JLabel etiology = new JLabel("Etiology"); 
+		etiology.setFont(new Font("Arial", Font.BOLD, 30));
+		centerSouth.add(etiology, BorderLayout.WEST); 
+		
+		etiologyText = new JTextArea(info[18]);
+		etiologyText.setBorder(BorderFactory.createLineBorder(Color.black));
+		
+		centerSouth.add(etiologyText,BorderLayout.CENTER); 
 		
 		
 		//Panel to organize back and next buttons 
@@ -116,6 +155,7 @@ public class PatientInfoPage {
 	
 		frame.add(top, BorderLayout.NORTH); 
 		frame.add(backAndNext, BorderLayout.SOUTH); 
+		frame.add(center,BorderLayout.CENTER); 
 		frame.repaint();
 		frame.revalidate();
 	}
@@ -128,6 +168,35 @@ public class PatientInfoPage {
 	{
 		back.addActionListener(b);
 	}
+	public void addUpdateListener(ActionListener c)
+	{
+		updateInfo.addActionListener(c);
+	}
+	public String[] getEditedInfo()
+	{
+		String[] info = { 
+				(String)table1.getModel().getValueAt(0, 0),
+				(String)table1.getModel().getValueAt(0, 1),
+				(String)table1.getModel().getValueAt(0, 2),
+				(String)table1.getModel().getValueAt(0, 3),
+				(String)table1.getModel().getValueAt(0, 4),
+				(String)table1.getModel().getValueAt(0, 5),
+				(String)table1.getModel().getValueAt(0, 6),
+				(String)table1.getModel().getValueAt(0, 7),
+				(String)table1.getModel().getValueAt(0, 8),
+				(String)table2.getModel().getValueAt(0, 0),
+				(String)table2.getModel().getValueAt(0, 1),
+				(String)table2.getModel().getValueAt(0, 2),
+				(String)table2.getModel().getValueAt(0, 3),
+				(String)table2.getModel().getValueAt(0, 4),
+				(String)table2.getModel().getValueAt(0, 5),
+				(String)table2.getModel().getValueAt(0, 6),
+				(String)table2.getModel().getValueAt(0, 7),
+				(String)table2.getModel().getValueAt(0, 8),
+				etiologyText.getText()
+		};
+		return info; 
+	}
 
 	public static void main(String[] args)
 	{
@@ -138,7 +207,16 @@ public class PatientInfoPage {
 		Patient test = new Patient("1","2","3","4","5","6","7","8","9","10","11","12","13","14","15");
 		test.setFirstName("Bob");
 		test.setLastName("Builder");
+		test.setTinAndCusDesc("WOW NICE");
 		PatientInfoPage info = new PatientInfoPage(frame, test.getInfo()); 
+		
+		info.addUpdateListener((e)->{
+		for (String a : info.getEditedInfo())
+			{
+				System.out.println(a); 
+			};});
+		
+ 
 		
 	}
 	
