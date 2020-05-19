@@ -44,6 +44,16 @@ public class PatientModel {
 	{
 		patientList.remove(patientList.size()-1); 
 	}
+	public void removePatient(Patient p)
+	{
+		for(int i = 0; i < getSize(); i++)
+		{
+			if(p.equals(getPatient(i)))
+			{
+				patientList.remove(i);
+			}
+		}
+	}
 	public String toString()
 	{
 		String patientNames =" ";
