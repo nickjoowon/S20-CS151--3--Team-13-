@@ -14,12 +14,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import model.Medicine;
 import model.Patient;
 
 
 public class SpecificMedPage {
     JFrame frame; 
-	JButton next;
 	JButton back;
 	JButton updateInfo; 
 	JTable table1;
@@ -31,7 +31,7 @@ public class SpecificMedPage {
 		this.info = info; 
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
-		frame.setTitle("Patient Information"); 
+		frame.setTitle("Medication Information"); 
 		
 		//panel for the top blue part 
 		JPanel top = new JPanel(); 
@@ -43,7 +43,7 @@ public class SpecificMedPage {
 		
 		
 	
-		JLabel titleOfTop = new JLabel("Information of " + info[3]); 
+		JLabel titleOfTop = new JLabel("Information of " + info[0] + " for " + info[1]); 
 		titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
 		titleOfTop.setForeground(Color.white);
 		top.add(titleOfTop, BorderLayout.WEST); 
@@ -53,34 +53,24 @@ public class SpecificMedPage {
 		top.add(topDecoration, BorderLayout.NORTH);
 		
 		JTable infoTable = new JTable(); 
-		String[] columnNames1 = {"ID",
-				"Date Added",
-				  "FirstName",
-				  "LastName",
-				  "Birthday",
-				  "Gender",
-				  "PhoneNumber",
-				  "SSN",
-				  "Address1"
+		String[] columnNames1 = {"Current Medication",
+				"Medicant's Name",
+				  "Generic Dose",
+				  "Duration",
+				  "Chemical Category",
+				};
 				  
-				}; 
-		String [] columnNames2 = {"Address2",
-					"City",
-				  "State",
-				  "Zip",
-				  "Country",
-				 "Insurance #",
-				"Occupation",
-				"WorkStatus",
-				"Education"
-				
+			
+		String [] columnNames2 = {"Action",
+					"Application",
+				  "Usual Dose",
+				  "Side Effects",
 		}; 
 		
 		String[][] data1 = {{info[0],info[1],info[2],info[3],
-							info[4],info[5],info[6],info[7],
-							info[8]}};
-		String[][] data2 = {{info[9],info[10],info[11],
-			info[12],info[13],info[14],info[15],info[16],info[17]}};
+							info[4]}};
+		String[][] data2 = {{info[5],info[6],info[7],
+			info[8]}};
 		
 		JPanel center = new JPanel(new BorderLayout());
 		
@@ -99,7 +89,7 @@ public class SpecificMedPage {
 		center.add(tableSouth,BorderLayout.CENTER); 
 		table2.setFont(new Font("Arial", Font.PLAIN, 15));
 		table1.setFont(new Font("Arial", Font.PLAIN, 15));
-		updateInfo = new JButton("Update Inputted Info of Table and Description"); 
+		updateInfo = new JButton("Update Inputted Info of Table"); 
 		
 		
 		updateInfo.setOpaque(true);
@@ -114,12 +104,8 @@ public class SpecificMedPage {
 		center.add(centerSouth, BorderLayout.SOUTH); 
 		JLabel etiology = new JLabel("Etiology"); 
 		etiology.setFont(new Font("Arial", Font.BOLD, 30));
-		centerSouth.add(etiology, BorderLayout.WEST); 
 		
-		etiologyText = new JTextArea(info[18]);
-		etiologyText.setBorder(BorderFactory.createLineBorder(Color.black));
-		
-		centerSouth.add(etiologyText,BorderLayout.CENTER); 
+	
 		
 		
 		//Panel to organize back and next buttons 
@@ -134,14 +120,7 @@ public class SpecificMedPage {
 		back.setBorderPainted(false);
 		backAndNext.add(back, BorderLayout.WEST);
 		
-		
-		next = new JButton("Medication");
-		next.setPreferredSize(new Dimension(125,50));
-		next.setOpaque(true);
-		next.setForeground(Color.white);
-		next.setBackground(new Color(41,142,208));
-		next.setBorderPainted(false);
-		backAndNext.add(next, BorderLayout.EAST); 
+	
 		
 		
 		// For space between buttons and bottom 
@@ -159,11 +138,6 @@ public class SpecificMedPage {
 		frame.repaint();
 		frame.revalidate();
 	}
-	
-	public void addNextListener(ActionListener a)
-	{
-		next.addActionListener(a);
-	}
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
@@ -180,20 +154,10 @@ public class SpecificMedPage {
 				(String)table1.getModel().getValueAt(0, 2),
 				(String)table1.getModel().getValueAt(0, 3),
 				(String)table1.getModel().getValueAt(0, 4),
-				(String)table1.getModel().getValueAt(0, 5),
-				(String)table1.getModel().getValueAt(0, 6),
-				(String)table1.getModel().getValueAt(0, 7),
-				(String)table1.getModel().getValueAt(0, 8),
 				(String)table2.getModel().getValueAt(0, 0),
 				(String)table2.getModel().getValueAt(0, 1),
 				(String)table2.getModel().getValueAt(0, 2),
 				(String)table2.getModel().getValueAt(0, 3),
-				(String)table2.getModel().getValueAt(0, 4),
-				(String)table2.getModel().getValueAt(0, 5),
-				(String)table2.getModel().getValueAt(0, 6),
-				(String)table2.getModel().getValueAt(0, 7),
-				(String)table2.getModel().getValueAt(0, 8),
-				etiologyText.getText()
 		};
 		return info; 
 	}
@@ -208,7 +172,8 @@ public class SpecificMedPage {
 		test.setFirstName("Bob");
 		test.setLastName("Builder");
 		test.setTinAndCusDesc("WOW NICE");
-		PatientInfoPage info = new PatientInfoPage(frame, test.getInfo()); 
+		test.addMedicine(new Medicine("phosphorus", "Bob", "5 mg", "10 sec", "white", "inhale", "needle", "10 mg", "none"));
+		SpecificMedPage info = new SpecificMedPage(frame, test.getInfoOfMedication("phosphorus")); 
 		
 		info.addUpdateListener((e)->{
 		for (String a : info.getEditedInfo())

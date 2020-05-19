@@ -91,6 +91,7 @@ public class Medicine {
 	{
 		String[] info = 
 			{
+					medicineName,
 					medicantName,
 					doseSize,
 					duration,
