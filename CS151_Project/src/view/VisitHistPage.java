@@ -167,7 +167,7 @@ public class VisitHistPage {
 		}
 		System.out.println("Error. WhichVisit() called when no visit is selected");
 		return visits.get(0); //this doesnt matter
-							//a patient needs to be selected b4 this method is called
+							//a visit needs to be selected b4 this method is called
 							//so this should hopefully never be reached
 		
 	}
