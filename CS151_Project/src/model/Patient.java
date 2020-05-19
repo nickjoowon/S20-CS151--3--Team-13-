@@ -426,6 +426,29 @@ public class Patient {
 		
 	}
 
+	public String[] getInfo()
+	{
+		String[] info = {patientID,
+				dateAdded,
+				  firstName,
+				  lastName,
+				  birthDay,
+				  gender,
+				  phoneNum,
+				  socialSecureNum,
+				  address1,
+				  address2,
+				  city,
+				  state,
+				  zip,
+				  country,
+				 insuranceNum,
+				occupation,
+				workStatus,
+				educationDeg,
+				tinAndCusDesc}; 
+		return info; 
+	}
 
 
 }
