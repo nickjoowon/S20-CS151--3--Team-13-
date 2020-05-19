@@ -274,4 +274,8 @@ public class PatientController {
 		
 	}
 		
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> branch 'master' of https://github.com/johnsonhsiung/S20-CS151--3--Team-13-.git
