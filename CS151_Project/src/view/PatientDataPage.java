@@ -29,7 +29,7 @@ public class PatientDataPage {
 	{
 		this.frame = frame;
 		frame.getContentPane().removeAll(); 
-		frame.setTitle("Patient Database");
+		frame.setTitle(" Patient Database ");
 		
 		//panel for the top blue part
 		JPanel top = new JPanel(); 
@@ -92,12 +92,12 @@ public class PatientDataPage {
 			
 			//for buttons regarding patients
 			JPanel patientButtons = new JPanel();
-			patientButtons.setLayout(new GridLayout(3,3));
+			patientButtons.setLayout(new GridLayout(6,1));
 			
 			
 			//for space between info and left
-			//JPanel leftInfoDecorationWhite = new JPanel();
-			//patientButtons.add(leftInfoDecorationWhite, BorderLayout.WEST);
+			JPanel leftInfoDecorationWhite = new JPanel();
+			patientButtons.add(leftInfoDecorationWhite, BorderLayout.WEST);
 			//info
 			info = new JButton("Info"); 
 			info.setFont(new Font("Arial", Font.BOLD, 30));
@@ -108,8 +108,8 @@ public class PatientDataPage {
 			info.setBorderPainted(false);
 			patientButtons.add(info, BorderLayout.WEST);
 			//for space between info and right
-			//JPanel rightInfoDecorationWhite = new JPanel();
-			//patientButtons.add(rightInfoDecorationWhite, BorderLayout.EAST);
+			JPanel rightInfoDecorationWhite = new JPanel();
+			patientButtons.add(rightInfoDecorationWhite, BorderLayout.EAST);
 			
 			//for space between addvisit and left
 			//JPanel leftVisitDecorationWhite = new JPanel();
@@ -129,8 +129,8 @@ public class PatientDataPage {
 			
 			
 			//for space between history and left
-			//JPanel leftHistoryDecorationWhite = new JPanel();
-			//patientButtons.add(leftHistoryDecorationWhite, BorderLayout.WEST);
+			JPanel leftHistoryDecorationWhite = new JPanel();
+			patientButtons.add(leftHistoryDecorationWhite, BorderLayout.WEST);
 			//history
 			history = new JButton("Visit History");
 			history.setFont(new Font("Arial", Font.BOLD, 30));
@@ -146,8 +146,8 @@ public class PatientDataPage {
 			
 			
 			//for space between schedule and left
-			//JPanel leftScheduleDecorationWhite = new JPanel();
-			//patientButtons.add(leftScheduleDecorationWhite, BorderLayout.WEST);
+			JPanel leftScheduleDecorationWhite = new JPanel();
+			patientButtons.add(leftScheduleDecorationWhite, BorderLayout.WEST);
 			//schedule
 			schedule = new JButton("Schedule Visit");
 			schedule.setFont(new Font("Arial", Font.BOLD, 30));
@@ -158,13 +158,13 @@ public class PatientDataPage {
 			schedule.setBorderPainted(false);
 			patientButtons.add(schedule, BorderLayout.WEST);
 			//for space between addvisit and right
-			//JPanel rightScheduleDecorationWhite = new JPanel();
-			//patientButtons.add(rightScheduleDecorationWhite, BorderLayout.EAST);
+			JPanel rightScheduleDecorationWhite = new JPanel();
+			patientButtons.add(rightScheduleDecorationWhite, BorderLayout.EAST);
 			
 			
 			//for space between delete and left
-			JPanel leftDeleteDecorationWhite = new JPanel();
-			patientButtons.add(leftDeleteDecorationWhite, BorderLayout.WEST);
+			//JPanel leftDeleteDecorationWhite = new JPanel();
+			//patientButtons.add(leftDeleteDecorationWhite, BorderLayout.WEST);
 			//delete
 			delete = new JButton("Delete");
 			delete.setFont(new Font("Arial", Font.BOLD, 30));
@@ -175,8 +175,8 @@ public class PatientDataPage {
 			delete.setBorderPainted(false);
 			patientButtons.add(delete, BorderLayout.WEST);
 			//for space between delete and right
-			//JPanel rightDeleteDecorationWhite = new JPanel();
-			//patientButtons.add(rightDeleteDecorationWhite, BorderLayout.EAST);
+			JPanel rightDeleteDecorationWhite = new JPanel();
+			patientButtons.add(rightDeleteDecorationWhite, BorderLayout.EAST);
 			
 			
 			// For space between buttons and bottom 
@@ -189,7 +189,7 @@ public class PatientDataPage {
 			frame.add(top, BorderLayout.NORTH); 
 			frame.add(backAndNew, BorderLayout.SOUTH); 
 			frame.add(patientButtons, BorderLayout.CENTER);
-			frame.add(scroll, BorderLayout.EAST);
+			frame.add(scroll, BorderLayout.WEST);
 			
 			
 			frame.repaint();
