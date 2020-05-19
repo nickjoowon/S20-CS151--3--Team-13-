@@ -271,15 +271,15 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				//add stuff
+				PatientInfoPage infoPage = new PatientInfoPage(frame, db.whichPatient().getInfo());
 			}
 			
 		}
 	}
-	static class gotoAddVisitListener implements ActionListener
+	static class gotoVisitListener implements ActionListener
 	{
 		PatientDataPage db;
-		public gotoAddVisitListener(PatientDataPage db)
+		public gotoVisitListener(PatientDataPage db)
 		{
 			this.db = db;
 		}
@@ -288,7 +288,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				//add stuff
+				VisitInfoPage visitPage = new VisitInfoPage(frame, db.whichPatient().getInfo());
 			}
 			
 		}
@@ -305,7 +305,28 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				//add stuff
+				//add thing to delete patient
+				
+				PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
+				gotoMenuListener m = new gotoMenuListener();
+				gotoReqInputListener n = new gotoReqInputListener();
+				gotoInfoListener i = new gotoInfoListener(database);
+				gotoVisitListener v = new gotoVisitListener(database);
+				gotoDeleteListener d = new gotoDeleteListener(database);
+				gotoAddHistoryListener h = new gotoAddHistoryListener(database);
+				gotoScheduleListener s = new gotoScheduleListener(database);
+
+				 
+
+				database.addInfoListener(i);
+				database.addVisitListener(v);
+				database.addDeleteListener(d);
+				database.addHistoryListener(h);
+				database.addScheduleListener(s);
+
+				database.addBackListener(m);
+				database.addNextListener(n);
+				System.out.println(patientModel);
 			}
 			
 		}
@@ -322,7 +343,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				//add stuff
+				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getInfo());
 			}
 			
 		}
@@ -339,7 +360,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				//add stuff
+				ScheduleVisitPage visitPage = new ScheduleVisitPage(frame, db.whichPatient().getInfo());
 			}
 			
 		}
@@ -355,7 +376,7 @@ public class PatientController {
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
 			gotoInfoListener i = new gotoInfoListener(database);
-			gotoAddVisitListener v = new gotoAddVisitListener(database);
+			gotoVisitListener v = new gotoVisitListener(database);
 			gotoDeleteListener d = new gotoDeleteListener(database);
 			gotoAddHistoryListener h = new gotoAddHistoryListener(database);
 			gotoScheduleListener s = new gotoScheduleListener(database);
