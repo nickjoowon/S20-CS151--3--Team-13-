@@ -1,5 +1,7 @@
 package view;
 
+import javax.swing.JFrame;
+
 /**
  * pop-up in page 17
  *
