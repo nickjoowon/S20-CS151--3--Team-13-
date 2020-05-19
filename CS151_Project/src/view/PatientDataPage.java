@@ -93,6 +93,7 @@ public class PatientDataPage {
 			list = new JList(patients);
 			list.setFont(new Font("Arial", Font.PLAIN, 25));
 			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		        list.setSelectionBackground(Color.cyan); 
 			JScrollPane scrollBar = new JScrollPane(list);
 			scrollBar.setColumnHeaderView(sbTitle);
 			scroll.add(scrollBar);
