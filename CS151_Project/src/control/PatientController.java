@@ -267,6 +267,22 @@ public class PatientController {
 			PatientDataPage database = new PatientDataPage(frame);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
+			/*
+			 //add these listeners
+			 gotoInfoPageListener i = new gotoInfoPageListener();
+			 gotoAddVisitListener v = new gotoAddVisitListener();
+			 gotoDeleteListener d = new gotoDeleteListener();
+			 gotoAddHistoryListener h = new gotoAddHistoryListener();
+			 gotoScheduleListener s = new gotoScheduleListener();
+			 
+			 database.addInfoListener(i);
+			 database.addVisitListener(v);
+			 database.addDeleteListener(d);
+			 database.addHistoryListener(h);
+			 database.addScheduleListener(s);
+			 //still need scrollbar listener of sorts
+			 
+			 */
 			database.addBackListener(m);
 			database.addNextListener(n);
 			System.out.println(patientModel); 
