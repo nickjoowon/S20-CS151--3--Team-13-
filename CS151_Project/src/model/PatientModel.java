@@ -14,6 +14,19 @@ public class PatientModel {
 	public PatientModel()
 	{
 		patientList = new ArrayList<Patient>(); 
+		Patient test = new Patient("01309123","06/05/2000","Johnson","Hsiung","03/02/1999","Male","6403834034","8913421146","1481 oliver","NA","Santa Clara","CA","95051","USA","12312123");
+		test.setTinAndCusDesc("he boutta die uh oh");
+		test.setOccupation("noob");
+		test.setEduDeg("elementary school");
+		test.setWorkStatus("President");
+		patientList.add(test); 
+
+		Patient test1 = new Patient("000001","06/2/2000","Marcro","Romanga ;)","5/13/1999","FeMale","01236","1293921","91023","12321","San Jose","CA","99999","USA","3951");
+		test1.setTinAndCusDesc("he die maybe in 2 days");
+		test1.setOccupation("yaoi boyfriend");
+		test1.setEduDeg("ouran high school");
+		test1.setWorkStatus("good");
+		patientList.add(test1); 
 	}
 	public void addPatient(Patient patient)
 	{
