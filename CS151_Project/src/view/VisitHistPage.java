@@ -26,10 +26,12 @@ public class VisitHistPage {
 	JFrame frame; 
 	JButton back;
 	JButton info;
+	JButton editInfo;
 	JList list;
 	ArrayList<Visit> visits;
 	String name;
 	String last;
+	
 	
 	public VisitHistPage(JFrame frame, ArrayList<Visit> visits, String name, String lastname) 
 	{
@@ -58,8 +60,8 @@ public class VisitHistPage {
 		top.add(topDecoration, BorderLayout.NORTH);
 		
 		//Panel to organize back and next buttons 
-				JPanel backP = new JPanel(); 
-				backP.setLayout(new BorderLayout());
+				JPanel backInfo = new JPanel(); 
+				backInfo.setLayout(new GridLayout(1,2));
 				
 				back = new JButton("Back"); 
 				back.setPreferredSize(new Dimension(125,50));
@@ -67,9 +69,22 @@ public class VisitHistPage {
 				back.setForeground(Color.white);
 				back.setBackground(new Color(41,142,208));
 				back.setBorderPainted(false);
-				backP.add(back, BorderLayout.WEST);
+				backInfo.add(back, BorderLayout.WEST);
 				
+				JPanel bottomDecorationWhite1 = new JPanel();
+				JPanel bottomDecorationWhite2 = new JPanel();
+				JPanel bottomDecorationWhite3 = new JPanel();
+				backInfo.add(bottomDecorationWhite1, BorderLayout.SOUTH);
+				backInfo.add(bottomDecorationWhite2, BorderLayout.SOUTH);
+				backInfo.add(bottomDecorationWhite3, BorderLayout.SOUTH);
 				
+				editInfo = new JButton("Edit Info"); 
+				editInfo.setPreferredSize(new Dimension(125,50));
+				editInfo.setOpaque(true);
+				editInfo.setForeground(Color.white);
+				editInfo.setBackground(new Color(41,142,208));
+				editInfo.setBorderPainted(false);
+				backInfo.add(editInfo, BorderLayout.EAST);
 				
 				JPanel sbTitle = new JPanel();
 				JLabel titleOfScroll = new JLabel("Select a Visit"); 
@@ -96,7 +111,7 @@ public class VisitHistPage {
 			
 			//for buttons in the visit history page
 			JPanel VisitButtons = new JPanel();
-			VisitButtons.setLayout(new GridLayout(3,1));
+			VisitButtons.setLayout(new GridLayout(5,1));
 			
 			//for space between info and left
 			JPanel leftInfoDecorationWhite = new JPanel();
@@ -115,10 +130,10 @@ public class VisitHistPage {
 			VisitButtons.add(rightInfoDecorationWhite, BorderLayout.EAST);
 			
 			//for space between info and left
-			JPanel leftAudioDecorationWhite = new JPanel();
-			VisitButtons.add(leftInfoDecorationWhite, BorderLayout.WEST);
+			//JPanel leftAudioDecorationWhite = new JPanel();
+			//VisitButtons.add(leftAudioDecorationWhite, BorderLayout.WEST);
 			//info
-			info = new JButton("View Audiological Evaluation"); 
+			info = new JButton("View Evaluation"); 
 			info.setFont(new Font("Arial", Font.BOLD, 30));
 			info.setPreferredSize(new Dimension(125,50));
 			info.setOpaque(true);
@@ -128,7 +143,7 @@ public class VisitHistPage {
 			VisitButtons.add(info, BorderLayout.WEST);
 			//for space between info and right
 			JPanel rightAudioDecorationWhite = new JPanel();
-			VisitButtons.add(rightInfoDecorationWhite, BorderLayout.EAST);
+			VisitButtons.add(rightAudioDecorationWhite, BorderLayout.EAST);
 			
 			
 			
@@ -137,7 +152,7 @@ public class VisitHistPage {
 			
 			//add the panels into the frame 
 			frame.add(top, BorderLayout.NORTH); 
-			frame.add(backP, BorderLayout.SOUTH); 
+			frame.add(backInfo, BorderLayout.SOUTH); 
 			frame.add(VisitButtons, BorderLayout.CENTER);
 			frame.add(scroll, BorderLayout.WEST);
 			
