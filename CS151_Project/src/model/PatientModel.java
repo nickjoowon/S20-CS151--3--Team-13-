@@ -21,10 +21,10 @@ public class PatientModel {
 		test.setWorkStatus("President");
 		patientList.add(test); 
 
-		Patient test1 = new Patient("000001","06/2/2000","Marcro","Romanga ;)","5/13/1999","FeMale","01236","1293921","91023","12321","San Jose","CA","99999","USA","3951");
+		Patient test1 = new Patient("000001","06/2/2000","Marco","Romagna ;)","5/13/1999","Male","01236","1293921","91023","12321","San Jose","CA","99999","USA","3951");
 		test1.setTinAndCusDesc("he die maybe in 2 days");
-		test1.setOccupation("yaoi boyfriend");
-		test1.setEduDeg("ouran high school");
+		test1.setOccupation("student");
+		test1.setEduDeg("westmont high school");
 		test1.setWorkStatus("good");
 		patientList.add(test1); 
 	}
