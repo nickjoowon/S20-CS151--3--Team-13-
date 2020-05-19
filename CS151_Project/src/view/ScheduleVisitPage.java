@@ -6,4 +6,7 @@ package view;
  */
 public class ScheduleVisitPage {
 
+	public ScheduleVisitPage(JFrame frame, String[] info) {
+	}
+
 }

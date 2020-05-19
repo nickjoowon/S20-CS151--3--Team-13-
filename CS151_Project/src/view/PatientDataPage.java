@@ -27,12 +27,14 @@ public class PatientDataPage {
 	JButton delete;
 	JButton schedule;
 	JButton history;
-	JButton list;
+	JList list;
+	ArrayList<Patient> pList;
 	
 	
 	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
 	{
 		this.frame = frame;
+		this.pList = pList;
 		frame.getContentPane().removeAll(); 
 		frame.setTitle(" Patient Database ");
 		
@@ -88,9 +90,10 @@ public class PatientDataPage {
 			
 			//note that a space b4 and after information makes it look nicer and less crowded.
 			JPanel scroll = new JPanel(new BorderLayout());
-			JList list = new JList(patients);
+			list = new JList(patients);
 			list.setFont(new Font("Arial", Font.PLAIN, 25));
 			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		        list.setSelectionBackground(Color.cyan); 
 			JScrollPane scrollBar = new JScrollPane(list);
 			scrollBar.setColumnHeaderView(sbTitle);
 			scroll.add(scrollBar);
@@ -232,8 +235,29 @@ public class PatientDataPage {
 	{
 		schedule.addActionListener(s);
 	}
-	public void addListListener(ActionListener l)
+	public boolean isPatientSelected()
 	{
-		list.addActionListener(l);
+		for(int i = 0; i < pList.size();i++)
+		{
+			if(list.isSelectedIndex(i) == true)
+				return true; //returns true if any one of them is selected
+		}
+		
+		
+		return false;
 	}
+	public Patient whichPatient() //only use if isPatientSelected() returns true
+	{
+		for(int i = 0; i < pList.size();i++)
+		{
+			if(list.isSelectedIndex(i) == true)
+				return pList.get(i);
+		}
+		System.out.println("Error. WhichPatient() called when no patient is selected");
+		return pList.get(0); //this doesnt matter
+							//a patient needs to be selected b4 this method is called
+							//so this should hopefully never be reached
+		
+	}
+	
 }

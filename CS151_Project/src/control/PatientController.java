@@ -261,52 +261,111 @@ public class PatientController {
 	}
 	static class gotoInfoListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoInfoListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				PatientInfoPage infoPage = new PatientInfoPage(frame, db.whichPatient().getInfo());
+			}
 			
 		}
 	}
-	static class gotoAddVisitListener implements ActionListener
+	static class gotoVisitListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoVisitListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				VisitInfoPage visitPage = new VisitInfoPage(frame, db.whichPatient().getInfo());
+			}
 			
 		}
 	}
 	static class gotoDeleteListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoDeleteListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				//add thing to delete patient
+				
+				PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
+				gotoMenuListener m = new gotoMenuListener();
+				gotoReqInputListener n = new gotoReqInputListener();
+				gotoInfoListener i = new gotoInfoListener(database);
+				gotoVisitListener v = new gotoVisitListener(database);
+				gotoDeleteListener d = new gotoDeleteListener(database);
+				gotoAddHistoryListener h = new gotoAddHistoryListener(database);
+				gotoScheduleListener s = new gotoScheduleListener(database);
+
+				 
+
+				database.addInfoListener(i);
+				database.addVisitListener(v);
+				database.addDeleteListener(d);
+				database.addHistoryListener(h);
+				database.addScheduleListener(s);
+
+				database.addBackListener(m);
+				database.addNextListener(n);
+				System.out.println(patientModel);
+			}
 			
 		}
 	}
 	static class gotoAddHistoryListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoAddHistoryListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getInfo());
+			}
 			
 		}
 	}
 	static class gotoScheduleListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoScheduleListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
-			//add stuff
+			
+			if(db.isPatientSelected() == true) //then button will work
+			{
+				ScheduleVisitPage visitPage = new ScheduleVisitPage(frame, db.whichPatient().getInfo());
+			}
 			
 		}
 	}
-	static class gotoListListener implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			//add stuff
-			
-		}
-	}
+	
 	
 	static class gotoDatabaseListener implements ActionListener
 	{
@@ -316,14 +375,14 @@ public class PatientController {
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
-			gotoInfoListener i = new gotoInfoListener();
-			gotoAddVisitListener v = new gotoAddVisitListener();
-			gotoDeleteListener d = new gotoDeleteListener();
-			gotoAddHistoryListener h = new gotoAddHistoryListener();
-			gotoScheduleListener s = new gotoScheduleListener();
-		    gotoListListener l = new gotoListListener();
+			gotoInfoListener i = new gotoInfoListener(database);
+			gotoVisitListener v = new gotoVisitListener(database);
+			gotoDeleteListener d = new gotoDeleteListener(database);
+			gotoAddHistoryListener h = new gotoAddHistoryListener(database);
+			gotoScheduleListener s = new gotoScheduleListener(database);
+
 			 
-			database.addListListener(l);
+
 			database.addInfoListener(i);
 			database.addVisitListener(v);
 			database.addDeleteListener(d);
