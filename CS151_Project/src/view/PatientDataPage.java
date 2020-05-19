@@ -6,7 +6,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.*;
+
+import model.Patient;
 
 
 /**
@@ -23,9 +27,10 @@ public class PatientDataPage {
 	JButton delete;
 	JButton schedule;
 	JButton history;
+	JButton list;
 	
 	
-	public PatientDataPage(JFrame frame)
+	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
 	{
 		this.frame = frame;
 		frame.getContentPane().removeAll(); 
@@ -74,17 +79,18 @@ public class PatientDataPage {
 				titleOfScroll.setFont(new Font("Arial", Font.BOLD, 20));
 				titleOfScroll.setForeground(Color.black);
 				sbTitle.add(titleOfScroll);
-			//list of users
-			String patients[] = {" TempName TempCode test test 1 2 3 4 tests complete"," Temp 2 "," Temp 3 ",
-					" Temp 4 "," Temp 5 "," Temp 6 ", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"}; //get this from model
+				//list of users and their ID number
+				//get this from model
+				String patients[] = new String [pList.size()];
+				for(int i = 0; i < patients.length; i++) {
+					patients[i] = pList.get(i).getPatientID() + "          " + pList.get(i).getFirstName() + "" + pList.get(i).getLastName();
+				}
 			
 			//note that a space b4 and after information makes it look nicer and less crowded.
 			JPanel scroll = new JPanel(new BorderLayout());
 			JList list = new JList(patients);
 			list.setFont(new Font("Arial", Font.PLAIN, 25));
+			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			JScrollPane scrollBar = new JScrollPane(list);
 			scrollBar.setColumnHeaderView(sbTitle);
 			scroll.add(scrollBar);
@@ -197,15 +203,37 @@ public class PatientDataPage {
 	}
 
 
+	
 	public void addBackListener(ActionListener b) 
 	{
 		back.addActionListener(b);
 	}
-
-
 	public void addNextListener(ActionListener a) 
 	{
 		next.addActionListener(a);
 	}
-
+	public void addInfoListener(ActionListener i)
+	{
+		info.addActionListener(i);
+	}
+	public void addVisitListener(ActionListener v)
+	{
+		addVisit.addActionListener(v);
+	}
+	public void addDeleteListener(ActionListener d)
+	{
+		delete.addActionListener(d);
+	}
+	public void addHistoryListener(ActionListener h)
+	{
+		history.addActionListener(h);
+	}
+	public void addScheduleListener(ActionListener s)
+	{
+		schedule.addActionListener(s);
+	}
+	public void addListListener(ActionListener l)
+	{
+		list.addActionListener(l);
+	}
 }
