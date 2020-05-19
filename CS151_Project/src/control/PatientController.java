@@ -261,6 +261,11 @@ public class PatientController {
 	}
 	static class gotoInfoListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoInfoListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
 			//add stuff
@@ -269,6 +274,11 @@ public class PatientController {
 	}
 	static class gotoAddVisitListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoAddVisitListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
 			//add stuff
@@ -277,6 +287,11 @@ public class PatientController {
 	}
 	static class gotoDeleteListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoDeleteListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
 			//add stuff
@@ -285,6 +300,11 @@ public class PatientController {
 	}
 	static class gotoAddHistoryListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoAddHistoryListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
 			//add stuff
@@ -293,12 +313,19 @@ public class PatientController {
 	}
 	static class gotoScheduleListener implements ActionListener
 	{
+		PatientDataPage db;
+		public gotoScheduleListener(PatientDataPage db)
+		{
+			this.db = db;
+		}
 		public void actionPerformed(ActionEvent e)
 		{
 			//add stuff
 			
+			
 		}
 	}
+	
 	
 	static class gotoDatabaseListener implements ActionListener
 	{
@@ -308,12 +335,14 @@ public class PatientController {
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
-			gotoInfoListener i = new gotoInfoListener();
-			gotoAddVisitListener v = new gotoAddVisitListener();
-			gotoDeleteListener d = new gotoDeleteListener();
-			gotoAddHistoryListener h = new gotoAddHistoryListener();
-			gotoScheduleListener s = new gotoScheduleListener();
-			
+			gotoInfoListener i = new gotoInfoListener(database);
+			gotoAddVisitListener v = new gotoAddVisitListener(database);
+			gotoDeleteListener d = new gotoDeleteListener(database);
+			gotoAddHistoryListener h = new gotoAddHistoryListener(database);
+			gotoScheduleListener s = new gotoScheduleListener(database);
+
+			 
+
 			database.addInfoListener(i);
 			database.addVisitListener(v);
 			database.addDeleteListener(d);
@@ -328,4 +357,3 @@ public class PatientController {
 	}
 		
 }
-
