@@ -299,14 +299,6 @@ public class PatientController {
 			
 		}
 	}
-	static class gotoListListener implements ActionListener
-	{
-		public void actionPerformed(ActionEvent e)
-		{
-			//add stuff
-			
-		}
-	}
 	
 	static class gotoDatabaseListener implements ActionListener
 	{
@@ -321,9 +313,7 @@ public class PatientController {
 			gotoDeleteListener d = new gotoDeleteListener();
 			gotoAddHistoryListener h = new gotoAddHistoryListener();
 			gotoScheduleListener s = new gotoScheduleListener();
-		    gotoListListener l = new gotoListListener();
-			 
-			database.addListListener(l);
+			
 			database.addInfoListener(i);
 			database.addVisitListener(v);
 			database.addDeleteListener(d);
