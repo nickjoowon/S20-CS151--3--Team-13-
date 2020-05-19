@@ -86,6 +86,22 @@ public class Medicine {
 	public void setMedicantName(String medicantName) {
 		this.medicantName = medicantName;
 	}
+	
+	public String[] getInfo()
+	{
+		String[] info = 
+			{
+					medicantName,
+					doseSize,
+					duration,
+					chemCategoryName,
+					action,
+					application,
+					usualDose,
+					sideEffect
+			};
+		return info; 
+	}
 	public String toString()
 	{
 		return medicantName +

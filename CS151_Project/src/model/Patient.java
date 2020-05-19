@@ -450,6 +450,19 @@ public class Patient {
 				tinAndCusDesc}; 
 		return info; 
 	}
+	public String[] getInfoOfMedication(String medName)
+	{
+		for (Medicine a: medList)
+		{
+			if (a.getMedicineName().equals(medName))
+			{
+				return a.getInfo(); 
+	
+			}
+
+		}
+		return null; 
+	}
 	
 	public ArrayList<Visit> getDoneVisit()
 	{
