@@ -120,7 +120,7 @@ public class PatientController {
 			gotoReqInputListener b = new gotoReqInputListener(); 
 			gotoTinHypStatusListener n = new gotoTinHypStatusListener(optInfo); 
 			
-			//adding the rest of optional information of a patient
+			
 
 			
 			optInfo.addBackListener(b);
@@ -147,6 +147,7 @@ public class PatientController {
 		{
 			if (isCheckOptional)
 			{
+				//adding the rest of optional information of a patient
 				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
 				patient.setOccupation(optInfo.getOccupation());
 				patient.setWorkStatus(optInfo.getWorkStatus());
