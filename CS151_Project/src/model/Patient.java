@@ -389,6 +389,7 @@ public class Patient {
 	public String getTinAndCusDesc() {
 		return tinAndCusDesc;
 	}
+	
 
 
 

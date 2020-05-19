@@ -271,7 +271,38 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				PatientInfoPage infoPage = new PatientInfoPage(frame, db.whichPatient().getInfo());
+				Patient patient = db.whichPatient();
+				PatientInfoPage infoPage = new PatientInfoPage(frame, patient.getInfo());
+				gotoDatabaseListener gotoData = new gotoDatabaseListener(); 
+				infoPage.addBackListener(gotoData);
+				
+				infoPage.addUpdateListener((a)-> 
+				{
+					String[] info = infoPage.getEditedInfo(); 
+					patient.setPatientID(info[0]);
+					patient.setDateAdded(info[1]);
+					patient.setFirstName(info[2]);
+					patient.setLastName(info[3]);
+					patient.setBirthDay(info[4]);
+					patient.setGender(info[5]);
+					patient.setPhoneNum(info[6]);
+					patient.setSocialSecureNum(info[7]);
+					patient.setAddress(info[8]);
+					patient.setAddress2(info[9]);
+					patient.setCity(info[10]);
+					patient.setState(info[11]);
+					patient.setZip(info[12]);
+					patient.setCountry(info[13]);
+					patient.setInsuranceNum(info[14]);
+					patient.setOccupation(info[15]);
+					patient.setWorkStatus(info[16]);
+					patient.setEduDeg(info[17]);
+					patient.setTinAndCusDesc(info[18]);	
+				}
+				
+				//make medication listener 
+				//infoPage.addNextListener(medicationP);
+				);
 			}
 			
 		}
@@ -288,7 +319,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				VisitInfoPage visitPage = new VisitInfoPage(frame, db.whichPatient().getInfo());
+				//VisitInfoPage visitPage = new VisitInfoPage(frame, db.whichPatient().getInfo());
 			}
 			
 		}
