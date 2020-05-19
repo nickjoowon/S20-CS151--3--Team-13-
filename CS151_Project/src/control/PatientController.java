@@ -274,7 +274,9 @@ public class PatientController {
 				Patient patient = db.whichPatient();
 				PatientInfoPage infoPage = new PatientInfoPage(frame, patient.getInfo());
 				gotoDatabaseListener gotoData = new gotoDatabaseListener(); 
+				GotoMedicationListener gotoMedication = new GotoMedicationListener(patient); 
 				infoPage.addBackListener(gotoData);
+				infoPage.addNextListener(gotoMedication);
 				
 				infoPage.addUpdateListener((a)-> 
 				{
@@ -357,7 +359,6 @@ public class PatientController {
 
 				database.addBackListener(m);
 				database.addNextListener(n);
-				System.out.println(patientModel);
 			}
 			
 		}
@@ -464,11 +465,20 @@ public class PatientController {
 
 			database.addBackListener(m);
 			database.addNextListener(n);
-			System.out.println(patientModel); 
 		}
 		
 	}
-	
+	static class GotoMedicationListener implements ActionListener
+	{
+		Patient p; 
+		public GotoMedicationListener(Patient p) {
+			this.p= p; 
+		}
+		public void actionPerformed(ActionEvent e) {
+			
+			
+		}
+	}
 	static class gotoSpecificMedListener implements ActionListener
 	{
 
