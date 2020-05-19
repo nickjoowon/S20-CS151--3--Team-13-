@@ -338,7 +338,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				//add thing to delete patient
+				patientModel.removePatient(db.whichPatient()); //deletes patient
 				
 				PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
 				gotoMenuListener m = new gotoMenuListener();
