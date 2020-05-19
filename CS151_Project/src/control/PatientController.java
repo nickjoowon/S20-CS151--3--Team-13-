@@ -222,14 +222,14 @@ public class PatientController {
 			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
 			gotoInputMedListener m = new gotoInputMedListener(inputMedPage);
 			//figure out how do to do undo button
-			GotoUndoMenuListener f = new GotoUndoMenuListener(); 
+			gotoUndoMenuListener f = new gotoUndoMenuListener(); 
 			inputMedPage.addBackListener(b);
 			inputMedPage.addNextListener(m);
 			inputMedPage.addFinishListener(f);
 		}
 		
 	}
-	static class GotoUndoMenuListener implements ActionListener
+	static class gotoUndoMenuListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
 		{
