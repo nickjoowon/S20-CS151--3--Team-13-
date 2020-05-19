@@ -6,4 +6,7 @@ package view;
  */
 public class VisitHistPage {
 
+	public VisitHistPage(JFrame frame, String[] info) {
+	}
+
 }
