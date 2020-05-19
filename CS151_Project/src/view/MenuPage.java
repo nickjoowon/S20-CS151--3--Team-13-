@@ -19,6 +19,7 @@ public class MenuPage {
 	public MenuPage(JFrame frame)
 	{
 		this.frame = frame;
+		frame.setResizable(false);
 		frame.getContentPane().removeAll();
 		registerButton = new JButton("Register New Patient");
 		viewButton = new JButton("View Patients");
