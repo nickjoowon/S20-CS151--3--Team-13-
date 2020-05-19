@@ -274,13 +274,15 @@ public class PatientController {
 			 gotoDeleteListener d = new gotoDeleteListener();
 			 gotoAddHistoryListener h = new gotoAddHistoryListener();
 			 gotoScheduleListener s = new gotoScheduleListener();
+			 gotoListListener l = new gotoListListener();
 			 
+			 database.addListListener(l);
 			 database.addInfoListener(i);
 			 database.addVisitListener(v);
 			 database.addDeleteListener(d);
 			 database.addHistoryListener(h);
 			 database.addScheduleListener(s);
-			 //still need scrollbar listener of sorts
+			 
 			 
 			 */
 			database.addBackListener(m);
