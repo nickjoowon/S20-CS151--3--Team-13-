@@ -343,7 +343,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getInfo());
+				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(), db.whichPatient().getFirstName(), db.whichPatient().getLastName());
 			}
 			
 		}
