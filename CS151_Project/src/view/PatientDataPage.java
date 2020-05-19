@@ -27,7 +27,6 @@ public class PatientDataPage {
 	JButton delete;
 	JButton schedule;
 	JButton history;
-	JButton listB;
 	
 	
 	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
@@ -95,7 +94,6 @@ public class PatientDataPage {
 			scrollBar.setColumnHeaderView(sbTitle);
 			scroll.add(scrollBar);
 			scroll.setPreferredSize(new Dimension(400,400));
-			listB = new JButton("");
 			
 			//for buttons regarding patients
 			JPanel patientButtons = new JPanel();
@@ -233,8 +231,5 @@ public class PatientDataPage {
 	{
 		schedule.addActionListener(s);
 	}
-	public void addListListener(ActionListener l)
-	{
-		listB.addActionListener(l);
-	}
+	
 }
