@@ -6,7 +6,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.*;
+
+import model.Patient;
 
 
 /**
@@ -23,6 +27,7 @@ public class PatientDataPage {
 	JButton delete;
 	JButton schedule;
 	JButton history;
+	JButton list;
 	
 	
 	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
@@ -85,6 +90,7 @@ public class PatientDataPage {
 			JPanel scroll = new JPanel(new BorderLayout());
 			JList list = new JList(patients);
 			list.setFont(new Font("Arial", Font.PLAIN, 25));
+			list.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			JScrollPane scrollBar = new JScrollPane(list);
 			scrollBar.setColumnHeaderView(sbTitle);
 			scroll.add(scrollBar);
@@ -225,5 +231,9 @@ public class PatientDataPage {
 	public void addScheduleListener(ActionListener s)
 	{
 		schedule.addActionListener(s);
+	}
+	public void addListListener(ActionListener l)
+	{
+		list.addActionListener(l);
 	}
 }
