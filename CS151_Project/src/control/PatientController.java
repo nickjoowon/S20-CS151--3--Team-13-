@@ -259,6 +259,55 @@ public class PatientController {
 			
 		}
 	}
+	static class gotoInfoListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//add stuff
+			
+		}
+	}
+	static class gotoAddVisitListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//add stuff
+			
+		}
+	}
+	static class gotoDeleteListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//add stuff
+			
+		}
+	}
+	static class gotoAddHistoryListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//add stuff
+			
+		}
+	}
+	static class gotoScheduleListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//add stuff
+			
+		}
+	}
+	static class gotoListListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			//add stuff
+			
+		}
+	}
+	
 	static class gotoDatabaseListener implements ActionListener
 	{
 		public void actionPerformed(ActionEvent e)
@@ -267,24 +316,20 @@ public class PatientController {
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
-			/*
-			 //add these listeners
-			 gotoInfoPageListener i = new gotoInfoPageListener();
-			 gotoAddVisitListener v = new gotoAddVisitListener();
-			 gotoDeleteListener d = new gotoDeleteListener();
-			 gotoAddHistoryListener h = new gotoAddHistoryListener();
-			 gotoScheduleListener s = new gotoScheduleListener();
-			 gotoListListener l = new gotoListListener();
+			gotoInfoListener i = new gotoInfoListener();
+			gotoAddVisitListener v = new gotoAddVisitListener();
+			gotoDeleteListener d = new gotoDeleteListener();
+			gotoAddHistoryListener h = new gotoAddHistoryListener();
+			gotoScheduleListener s = new gotoScheduleListener();
+		    gotoListListener l = new gotoListListener();
 			 
-			 database.addListListener(l);
-			 database.addInfoListener(i);
-			 database.addVisitListener(v);
-			 database.addDeleteListener(d);
-			 database.addHistoryListener(h);
-			 database.addScheduleListener(s);
-			 
-			 
-			 */
+			database.addListListener(l);
+			database.addInfoListener(i);
+			database.addVisitListener(v);
+			database.addDeleteListener(d);
+			database.addHistoryListener(h);
+			database.addScheduleListener(s);
+
 			database.addBackListener(m);
 			database.addNextListener(n);
 			System.out.println(patientModel); 
