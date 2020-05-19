@@ -146,7 +146,7 @@ public class VisitHistPage {
 			frame.repaint();
 			frame.revalidate();
 	}
-	public boolean isInfoSelected()
+	public boolean isVisitSelected()
 	{
 		for(int i = 0; i < visits.size();i++)
 		{
@@ -158,5 +158,18 @@ public class VisitHistPage {
 		return false;
 	}
 	
+	public Visit whichVisit() //only use if isVisitSelected() returns true
+	{
+		for(int i = 0; i < visits.size();i++)
+		{
+			if(list.isSelectedIndex(i) == true)
+				return visits.get(i);
+		}
+		System.out.println("Error. WhichVisit() called when no visit is selected");
+		return visits.get(0); //this doesnt matter
+							//a visit needs to be selected b4 this method is called
+							//so this should hopefully never be reached
+		
+	}
 				
 }
