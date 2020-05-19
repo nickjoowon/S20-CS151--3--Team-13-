@@ -20,7 +20,7 @@ public class PatientMedListPage {
 		frame.getContentPane().removeAll();
 		frame.setTitle("Medication List");
 		//temporary
-		frame.setSize(910,700); 
+		//frame.setSize(910,700); 
 
 		JPanel top = new JPanel(); 
 		top.setPreferredSize(new Dimension(440, 100));
@@ -130,19 +130,20 @@ public class PatientMedListPage {
 		frame.add(backPanel, BorderLayout.SOUTH);
 
 		//temprorary
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+// 		frame.setVisible(true);
+// 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 		frame.repaint();
 		frame.revalidate();
 
 	}
-
-	public static void main(String[] args) {
-		String[] s = {"1","2","3","","",""};
-		PatientMedListPage n = new PatientMedListPage(new JFrame(), null, s);
-	}
+	
+	//for testing purposes
+// 	public static void main(String[] args) {
+// 		String[] s = {"1","2","3","","",""};
+// 		PatientMedListPage n = new PatientMedListPage(new JFrame(), null, s);
+// 	}
 
 
 
