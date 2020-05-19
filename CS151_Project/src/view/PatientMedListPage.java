@@ -87,7 +87,7 @@ public class PatientMedListPage {
 			for(int c = 0; c < 4; c++) {
 				if(numMed > medList.length-1)
 					break;
-				medication = new JButton(medList[r*4 + c + 1]);
+				medication = new JButton(medList[r*4 + c]);
 				medication.setPreferredSize(new Dimension(60,27));
 				medication.setOpaque(true);
 				medication.setBackground(Color.white);

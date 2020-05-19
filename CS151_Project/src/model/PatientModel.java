@@ -19,6 +19,8 @@ public class PatientModel {
 		test.setOccupation("noob");
 		test.setEduDeg("elementary school");
 		test.setWorkStatus("President");
+		test.addMedicine(new Medicine("phosphorus", "johnson", "5 mg", "10 sec", "white", "inhale", "needle", "10 mg", "none"));
+		test.addMedicine(new Medicine("sodium", "johnson", "15 mg", "20 sec", "brown", "spit", "injection", "210 mg", "death"));
 		patientList.add(test); 
 
 		Patient test1 = new Patient("000001","06/2/2000","Marco","Romagna ;)","5/13/1999","Male","01236","1293921","91023","12321","San Jose","CA","99999","USA","3951");

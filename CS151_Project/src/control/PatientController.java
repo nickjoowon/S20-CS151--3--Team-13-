@@ -475,7 +475,17 @@ public class PatientController {
 			this.p= p; 
 		}
 		public void actionPerformed(ActionEvent e) {
+			Object[] medList = p.getMedicine().toArray();
 			
+			String[] medNameList = new String[medList.length];
+			for (int i = 0; i < medList.length; i++)
+			{
+				medNameList[i] = ((Medicine) medList[i]).getMedicineName(); 
+			}
+	
+			PatientMedListPage medListPage = new PatientMedListPage(frame, p.getLastName(), medNameList);
+			
+			//medListPage.addMedicationListener();
 			
 		}
 	}
