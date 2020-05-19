@@ -264,7 +264,7 @@ public class PatientController {
 		public void actionPerformed(ActionEvent e)
 		{
 			
-			PatientDataPage database = new PatientDataPage(frame);
+			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
 			gotoMenuListener m = new gotoMenuListener();
 			gotoReqInputListener n = new gotoReqInputListener();
 			/*
