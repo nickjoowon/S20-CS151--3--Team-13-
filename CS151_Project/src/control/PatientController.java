@@ -301,7 +301,7 @@ public class PatientController {
 				}
 				
 				//make medication listener 
-				//infoPage.addNextListener(patient);
+				//infoPage.addNextListener(medicationP);
 				);
 			}
 			
@@ -375,7 +375,49 @@ public class PatientController {
 			if(db.isPatientSelected() == true) //then button will work
 			{
 				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(), db.whichPatient().getFirstName(), db.whichPatient().getLastName());
+				
+				 gotoDatabaseListener d = new gotoDatabaseListener();
+				 gotoVisitInfoListener i = new gotoVisitInfoListener();
+				 gotoSpecificAudioEvalListener a = new gotoSpecificAudioEvalListener();
+				 gotoEditVisitHistListener ev = new gotoEditVisitHistListener();
+				 
+				 historyPage.addBackListener(d);
+				 historyPage.addEditInfoListener(ev);
+				 historyPage.addInfoListener(i);
+				 historyPage.addEvaluationListener(a);
+				 
+				 
 			}
+			
+		}
+	}
+	static class gotoVisitInfoListener implements ActionListener
+	{
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			//add stuff
+			
+		}
+	}
+	static class gotoSpecificAudioEvalListener implements ActionListener
+	{
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			//add stuff
+			
+		}
+	}
+	static class gotoEditVisitHistListener implements ActionListener
+	{
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			//add stuff
 			
 		}
 	}
