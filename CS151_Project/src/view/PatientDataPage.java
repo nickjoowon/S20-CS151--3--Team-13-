@@ -197,15 +197,33 @@ public class PatientDataPage {
 	}
 
 
+	
 	public void addBackListener(ActionListener b) 
 	{
 		back.addActionListener(b);
 	}
-
-
 	public void addNextListener(ActionListener a) 
 	{
 		next.addActionListener(a);
 	}
-
+	public void addInfoListener(ActionListener i)
+	{
+		info.addActionListener(i);
+	}
+	public void addVisitListener(ActionListener v)
+	{
+		addVisit.addActionListener(v);
+	}
+	public void addDeleteListener(ActionListener d)
+	{
+		delete.addActionListener(d);
+	}
+	public void addHistoryListener(ActionListener h)
+	{
+		history.addActionListener(h);
+	}
+	public void addScheduleListener(ActionListener s)
+	{
+		schedule.addActionListener(s);
+	}
 }
