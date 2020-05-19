@@ -25,7 +25,7 @@ public class PatientDataPage {
 	JButton history;
 	
 	
-	public PatientDataPage(JFrame frame)
+	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
 	{
 		this.frame = frame;
 		frame.getContentPane().removeAll(); 
@@ -74,12 +74,12 @@ public class PatientDataPage {
 				titleOfScroll.setFont(new Font("Arial", Font.BOLD, 20));
 				titleOfScroll.setForeground(Color.black);
 				sbTitle.add(titleOfScroll);
-			//list of users
-			String patients[] = {" TempName TempCode test test 1 2 3 4 tests complete"," Temp 2 "," Temp 3 ",
-					" Temp 4 "," Temp 5 "," Temp 6 ", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"}; //get this from model
+				//list of users and their ID number
+				//get this from model
+				String patients[] = new String [pList.size()];
+				for(int i = 0; i < patients.length; i++) {
+					patients[i] = pList.get(i).getPatientID() + "          " + pList.get(i).getFirstName() + "" + pList.get(i).getLastName();
+				}
 			
 			//note that a space b4 and after information makes it look nicer and less crowded.
 			JPanel scroll = new JPanel(new BorderLayout());
