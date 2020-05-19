@@ -146,7 +146,7 @@ public class VisitHistPage {
 			frame.repaint();
 			frame.revalidate();
 	}
-	public boolean isInfoSelected()
+	public boolean isVisitSelected()
 	{
 		for(int i = 0; i < visits.size();i++)
 		{
