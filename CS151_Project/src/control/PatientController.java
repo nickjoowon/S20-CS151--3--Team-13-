@@ -426,6 +426,20 @@ public class PatientController {
 		}
 		
 	}
+	
+	static class gotoSpecificMedListener implements ActionListener
+	{
+
+		Patient p;
+		public gotoSpecificMedListener(Patient p) {
+			this.p = p;
+		}
+		public void actionPerformed(ActionEvent e) {
+			
+			
+		}
+		
+	}
 		
 }
 
