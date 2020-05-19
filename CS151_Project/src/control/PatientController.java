@@ -1,211 +1,277 @@
-package view;
+package control;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.Font;
-import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.*;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+
+import model.Medicine;
+import model.Patient;
+import model.PatientModel;
+import view.*;
 
 
-/**
- * page 7
- * @author Marco
- *
- */
-public class PatientDataPage {
-    JFrame frame; 
-	JButton next;
-	JButton back;
-	JButton info;
-	JButton addVisit;
-	JButton delete;
-	JButton schedule;
-	JButton history;
+
+public class PatientController {
+  
 	
+	private static JFrame frame; 
+	private static PatientModel patientModel; 
 	
-	public PatientDataPage(JFrame frame)
+	public PatientController(JFrame frame, PatientModel model)
 	{
-		this.frame = frame;
-		frame.getContentPane().removeAll(); 
-		frame.setTitle(" Patient Database ");
-		
-		//panel for the top blue part
-		JPanel top = new JPanel(); 
-		top.setPreferredSize(new Dimension(440, 100));
-		top.setOpaque(true);
-		top.setForeground(Color.white);
-		top.setBackground(new Color(41,142,208));
-		top.setLayout(new BorderLayout());
-		
-		JLabel titleOfTop = new JLabel("Patient Database"); 
-		titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
-		titleOfTop.setForeground(Color.white);
-		top.add(titleOfTop, BorderLayout.WEST); 
-		
-		JPanel topDecoration = new JPanel();
-		topDecoration.setPreferredSize(new Dimension(440, 15));
-		top.add(topDecoration, BorderLayout.NORTH);
-		
-		//Panel to organize back and next buttons 
-				JPanel backAndNew = new JPanel(); 
-				backAndNew.setLayout(new BorderLayout());
-				
-				back = new JButton("Back"); 
-				back.setPreferredSize(new Dimension(125,50));
-				back.setOpaque(true);
-				back.setForeground(Color.white);
-				back.setBackground(new Color(41,142,208));
-				back.setBorderPainted(false);
-				backAndNew.add(back, BorderLayout.WEST);
-				
-				
-				next = new JButton("Add New");
-				next.setPreferredSize(new Dimension(125,50));
-				next.setOpaque(true);
-				next.setForeground(Color.white);
-				next.setBackground(new Color(41,142,208));
-				next.setBorderPainted(false);
-				backAndNew.add(next, BorderLayout.EAST); 
-				
-				JPanel sbTitle = new JPanel();
-				JLabel titleOfScroll = new JLabel("Select a Patient"); 
-				titleOfScroll.setFont(new Font("Arial", Font.BOLD, 20));
-				titleOfScroll.setForeground(Color.black);
-				sbTitle.add(titleOfScroll);
-			//list of users
-			String patients[] = {" TempName TempCode test test 1 2 3 4 tests complete"," Temp 2 "," Temp 3 ",
-					" Temp 4 "," Temp 5 "," Temp 6 ", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"
-					, "Temp Filler", "Temp Filler", "Temp Filler", "Temp Filler"}; //get this from model
-			
-			//note that a space b4 and after information makes it look nicer and less crowded.
-			JPanel scroll = new JPanel(new BorderLayout());
-			JList list = new JList(patients);
-			list.setFont(new Font("Arial", Font.PLAIN, 25));
-			JScrollPane scrollBar = new JScrollPane(list);
-			scrollBar.setColumnHeaderView(sbTitle);
-			scroll.add(scrollBar);
-			scroll.setPreferredSize(new Dimension(400,400));
-			
-			//for buttons regarding patients
-			JPanel patientButtons = new JPanel();
-			patientButtons.setLayout(new GridLayout(6,1));
-			
-			
-			//for space between info and left
-			JPanel leftInfoDecorationWhite = new JPanel();
-			patientButtons.add(leftInfoDecorationWhite, BorderLayout.WEST);
-			//info
-			info = new JButton("Info"); 
-			info.setFont(new Font("Arial", Font.BOLD, 30));
-			info.setPreferredSize(new Dimension(125,50));
-			info.setOpaque(true);
-			info.setForeground(Color.white);
-			info.setBackground(new Color(41,142,208));
-			info.setBorderPainted(false);
-			patientButtons.add(info, BorderLayout.WEST);
-			//for space between info and right
-			JPanel rightInfoDecorationWhite = new JPanel();
-			patientButtons.add(rightInfoDecorationWhite, BorderLayout.EAST);
-			
-			//for space between addvisit and left
-			//JPanel leftVisitDecorationWhite = new JPanel();
-			//patientButtons.add(leftVisitDecorationWhite, BorderLayout.WEST);
-			//addvisit
-			addVisit = new JButton("+ Add Visit"); 
-			addVisit.setFont(new Font("Arial", Font.BOLD, 30));
-			addVisit.setPreferredSize(new Dimension(125,50));
-			addVisit.setOpaque(true);
-			addVisit.setForeground(Color.white);
-			addVisit.setBackground(new Color(41,142,208));
-			addVisit.setBorderPainted(false);
-			patientButtons.add(addVisit, BorderLayout.WEST);
-			//for space between addvisit and right
-			//JPanel rightVisitDecorationWhite = new JPanel();
-			//patientButtons.add(rightVisitDecorationWhite, BorderLayout.EAST);
-			
-			
-			//for space between history and left
-			JPanel leftHistoryDecorationWhite = new JPanel();
-			patientButtons.add(leftHistoryDecorationWhite, BorderLayout.WEST);
-			//history
-			history = new JButton("Visit History");
-			history.setFont(new Font("Arial", Font.BOLD, 30));
-			history.setPreferredSize(new Dimension(125,50));
-			history.setOpaque(true);
-			history.setForeground(Color.white);
-			history.setBackground(new Color(41,142,208));
-			history.setBorderPainted(false);
-			patientButtons.add(history, BorderLayout.WEST);
-			//for space between history and right
-			//JPanel rightHistoryDecorationWhite = new JPanel();
-			//patientButtons.add(rightHistoryDecorationWhite, BorderLayout.EAST);
-			
-			
-			//for space between schedule and left
-			JPanel leftScheduleDecorationWhite = new JPanel();
-			patientButtons.add(leftScheduleDecorationWhite, BorderLayout.WEST);
-			//schedule
-			schedule = new JButton("Schedule Visit");
-			schedule.setFont(new Font("Arial", Font.BOLD, 30));
-			schedule.setPreferredSize(new Dimension(125,50));
-			schedule.setOpaque(true);
-			schedule.setForeground(Color.white);
-			schedule.setBackground(new Color(41,142,208));
-			schedule.setBorderPainted(false);
-			patientButtons.add(schedule, BorderLayout.WEST);
-			//for space between addvisit and right
-			JPanel rightScheduleDecorationWhite = new JPanel();
-			patientButtons.add(rightScheduleDecorationWhite, BorderLayout.EAST);
-			
-			
-			//for space between delete and left
-			//JPanel leftDeleteDecorationWhite = new JPanel();
-			//patientButtons.add(leftDeleteDecorationWhite, BorderLayout.WEST);
-			//delete
-			delete = new JButton("Delete");
-			delete.setFont(new Font("Arial", Font.BOLD, 30));
-			delete.setPreferredSize(new Dimension(125,50));
-			delete.setOpaque(true);
-			delete.setForeground(Color.white);
-			delete.setBackground(new Color(41,142,208));
-			delete.setBorderPainted(false);
-			patientButtons.add(delete, BorderLayout.WEST);
-			//for space between delete and right
-			JPanel rightDeleteDecorationWhite = new JPanel();
-			patientButtons.add(rightDeleteDecorationWhite, BorderLayout.EAST);
-			
-			
-			// For space between buttons and bottom 
-			JPanel bottomDecorationWhite = new JPanel();
-				
-			backAndNew.add(bottomDecorationWhite, BorderLayout.SOUTH);	
-			
-			
-			//add the panels into the frame 
-			frame.add(top, BorderLayout.NORTH); 
-			frame.add(backAndNew, BorderLayout.SOUTH); 
-			frame.add(patientButtons, BorderLayout.CENTER);
-			frame.add(scroll, BorderLayout.WEST);
-			
-			
-			frame.repaint();
-			frame.revalidate();
+		this.frame = frame; 
+		patientModel = model; 
 	}
 
-
-	public void addBackListener(ActionListener b) 
+	public static void main(String[] args)
 	{
-		back.addActionListener(b);
+		JFrame frame = new JFrame(); 
+		PatientModel model = new PatientModel(); 
+		PatientController control = new PatientController(frame,model); 
+		MenuPage menu = new MenuPage(frame); 
+		gotoReqInputListener r = new gotoReqInputListener();
+		gotoDatabaseListener d = new gotoDatabaseListener();
+		menu.addRegisterListener(r); 
+		menu.addViewListener(d);
+		
+	
 	}
-
-
-	public void addNextListener(ActionListener a) 
+	//add what the model should do with the information for each actionlistener
+	//call the approrpiate actionlisteners for each page it goes to 
+	//should check if the previous page's text is filled out
+	static class gotoReqInputListener implements ActionListener
 	{
-		next.addActionListener(a);
+		
+		
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			ReqInfoPage reqInfo = new ReqInfoPage(frame); 
+			gotoMenuListener b = new gotoMenuListener();
+			gotoOptInfoListener n = new gotoOptInfoListener(reqInfo); //maybe take previous page a parameter for action listeners to see if fields put in 
+			reqInfo.addBackListener(b);
+			reqInfo.addNextListener(n);
+		}
 	}
+	static class gotoMenuListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			MenuPage menu = new MenuPage(frame); 
+			if (menu.isUndo())
+			{
+				menu.hideUndo();
+			}
 
+			gotoReqInputListener r = new gotoReqInputListener(); 
+			gotoDatabaseListener d = new gotoDatabaseListener();
+			menu.addRegisterListener(r);
+			menu.addViewListener(d);
+			
+		}
+		
+	}
+	static class gotoOptInfoListener implements ActionListener
+	{
+		ReqInfoPage reqInfo; 
+		boolean isCheckReqInfo; 
+		public gotoOptInfoListener(ReqInfoPage reqInfo)
+		{
+			this.reqInfo = reqInfo; 
+			isCheckReqInfo = true; 
+		}
+		public gotoOptInfoListener()
+		{
+			isCheckReqInfo = false; 
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			if (isCheckReqInfo)
+			{
+				String[] info = reqInfo.getRequiredInfo();
+				
+				for (String a: info)
+				{
+					System.out.println(a);
+					if (a.isEmpty())
+					{
+						return; 
+						//error message 
+					}
+				}
+			
+				//adding a new patient into the patient list
+				//what if you go next next and then come back again? Maybe have it delete the first patient everytime because if you dont 
+				//need to check if texts are empty, then you are going back. Going back means you already created a new patient but now want to go back. 
+			Patient patient = new Patient(info[0], info[1], info[2], info[3], info[4], info[5], info[6], info[7], info[8], 
+					info[9], info[10], info[11], info[12], info[13], info[14]);
+			
+			patientModel.addPatient(patient);
+				
+			}
+			
+				
+			OptInfoPage optInfo = new OptInfoPage(frame);
+			gotoReqInputListener b = new gotoReqInputListener(); 
+			gotoTinHypStatusListener n = new gotoTinHypStatusListener(optInfo); 
+			
+			//adding the rest of optional information of a patient
+
+			
+			optInfo.addBackListener(b);
+			optInfo.addNextListener(n);
+			
+			
+		}
+		
+	}
+	static class gotoTinHypStatusListener implements ActionListener
+	{
+		OptInfoPage optInfo;
+		boolean isCheckOptional; 
+		public gotoTinHypStatusListener()
+		{
+			isCheckOptional = false; 
+		}
+		public gotoTinHypStatusListener(OptInfoPage optInfo)
+		{
+			this.optInfo = optInfo; 
+			isCheckOptional = true; 
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			if (isCheckOptional)
+			{
+				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
+				patient.setOccupation(optInfo.getOccupation());
+				patient.setWorkStatus(optInfo.getWorkStatus());
+				patient.setEduDeg(optInfo.getEducationDegree());
+				
+			}
+			TinHypInputPage tinHyp = new TinHypInputPage(frame);
+			gotoOptInfoListener b = new gotoOptInfoListener(); 
+			gotoInputMedListener n = new gotoInputMedListener(tinHyp); 
+			tinHyp.addBackListener(b);
+			tinHyp.addNextListener(n);
+			 
+			
+			
+			
+		}
+		
+	}
+	static class gotoInputMedListener implements ActionListener
+	{
+		private InputMedPage inputMedPage; 
+		private boolean isCheckMedicine; 
+		private TinHypInputPage page; 
+		private boolean isCheckStatus; 
+		public gotoInputMedListener()
+		{
+			isCheckMedicine = false; 
+			isCheckStatus = false; 
+		}
+		public gotoInputMedListener(InputMedPage page)
+		{
+			inputMedPage = page; 
+			isCheckMedicine = true; 
+			isCheckStatus = false; 
+		}
+		public gotoInputMedListener(TinHypInputPage page)
+		{
+			isCheckMedicine = false;
+			isCheckStatus = true;
+			this.page = page; 
+		}
+		public void actionPerformed(ActionEvent e)
+		{
+			if (isCheckMedicine)
+			{
+				String[] medInfo = inputMedPage.getRequiredInfo(); 
+				for (String a: medInfo)
+				{
+					if(a.isEmpty())
+					{
+						//error
+						return;
+					}
+					
+				}
+				Medicine med = new Medicine(medInfo[0],medInfo[1],medInfo[2],medInfo[3],medInfo[4],medInfo[5],medInfo[6],medInfo[7],medInfo[8]); 
+				System.out.println(medInfo[0] + medInfo[1] + medInfo[2] + medInfo[3] + medInfo[4] + medInfo[5] + medInfo[6] + medInfo[7] + medInfo[8]);
+				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
+				
+				patient.addMedicine(med);
+				for (Medicine a: patient.getMedicine())
+				{
+					System.out.println(a); 
+				}
+				
+			}
+			if (isCheckStatus)
+			{
+				Patient patient = patientModel.getPatient(patientModel.getSize()-1);
+				patient.setTinAndCusDesc(page.getTinHypStatus());
+				System.out.print(patient);
+			}
+			InputMedPage inputMedPage = new InputMedPage(frame);
+			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
+			gotoInputMedListener m = new gotoInputMedListener(inputMedPage);
+			//figure out how do to do undo button
+			GotoUndoMenuListener f = new GotoUndoMenuListener(); 
+			inputMedPage.addBackListener(b);
+			inputMedPage.addNextListener(m);
+			inputMedPage.addFinishListener(f);
+		}
+		
+	}
+	static class GotoUndoMenuListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			MenuPage undoMenu = new MenuPage(frame, true); 
+			gotoReqInputListener r = new gotoReqInputListener(); 
+			gotoDatabaseListener d = new gotoDatabaseListener();
+			UndoPatientListener m = new UndoPatientListener(); 
+			
+			undoMenu.addRegisterListener(r);
+			undoMenu.addViewListener(d);
+			undoMenu.addUndoListener(m);
+		}
+		
+		
+	}
+	static class UndoPatientListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			MenuPage undoMenu = new MenuPage(frame); 
+			patientModel.undoPatient(); 
+			gotoReqInputListener r = new gotoReqInputListener(); 
+			gotoDatabaseListener d = new gotoDatabaseListener();
+			undoMenu.addRegisterListener(r);
+			undoMenu.addViewListener(d);
+			
+			
+		}
+	}
+	static class gotoDatabaseListener implements ActionListener
+	{
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			PatientDataPage database = new PatientDataPage(frame);
+			gotoMenuListener m = new gotoMenuListener();
+			gotoReqInputListener n = new gotoReqInputListener();
+			database.addBackListener(m);
+			database.addNextListener(n);
+			System.out.println(patientModel); 
+		}
+		
+	}
+		
 }
