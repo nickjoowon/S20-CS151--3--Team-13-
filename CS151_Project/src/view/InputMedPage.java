@@ -135,7 +135,7 @@ public class InputMedPage {
 		addMed.setForeground(Color.white);
 		addMed.setBackground(new Color(41,142,208));
 		addMed.setBorderPainted(false);
-		backAndNext.add(addMed, BorderLayout.EAST); 
+		
 		
 		
 		// For space between buttons and bottom 
@@ -157,8 +157,9 @@ public class InputMedPage {
 		finish.setBackground(new Color(41,142,208));
 		finish.setBorderPainted(false);
 		finishPanel.add(finish, BorderLayout.EAST); 
-		center.add(finishPanel,BorderLayout.NORTH); 
+		center.add(addMed,BorderLayout.NORTH); 
 		
+		backAndNext.add(finishPanel, BorderLayout.EAST); 
 				
 		
 		//add the panels into the frame 
