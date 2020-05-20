@@ -2,16 +2,16 @@ package model;
 
 public class Evaluation {
 	
-	private double rightLDL;
-	private double leftLDL;
-	private double lAudioTone;
-	private double rAudioTone;
+	private String rightLDL;
+	private String leftLDL;
+	private String lAudioTone;
+	private String rAudioTone;
 	private String tinPitch;
 	private String tinMatch;
-	private double hearingThreshold;
-	private int rMinMasking;
-	private int lMinMasking;
-	private int categoryLvl;
+	private String hearingThreshold;
+	private String  rMinMasking;
+	private String lMinMasking;
+	private String categoryLvl;
 	private String audioComment;
 	
 	/**
@@ -28,8 +28,8 @@ public class Evaluation {
 	 * @param categoryLvl assigning a category number to the patient between 0-4
 	 * @param audioComment additional discretionary comments regarding audiology left by physician
 	 */
-	public Evaluation(double rightLDL, double leftLDL, double lAudioTone, double rAudioTone, String tinPitch, String tinMatch, 
-					  double hearingThreshold, int rMinMasking, int lMinMasking, int categoryLvl, String audioComment)
+	public Evaluation(String rightLDL, String leftLDL, String lAudioTone, String rAudioTone, String tinPitch, String tinMatch, 
+					  String hearingThreshold, String rMinMasking, String lMinMasking, String categoryLvl, String audioComment)
 	{
 		this.rightLDL = rightLDL;
 		this.leftLDL = leftLDL;
@@ -44,35 +44,35 @@ public class Evaluation {
 		this.audioComment = audioComment;
 	}
 
-	public double getRightLDL() {
+	public String getRightLDL() {
 		return rightLDL;
 	}
 
-	public void setRightLDL(double rightLDL) {
+	public void setRightLDL(String rightLDL) {
 		this.rightLDL = rightLDL;
 	}
 
-	public double getLeftLDL() {
+	public String getLeftLDL() {
 		return leftLDL;
 	}
 
-	public void setLeftLDL(double leftLDL) {
+	public void setLeftLDL(String leftLDL) {
 		this.leftLDL = leftLDL;
 	}
 
-	public double getlAudioTone() {
+	public String getlAudioTone() {
 		return lAudioTone;
 	}
 
-	public void setlAudioTone(double lAudioTone) {
+	public void setlAudioTone(String lAudioTone) {
 		this.lAudioTone = lAudioTone;
 	}
 
-	public double getrAudioTone() {
+	public String getrAudioTone() {
 		return rAudioTone;
 	}
 
-	public void setrAudioTone(double rAudioTone) {
+	public void setrAudioTone(String rAudioTone) {
 		this.rAudioTone = rAudioTone;
 	}
 
@@ -92,19 +92,19 @@ public class Evaluation {
 		this.tinMatch = tinMatch;
 	}
 
-	public double getHearingThreshold() {
+	public String getHearingThreshold() {
 		return hearingThreshold;
 	}
 
-	public void setHearingThreshold(double hearingThreshold) {
+	public void setHearingThreshold(String hearingThreshold) {
 		this.hearingThreshold = hearingThreshold;
 	}
 
-	public int getrMinMasking() {
+	public String getrMinMasking() {
 		return rMinMasking;
 	}
 
-	public void setrMinMasking(int rMinMasking) {
+	public void setrMinMasking(String rMinMasking) {
 		this.rMinMasking = rMinMasking;
 	}
 

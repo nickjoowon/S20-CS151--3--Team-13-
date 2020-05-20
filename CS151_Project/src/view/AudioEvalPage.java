@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -266,6 +267,15 @@ public class AudioEvalPage {
 		frame.revalidate();
 
 	}
+	public void addNextListener(ActionListener a)
+	{
+		next.addActionListener(a);
+	}
+	public void addBackListener(ActionListener a)
+	{
+		back.addActionListener(a);
+	}
+	
 
 
 
