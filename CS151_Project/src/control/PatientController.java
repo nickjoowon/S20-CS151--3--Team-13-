@@ -417,8 +417,13 @@ public class PatientController {
 			CategoryPage catPage = new CategoryPage(frame, db.whichPatient().getLastName()); 
 			GotoInputAudEvalListener b = new GotoInputAudEvalListener(db);
 			GotoDatabaseListener f = new GotoDatabaseListener(catPage, db.whichPatient());
+			GotoMedicationListener m  = new GotoMedicationListener(db.whichPatient());
+			GotoInfoListener mh = new GotoInfoListener(db.whichPatient());
+			
 			catPage.addBackListener(b);
 			catPage.addFinishListener(f);
+			catPage.addMedicationListener(m);
+			catPage.addMedHistoryListener(mh);
 			
 		}
 	}
