@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -33,10 +34,12 @@ public class SpecificAudioEvalPage {
 	private JTextField lMinMaskLevelText;
 	private JTextField rMinMaskLevelText;
 	private JTextField addCommentText;
-	private JTextField pureToneAudioText;
+
 
 	public SpecificAudioEvalPage(JFrame frame, String lastName, String inputLDiscom, String inputRDiscom, String inputTinPitch, String inputTinMatch, String inputTinMatchType,
-								 String inputHearThresh, String inputLMinMask, String inputRMinMask, String inputAddComment, String inputPureToneAudio){
+								 String inputHearThresh, String inputLMinMask, String inputRMinMask, String inputAddComment, String inputStartX, 
+								 String inputStartY, String inputEndX, String inputEndY)
+	{
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
 		frame.setTitle("Audiological Information"); 
@@ -231,11 +234,19 @@ public class SpecificAudioEvalPage {
 		
 		JLabel pureToneAudio = new JLabel("Pure Tone Audiograph for Left & Right Ear");
 		pureToneAudio.setFont(new Font("Arial", Font.PLAIN, 14));
-		pureToneAudioText = new JTextField();
-		//setting JTextField according to input
-		pureToneAudioText.setText(inputPureToneAudio);
+		
+		//drawing audioGraph line according to input
+		JPanel pureToneAudioGraph = new JPanel() {
+			public void paint(Graphics g) {
+				super.paint(g);
+				g.setColor(Color.black);
+				g.drawLine(Integer.parseInt(inputStartX), Integer.parseInt(inputStartY), Integer.parseInt(inputEndX), Integer.parseInt(inputEndY));
+			}
+		};
+		
+		pureToneAudioGraph.setBackground(Color.white);
 		centerRight.add(pureToneAudio, BorderLayout.NORTH);
-		centerRight.add(pureToneAudioText, BorderLayout.CENTER);
+		centerRight.add(pureToneAudioGraph, BorderLayout.CENTER);
 		centerRight.setPreferredSize(new Dimension(500,500));
 
 
@@ -313,7 +324,7 @@ public class SpecificAudioEvalPage {
 					lMinMaskLevelText.getText(),
 					rMinMaskLevelText.getText(),
 					addCommentText.getText(),
-					pureToneAudioText.getText()
+					
 			};
 		return info;
 	}
@@ -325,7 +336,7 @@ public class SpecificAudioEvalPage {
 	//for testing purposes
 	public static void main(String[] args) {
 		String s = "amazing nick";
-		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
+		SpecificAudioEvalPage n = new SpecificAudioEvalPage(new JFrame(), s, "a", "b", "c", "d", "e", "f", "g", "h", "l", "100", "400", "400", "100");
 	}
 
 
