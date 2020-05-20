@@ -448,7 +448,7 @@ public class PatientController {
 			if (isAddEval)
 			{
 				String[] evalInfo = audioEvalPage.getInfo(); 
-				Evaluation eval = new Evaluation(evalInfo[0],evalInfo[1],evalInfo[2],evalInfo[3],evalInfo[4],evalInfo[5],evalInfo[6],evalInfo[7],evalInfo[8],evalInfo[9]);
+				Evaluation eval = new Evaluation(evalInfo[0],evalInfo[1],evalInfo[2],evalInfo[3],evalInfo[4],evalInfo[5],evalInfo[6],evalInfo[7],evalInfo[8],evalInfo[9],evalInfo[10],evalInfo[11], evalInfo[12]);
 				db.whichPatient().getLastVisit().setEvaluation(eval);
 				
 				
@@ -625,7 +625,7 @@ public class PatientController {
 				Evaluation eval = visit.getEvaluation(); 
 				SpecificAudioEvalPage evalPage = new SpecificAudioEvalPage(frame, patient.getLastName(),
 						eval.getLeftLDL(), eval.getRightLDL(), eval.getTinPitch(),eval.getTinMatch(),eval.getMatchType(), eval.getHearingThreshold(),
-						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getlAudioTone());
+						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getStartX(), eval.getStartY(), eval.getEndX(), eval.getEndY());
 				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
 				evalPage.addBackListener(aDListener);
 				evalPage.addNextListener((z)-> 

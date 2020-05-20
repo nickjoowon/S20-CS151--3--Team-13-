@@ -14,7 +14,10 @@ public class Evaluation {
 	private String categoryLvl;
 	private String audioComment;
 	private String matchType; 
-	private String audioGraph; 
+	private String startX;
+	private String startY;
+	private String endX;
+	private String endY;
 	
 	/**
 	 * all of the frequencies are measured in kHz
@@ -31,11 +34,11 @@ public class Evaluation {
 	 * @param audioComment additional discretionary comments regarding audiology left by physician
 	 */
 	public Evaluation(String leftLDL, String rightLDL,String tinPitch, String tinMatch, String matchType,
-					  String hearingThreshold, String lMinMasking, String rMinMasking, String audioComment, String audioGraph)
+					  String hearingThreshold, String lMinMasking, String rMinMasking, String audioComment, 
+					  String startX, String startY, String endX, String endY)
 	{
 		this.rightLDL = rightLDL;
 		this.leftLDL = leftLDL;
-		this.setAudioGraph(audioGraph); 
 		this.tinPitch = tinPitch;
 		this.tinMatch = tinMatch;
 		this.hearingThreshold = hearingThreshold;
@@ -44,6 +47,10 @@ public class Evaluation {
 		this.setMatchType(matchType); 
 	
 		this.audioComment = audioComment;
+		this.startX = startX;
+		this.startY = startY;
+		this.endX = endX;
+		this.endY = endY;
 	}
 
 	public String getRightLDL() {
@@ -142,12 +149,48 @@ public class Evaluation {
 		this.matchType = matchType;
 	}
 
-	public String getAudioGraph() {
-		return audioGraph;
+	public String getStartX() {
+		return startX;
 	}
-
-	public void setAudioGraph(String audioGraph) {
-		this.audioGraph = audioGraph;
+	
+	public void setStartX(String startX) {
+		this.startX = startX;
 	}
+	
+	public String getStartY() {
+		return startY;
+	}
+	
+	public void setStartY(String startY) {
+		this.startY = startY;
+	}
+	
+	public String getEndX() {
+		return endX;
+	}
+	
+	public void setEndX(String endX) {
+		this.endX = endX;
+	}
+	
+	public String getEndY() {
+		return endY;
+	}
+	
+	public void setEndY(String endY) {
+		this.endY = endY;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
