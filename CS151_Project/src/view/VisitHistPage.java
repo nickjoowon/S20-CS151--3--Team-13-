@@ -22,6 +22,10 @@ import model.Visit;
 /**
  * page 14
  *
+ * Displays a list of selectable Visits
+ * 
+ * The Doctor/nurse can select a visit and then click on a button to go check that Visit's information or Evaluation
+ *
  */
 public class VisitHistPage {
 	JFrame frame; 
@@ -34,7 +38,16 @@ public class VisitHistPage {
 	String name;
 	String last;
 	
-	
+	/**
+	 *  Reuses frame from last Page and redraws on it
+	 *  Takes in String of Patient's name and last name to display them in the title
+	 *  Takes in array of Visits from a Patient so it can display them
+	 *  
+	 * @param frame
+	 * @param visits
+	 * @param name
+	 * @param lastname
+	 */
 	public VisitHistPage(JFrame frame, ArrayList<Visit> visits, String name, String lastname) 
 	{
 		this.frame = frame;
