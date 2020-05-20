@@ -482,13 +482,7 @@ public class PatientController {
 			
 		}
 	}
-	/**
-	 * sends to Page 7(PatientDataPage)
-	 * deletes patient from the selected list in Page 7(PatientDataPage)
-	 * 
-	 * refer to GotoDatabaseListener for options
-	 *
-	 */
+
 	static class GotoDeleteListener implements ActionListener {
 		PatientDataPage db;
 
@@ -551,6 +545,7 @@ public class PatientController {
 					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
 					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener(db, historyPage);
 					
+
 					historyPage.addBackListener(d);
 					
 					historyPage.addInfoListener(i);
@@ -569,7 +564,6 @@ public class PatientController {
 					
 
 					historyPage.addBackListener(d);
-					
 					historyPage.addInfoListener(i);
 					historyPage.addEvaluationListener(a);
 				
