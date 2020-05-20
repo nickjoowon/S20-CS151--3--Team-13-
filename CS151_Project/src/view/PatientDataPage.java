@@ -30,6 +30,7 @@ public class PatientDataPage {
 	JList list;
 	JButton enter;
 	ArrayList<Patient> pList;
+	JFrame popframe;
 	
 	
 	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
@@ -236,9 +237,10 @@ public class PatientDataPage {
 	{
 		schedule.addActionListener(s);
 	}
-	public void addEnterListener(ActionListener e)
+	public JFrame addEnterListener(ActionListener e)
 	{
 		enter.addActionListener(e);
+		return popframe;
 	}
 	public boolean isPatientSelected()
 	{
@@ -267,7 +269,7 @@ public class PatientDataPage {
 	public void addPopup()
 	{
 		//adds popup frame
-		 JFrame popframe = new JFrame("Schedule a Visit");
+		 popframe = new JFrame("Schedule a Visit");
 		 popframe.setLayout(new BorderLayout());
 		 
 		 JLayeredPane popup = new JLayeredPane();
