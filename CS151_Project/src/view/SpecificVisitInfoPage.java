@@ -17,6 +17,10 @@ import javax.swing.JTextField;
 
 /**
  * page 15
+ * 
+ * displays the information of a specific visit for a patient
+ * Information can be editted
+ * 
  */
 public class SpecificVisitInfoPage {
 	
@@ -31,6 +35,23 @@ public class SpecificVisitInfoPage {
 	private JCheckBox earMeasureCheck;
 	private JCheckBox counselCheck;
 
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * takes in various input to display information
+	 * Creates UI
+	 * 
+	 * 
+	 * @param frame
+	 * @param lastName
+	 * @param visitNum
+	 * @param inputDateV
+	 * @param inputSeqN
+	 * @param inputTreatP
+	 * @param inputForm
+	 * @param inputSnd
+	 * @param inputEarMeas
+	 * @param inputCounsel
+	 */
 	public SpecificVisitInfoPage(JFrame frame, String lastName, String visitNum, String inputDateV, String inputSeqN, String inputTreatP, 
 								String inputForm, boolean inputSnd, boolean inputEarMeas, boolean inputCounsel) {
 		this.frame = frame; 
