@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -26,6 +27,7 @@ public class CategoryPage {
 	private JCheckBox c3;
 	private JCheckBox c4;
 	private JCheckBox c5;
+	private ButtonGroup cGroup;
 	
 		public CategoryPage(JFrame frame, String patientLastName)
 		{
@@ -33,6 +35,7 @@ public class CategoryPage {
 			frame.getContentPane().removeAll(); 
 			frame.setTitle("Assign Category");
 			lastname = patientLastName;
+			cGroup = new ButtonGroup();
 			
 			//panel for the top blue part 
 			JPanel top = new JPanel(); 
@@ -143,6 +146,12 @@ public class CategoryPage {
 			boxes.add(c3);
 			boxes.add(c4);
 			boxes.add(c5);
+			//adds to ButtonGroup
+			cGroup.add(c1);
+			cGroup.add(c2);
+			cGroup.add(c3);
+			cGroup.add(c4);
+			cGroup.add(c5);
 			
 			
 			//add panels to frame
@@ -162,5 +171,36 @@ public class CategoryPage {
 		{
 			back.addActionListener(b);
 		}
+		public boolean isCheckBoxSelected()
+		{
+			if(c1.isSelected())
+				return true;
+			if(c2.isSelected())
+				return true;
+			if(c3.isSelected())
+				return true;
+			if(c4.isSelected())
+				return true;
+			if(c5.isSelected())
+				return true;
+			
+			return false;
+		}
+		public String whichCheckBox()
+		{
+		if(c1.isSelected())
+			return "0 - tinnitus present but no impact";
+		if(c2.isSelected())
+			return "1 - tinnitus  w/ high impact";
+		if(c3.isSelected())
+			return "2 - hearing problem present & relevant";
+		if(c4.isSelected())
+			return "3 - hypercausis is a major problem";
+		if(c5.isSelected())
+			return "4 - prolonged tinnitus exacerbation";
+			
+		return "Something went wrong with the checkBoxes. You must select 1 to click finish";
+		}
+		
 		
 }
