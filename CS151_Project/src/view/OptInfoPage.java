@@ -2,7 +2,8 @@ package view;
 
 /**
  * page 3
- * @author Nick
+ * 
+ * Part 2 of registering a patient. there are optional fields that can be entered before going to part 3.
  *
  */
 import java.awt.BorderLayout;
@@ -21,6 +22,11 @@ public class OptInfoPage {
 	private JTextField educationText;
 	private JTextField workText;
 	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Creates UI
+	 * @param frame
+	 */
 	public OptInfoPage(JFrame frame)
 	{
 		this.frame = frame; 
