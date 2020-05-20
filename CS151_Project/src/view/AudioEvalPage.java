@@ -40,7 +40,7 @@ public class AudioEvalPage {
 	public AudioEvalPage(JFrame frame, String lastName){
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
-		frame.setTitle("Visit Information Page"); 
+		frame.setTitle("Results of Audiological Evaluation for Patient " + lastName); 
 		//temporary
 //		frame.setSize(910,700); 
 

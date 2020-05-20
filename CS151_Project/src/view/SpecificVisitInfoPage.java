@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -126,6 +127,13 @@ public class SpecificVisitInfoPage {
 		back.setBorderPainted(false);
 		backAndNext.add(back, BorderLayout.WEST);
 
+		next = new JButton("Edit Information");
+		next.setPreferredSize(new Dimension(125,50));
+		next.setOpaque(true);
+		next.setForeground(Color.white);
+		next.setBackground(new Color(41,142,208));
+		next.setBorderPainted(false);
+		backAndNext.add(next, BorderLayout.EAST); 
 
 
 		// For space between buttons and bottom 
@@ -150,11 +158,42 @@ public class SpecificVisitInfoPage {
 		frame.repaint();
 		frame.revalidate();
 
-		
-		
-
 
 	}
+	
+	
+	public String[] getInfo()
+	{
+		String [] info = 
+			{
+					dateOfVisitText.getText(),
+					 sequenceNumText.getText(), 
+					 treatmentProgText.getText(), 
+					tinHypInterviewText.getText()
+			}; 
+		return info; 
+	}
+	
+	public boolean isSoundTherapyChecked()
+	{
+		return sndThrpyCheck.isSelected(); 
+	}
+	public boolean isEarMeasureChecked()
+	{
+		return earMeasureCheck.isSelected(); 
+	}
+	public boolean isCounselChecked()
+	{
+		return counselCheck.isSelected(); 
+	}
+	
+	public void addBackListener(ActionListener a) {
+		back.addActionListener(a);
+	}
+	public void addNextListener(ActionListener a) {
+		next.addActionListener(a);
+	}
+	
 	
 	
 	//for testing purposes
