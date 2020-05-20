@@ -493,10 +493,29 @@ public class PatientController {
 	{
 
 		Patient p;
-		public gotoSpecificMedListener(Patient p) {
+		Medicine m; 
+		public gotoSpecificMedListener(Patient p, Medicine m) {
 			this.p = p;
+			this.m = m; 
 		}
 		public void actionPerformed(ActionEvent e) {
+			SpecificMedPage specMedPage = new SpecificMedPage(frame, m.getInfo()); 
+			GotoMedicationListener medListListener = new GotoMedicationListener(p);  
+			specMedPage.addBackListener(medListListener);
+			specMedPage.addUpdateListener((s)-> 
+			{
+				String[] medInfo = specMedPage.getEditedInfo(); 
+				m.setMedicineName(medInfo[0]);
+				m.setMedicantName(medInfo[1]);
+				m.setDoseSize(medInfo[2]);
+				m.setDuration(medInfo[3]);
+				m.setChemCategoryName(medInfo[4]);
+				m.setAction(medInfo[5]);
+				m.setApplication(medInfo[6]);
+				m.setUsualDose(medInfo[7]);
+				m.setSideEffect(medInfo[8]);
+			
+			});
 			
 			
 		}

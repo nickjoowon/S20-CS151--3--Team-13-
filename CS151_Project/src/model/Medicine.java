@@ -78,14 +78,42 @@ public class Medicine {
 	}
 
 
-	public String getMedicantName() {
-		return medicantName;
+	public void setMedicantName(String s) {
+		 medicantName = s;
+	}
+	
+	public void setMedicineName(String s) {
+		 medicineName = s ;
 	}
 
-
-	public void setMedicantName(String medicantName) {
-		this.medicantName = medicantName;
+	public void setDoseSize(String s) {
+		 doseSize = s;
 	}
+
+	public void setDuration(String s) {
+		 duration = s;
+	}
+
+	public void setChemCategoryName(String s) {
+		 chemCategoryName = s;
+	}
+
+	public void setAction(String s) {
+		 action = s;
+	}
+
+	public void setApplication(String s) {
+		 application = s;
+	}
+
+	public void setUsualDose(String s) {
+		 usualDose = s;
+	}
+
+	public void setSideEffect(String s) {
+		 sideEffect = s;
+	}
+
 	
 	public String[] getInfo()
 	{
