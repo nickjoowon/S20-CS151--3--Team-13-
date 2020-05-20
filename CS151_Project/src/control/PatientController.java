@@ -644,7 +644,7 @@ public class PatientController {
 						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getStartX(), eval.getStartY(), eval.getEndX(), eval.getEndY());
 				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
 				evalPage.addBackListener(aDListener);
-				evalPage.addNextListener((z)-> 
+				evalPage.addNextListener((h)-> 
 				{
 					String[] info = evalPage.getInfo(); 
 					eval.setLeftLDL(info[0]);
