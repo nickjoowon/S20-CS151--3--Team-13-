@@ -1,8 +1,10 @@
 package view;
 
 /**
- * page 3
+ * page 4
  *
+ * Part 3 of Registering a patient. Has a field for entering the Etiology Description.
+ * 
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -17,7 +19,11 @@ public class TinHypInputPage {
 	JButton next;
 	JButton back;
 	private JTextArea description; 
-	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Creates UI
+	 * @param frame
+	 */
 	public TinHypInputPage(JFrame frame)
 	{
 		this.frame = frame; 
