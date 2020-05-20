@@ -630,7 +630,16 @@ public class PatientController {
 				evalPage.addBackListener(aDListener);
 				evalPage.addNextListener((z)-> 
 				{
-					String[] infoa = evalPage.getInfo(); 
+					String[] info = evalPage.getInfo(); 
+					eval.setLeftLDL(info[0]);
+					eval.setRightLDL(info[1]);
+					eval.setTinPitch(info[2]);
+					eval.setTinMatch(info[3]);
+					eval.setMatchType(info[4]);
+					eval.setHearingThreshold(info[5]);
+					eval.setlMinMasking(info[6]);
+					eval.setrMinMasking(info[7]);
+					eval.setAudioComment(info[8]);
 					
 				});
 			}
