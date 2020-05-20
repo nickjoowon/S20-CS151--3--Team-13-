@@ -244,6 +244,13 @@ public class PatientController {
 
 	}
 
+	/**
+	 * 
+	 * Allows for undo button to work for Page 1(MenuPage)
+	 * You can only hit undo once.
+	 *
+	 * options to go to Page 2(ReqInfoPage) or Page 7(PatientDataPage), or Page 1(MenuPage without undo button)
+	 */
 	static class GotoUndoMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			MenuPage undoMenu = new MenuPage(frame, true);
@@ -258,6 +265,14 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Once you undo a patient in Page 1(MenuPage)
+	 * 
+	 * acts like normal Page 1(MenuPage). 
+	 * 
+	 * options to go to Page 2(ReqInfoPage) or Page 7(PatientDataPage)
+	 *
+	 */
 	static class UndoPatientListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			MenuPage undoMenu = new MenuPage(frame);
@@ -482,7 +497,14 @@ public class PatientController {
 			
 		}
 	}
-
+	
+	/**
+	 * sends to Page 7(PatientDataPage)
+	 * deletes patient from the selected list in Page 7(PatientDataPage)
+	 * 
+	 * refer to GotoDatabaseListener for options
+	 *
+	 */
 	static class GotoDeleteListener implements ActionListener {
 		PatientDataPage db;
 
@@ -517,7 +539,12 @@ public class PatientController {
 
 		}
 	}
-
+	/**
+	 * sends to Page 14(VisitHistPage)
+	 * 
+	 * options to go to Page 15(SpecificVisitInfoPage), Page 7(PatientDataPage) ,and Page 16 (SpecificAudioEvalPage)
+	 *
+	 */
 	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
 		boolean isCheckSelected; 
@@ -572,7 +599,12 @@ public class PatientController {
 
 		}
 	}
-
+	/**
+	 * sends to Page 15(SpecificVisitInfoPage)
+	 * 
+	 * options to go to Page 14(VisitHistPage)
+	 *
+	 */
 	static class GotoVisitInfoListener implements ActionListener {
 		PatientDataPage db; 
 		VisitHistPage historyPage; 
@@ -620,6 +652,13 @@ public class PatientController {
 	
 
 
+	/**
+	 * 
+	 * Sends to Page 16(SpecificAudioEvalPage)
+	 * 
+	 * options to go to Page 14(VisitHistPage) or edit Information.
+	 *
+	 */
 	static class GotoSpecificAudioEvalListener implements ActionListener {
 		private PatientDataPage db;
 		private VisitHistPage vh; 
@@ -632,7 +671,7 @@ public class PatientController {
 
 		public void actionPerformed(ActionEvent e) {
 
-			// add stuff
+			
 			if (vh.isVisitSelected() == true)
 			{
 				Patient patient = db.whichPatient();
@@ -673,7 +712,7 @@ public class PatientController {
 	 * Handles Page 7 (PatientDataPage's popup)
 	 * 
 	 * popup deletes itself upon entering info.
-	 * resends to updated Page 7(refer to GotoDatabaseListener for options)
+	 * resends to updated Page 7(refer to GotoDatabaseListener for options) if conditions met
 	 *
 	 */
 	static class GotoScheduleListener implements ActionListener
@@ -698,6 +737,13 @@ public class PatientController {
 			
 		}
 	}
+	
+	/**
+	 * sends to Page 7
+	 * 
+	 * refer to GotoDatabaseListener for options
+	 *
+	 */
 	static class GotoEnterScheduleListener implements ActionListener
 	{
 		Patient p;
@@ -710,6 +756,7 @@ public class PatientController {
 		public void actionPerformed(ActionEvent e)
 		{
 			//add schedule to patient in model
+			//we weren't asked to worry about future scheduling being stored
 			
 			//closes popup
 			popup.dispose();
@@ -793,6 +840,13 @@ public class PatientController {
 
 	}
 
+	/**
+	 * 
+	 * sends to Page 9(MedListPage)
+	 *
+	 * options to go to Page 8(PatientInfoPage) or Page 10(SpecificMedPage)
+	 *
+	 */
 	static class GotoMedicationListener implements ActionListener {
 		Patient p;
 
@@ -824,6 +878,12 @@ public class PatientController {
 		}
 	}
 
+	/**
+	 * sends to Page 10(SpecificMedPage)
+	 * 
+	 * options to go to Page 9(MedListpage) or edit information
+	 *
+	 */
 	static class GotoSpecificMedListener implements ActionListener {
 
 		Patient p;
