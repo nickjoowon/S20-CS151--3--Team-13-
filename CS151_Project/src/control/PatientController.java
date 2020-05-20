@@ -450,7 +450,7 @@ public class PatientController {
 			{
 				
 				db.addPopup();
-				gotoEnterScheduleListener es = new gotoEnterScheduleListener();
+				gotoEnterScheduleListener es = new gotoEnterScheduleListener(db.whichPatient());
 				db.addEnterListener(es);
 			}
 			
@@ -458,6 +458,11 @@ public class PatientController {
 	}
 	static class gotoEnterScheduleListener implements ActionListener
 	{
+		Patient p;
+		public gotoEnterScheduleListener(Patient p)
+		{
+			this.p = p;
+		}
 		
 		public void actionPerformed(ActionEvent e)
 		{
