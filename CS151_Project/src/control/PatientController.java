@@ -42,11 +42,11 @@ public class PatientController {
 	}
 
 	/**
-	 * Sends to Page 2
+	 * Sends to Page 2(ReqInfoPage)
 	 * Adds what the model should do with the information for each actionlistener
 	 * Calls the approrpiate actionlisteners for each page it goes to
-	 * should check if the previous page's text is filled out b4 letting it advance to Page 3
-	 * Can return to Page 1
+	 * should check if the previous page's text is filled out b4 letting it advance to Page 3(OptInfoPage)
+	 * Can return to Page 1(MenuPage)
 	 */
 	static class GotoReqInputListener implements ActionListener {
 
@@ -60,9 +60,9 @@ public class PatientController {
 		}
 	}
  	/**
-	 * Starts Page 1
+	 * Starts Page 1(MenuPage)
 	 * 
-	 * options to go to Page 2 or Page 7
+	 * options to go to Page 2(ReqInfoPage) or Page 7(PatientDataPage)
 	 *
 	 */
 	static class GotoMenuListener implements ActionListener {
@@ -83,9 +83,9 @@ public class PatientController {
 	}
 	
 	/**
-	 * Sends to Page 3
+	 * Sends to Page 3(OptInfoPage)
 	 * 
-	 * options to go to Page 4 or Page 2
+	 * options to go to Page 4(TinHypInputPage) or Page 2(ReqInfoPage)
 	 *
 	 */
 	static class GotoOptInfoListener implements ActionListener {
@@ -140,9 +140,9 @@ public class PatientController {
 	}
 
 	/**
-	 * Sends to Page 4
+	 * Sends to Page 4(TinHypInputPage)
 	 * 
-	 * options to go to Page 5 or Page 3
+	 * options to go to Page 5(InputMedPage) or Page 3(OptInfoPage)
 	 *
 	 */
 	static class GotoTinHypStatusListener implements ActionListener {
@@ -177,9 +177,9 @@ public class PatientController {
 	}
 
 	/**
-	 * Sends to Page 5
+	 * Sends to Page 5(InputMedPage)
 	 * 
-	 * options to go to Page 6 or Page 4
+	 * options to go to Page 1(MenuPage) or Page 4(TinHypInputPage)
 	 *
 	 */
 	static class GotoInputMedListener implements ActionListener {
