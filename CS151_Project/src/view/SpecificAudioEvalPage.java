@@ -8,7 +8,11 @@ import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,6 +38,10 @@ public class SpecificAudioEvalPage {
 	private JTextField lMinMaskLevelText;
 	private JTextField rMinMaskLevelText;
 	private JTextField addCommentText;
+	private int startX;
+	private int startY;
+	private int endX;
+	private int endY;
 
 
 	public SpecificAudioEvalPage(JFrame frame, String lastName, String inputLDiscom, String inputRDiscom, String inputTinPitch, String inputTinMatch, String inputTinMatchType,
@@ -236,11 +244,49 @@ public class SpecificAudioEvalPage {
 		pureToneAudio.setFont(new Font("Arial", Font.PLAIN, 14));
 		
 		//drawing audioGraph line according to input
+		startX = Integer.parseInt(inputStartX);
+		startY = Integer.parseInt(inputStartY);
+		endX = Integer.parseInt(inputEndX);
+		endY = Integer.parseInt(inputEndY);
 		JPanel pureToneAudioGraph = new JPanel() {
+			Point pointStart = null;
+			Point pointEnd = null;
+			
+			{
+				addMouseListener(new MouseAdapter() {
+					public void mousePressed(MouseEvent e) {
+						pointStart = e.getPoint();
+					}
+
+					public void mouseReleased(MouseEvent e) {
+						pointEnd = null;
+					}
+				});
+				addMouseMotionListener(new MouseMotionAdapter() {
+					public void mouseMoved(MouseEvent e) {
+						pointEnd = e.getPoint();
+					}
+
+					public void mouseDragged(MouseEvent e) {
+						pointEnd = e.getPoint();
+						
+						repaint();
+					}
+				});
+			}
 			public void paint(Graphics g) {
 				super.paint(g);
 				g.setColor(Color.black);
-				g.drawLine(Integer.parseInt(inputStartX), Integer.parseInt(inputStartY), Integer.parseInt(inputEndX), Integer.parseInt(inputEndY));
+				g.drawLine(startX, startY, endX, endY);
+				//updating to the new starting and ending points
+				if(pointStart != null)
+					updateXY(pointStart.x, pointStart.y, pointEnd.x, pointEnd.y);
+			}
+			public void updateXY(int x1, int y1, int x2, int y2) {
+				startX = x1;
+				startY = y1;
+				endX = x2;
+				endY = y2;
 			}
 		};
 		
@@ -324,6 +370,10 @@ public class SpecificAudioEvalPage {
 					lMinMaskLevelText.getText(),
 					rMinMaskLevelText.getText(),
 					addCommentText.getText(),
+					Integer.toString(startX),
+					Integer.toString(startY),
+					Integer.toString(endX),
+					Integer.toString(endY)
 					
 			};
 		return info;
@@ -337,6 +387,9 @@ public class SpecificAudioEvalPage {
 	public static void main(String[] args) {
 		String s = "amazing nick";
 		SpecificAudioEvalPage n = new SpecificAudioEvalPage(new JFrame(), s, "a", "b", "c", "d", "e", "f", "g", "h", "l", "100", "400", "400", "100");
+		for(String v : n.getInfo()) {
+			System.out.println(v);
+		}
 	}
 
 
