@@ -27,8 +27,8 @@ public class PatientController {
 		PatientModel model = new PatientModel();
 		PatientController control = new PatientController(frame, model);
 		MenuPage menu = new MenuPage(frame);
-		gotoReqInputListener r = new gotoReqInputListener();
-		gotoDatabaseListener d = new gotoDatabaseListener();
+		GotoReqInputListener r = new GotoReqInputListener();
+		GotoDatabaseListener d = new GotoDatabaseListener();
 		menu.addRegisterListener(r);
 		menu.addViewListener(d);
 
@@ -37,19 +37,19 @@ public class PatientController {
 	// add what the model should do with the information for each actionlistener
 	// call the approrpiate actionlisteners for each page it goes to
 	// should check if the previous page's text is filled out
-	static class gotoReqInputListener implements ActionListener {
+	static class GotoReqInputListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 			ReqInfoPage reqInfo = new ReqInfoPage(frame);
-			gotoMenuListener b = new gotoMenuListener();
-			gotoOptInfoListener n = new gotoOptInfoListener(reqInfo); // maybe take previous page a parameter for action
+			GotoMenuListener b = new GotoMenuListener();
+			GotoOptInfoListener n = new GotoOptInfoListener(reqInfo); // maybe take previous page a parameter for action
 																		// listeners to see if fields put in
 			reqInfo.addBackListener(b);
 			reqInfo.addNextListener(n);
 		}
 	}
 
-	static class gotoMenuListener implements ActionListener {
+	static class GotoMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
 			MenuPage menu = new MenuPage(frame);
@@ -57,8 +57,8 @@ public class PatientController {
 				menu.hideUndo();
 			}
 
-			gotoReqInputListener r = new gotoReqInputListener();
-			gotoDatabaseListener d = new gotoDatabaseListener();
+			GotoReqInputListener r = new GotoReqInputListener();
+			GotoDatabaseListener d = new GotoDatabaseListener();
 			menu.addRegisterListener(r);
 			menu.addViewListener(d);
 
@@ -66,16 +66,16 @@ public class PatientController {
 
 	}
 
-	static class gotoOptInfoListener implements ActionListener {
+	static class GotoOptInfoListener implements ActionListener {
 		ReqInfoPage reqInfo;
 		boolean isCheckReqInfo;
 
-		public gotoOptInfoListener(ReqInfoPage reqInfo) {
+		public GotoOptInfoListener(ReqInfoPage reqInfo) {
 			this.reqInfo = reqInfo;
 			isCheckReqInfo = true;
 		}
 
-		public gotoOptInfoListener() {
+		public GotoOptInfoListener() {
 			isCheckReqInfo = false;
 		}
 
@@ -105,8 +105,8 @@ public class PatientController {
 			}
 
 			OptInfoPage optInfo = new OptInfoPage(frame);
-			gotoReqInputListener b = new gotoReqInputListener();
-			gotoTinHypStatusListener n = new gotoTinHypStatusListener(optInfo);
+			GotoReqInputListener b = new GotoReqInputListener();
+			GotoTinHypStatusListener n = new GotoTinHypStatusListener(optInfo);
 
 			// adding the rest of optional information of a patient
 
@@ -117,15 +117,15 @@ public class PatientController {
 
 	}
 
-	static class gotoTinHypStatusListener implements ActionListener {
+	static class GotoTinHypStatusListener implements ActionListener {
 		OptInfoPage optInfo;
 		boolean isCheckOptional;
 
-		public gotoTinHypStatusListener() {
+		public GotoTinHypStatusListener() {
 			isCheckOptional = false;
 		}
 
-		public gotoTinHypStatusListener(OptInfoPage optInfo) {
+		public GotoTinHypStatusListener(OptInfoPage optInfo) {
 			this.optInfo = optInfo;
 			isCheckOptional = true;
 		}
@@ -139,8 +139,8 @@ public class PatientController {
 
 			}
 			TinHypInputPage tinHyp = new TinHypInputPage(frame);
-			gotoOptInfoListener b = new gotoOptInfoListener();
-			gotoInputMedListener n = new gotoInputMedListener(tinHyp);
+			GotoOptInfoListener b = new GotoOptInfoListener();
+			GotoInputMedListener n = new GotoInputMedListener(tinHyp);
 			tinHyp.addBackListener(b);
 			tinHyp.addNextListener(n);
 
@@ -148,24 +148,24 @@ public class PatientController {
 
 	}
 
-	static class gotoInputMedListener implements ActionListener {
+	static class GotoInputMedListener implements ActionListener {
 		private InputMedPage inputMedPage;
 		private boolean isCheckMedicine;
 		private TinHypInputPage page;
 		private boolean isCheckStatus;
 
-		public gotoInputMedListener() {
+		public GotoInputMedListener() {
 			isCheckMedicine = false;
 			isCheckStatus = false;
 		}
 
-		public gotoInputMedListener(InputMedPage page) {
+		public GotoInputMedListener(InputMedPage page) {
 			inputMedPage = page;
 			isCheckMedicine = true;
 			isCheckStatus = false;
 		}
 
-		public gotoInputMedListener(TinHypInputPage page) {
+		public GotoInputMedListener(TinHypInputPage page) {
 			isCheckMedicine = false;
 			isCheckStatus = true;
 			this.page = page;
@@ -199,10 +199,10 @@ public class PatientController {
 				System.out.print(patient);
 			}
 			InputMedPage inputMedPage = new InputMedPage(frame);
-			gotoTinHypStatusListener b = new gotoTinHypStatusListener();
-			gotoInputMedListener m = new gotoInputMedListener(inputMedPage);
+			GotoTinHypStatusListener b = new GotoTinHypStatusListener();
+			GotoInputMedListener m = new GotoInputMedListener(inputMedPage);
 			// figure out how do to do undo button
-			gotoUndoMenuListener f = new gotoUndoMenuListener();
+			GotoUndoMenuListener f = new GotoUndoMenuListener();
 			inputMedPage.addBackListener(b);
 			inputMedPage.addNextListener(m);
 			inputMedPage.addFinishListener(f);
@@ -210,11 +210,11 @@ public class PatientController {
 
 	}
 
-	static class gotoUndoMenuListener implements ActionListener {
+	static class GotoUndoMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 			MenuPage undoMenu = new MenuPage(frame, true);
-			gotoReqInputListener r = new gotoReqInputListener();
-			gotoDatabaseListener d = new gotoDatabaseListener();
+			GotoReqInputListener r = new GotoReqInputListener();
+			GotoDatabaseListener d = new GotoDatabaseListener();
 			UndoPatientListener m = new UndoPatientListener();
 
 			undoMenu.addRegisterListener(r);
@@ -228,8 +228,8 @@ public class PatientController {
 		public void actionPerformed(ActionEvent e) {
 			MenuPage undoMenu = new MenuPage(frame);
 			patientModel.undoPatient();
-			gotoReqInputListener r = new gotoReqInputListener();
-			gotoDatabaseListener d = new gotoDatabaseListener();
+			GotoReqInputListener r = new GotoReqInputListener();
+			GotoDatabaseListener d = new GotoDatabaseListener();
 			undoMenu.addRegisterListener(r);
 			undoMenu.addViewListener(d);
 
@@ -379,10 +379,10 @@ public class PatientController {
 		}
 	}
 
-	static class gotoDeleteListener implements ActionListener {
+	static class GotoDeleteListener implements ActionListener {
 		PatientDataPage db;
 
-		public gotoDeleteListener(PatientDataPage db) {
+		public GotoDeleteListener(PatientDataPage db) {
 			this.db = db;
 		}
 
@@ -393,13 +393,13 @@ public class PatientController {
 				patientModel.removePatient(db.whichPatient()); // deletes patient
 
 				PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
-				gotoMenuListener m = new gotoMenuListener();
-				gotoReqInputListener n = new gotoReqInputListener();
-				gotoInfoListener i = new gotoInfoListener(database);
-				gotoVisitListener v = new gotoVisitListener(database);
-				gotoDeleteListener d = new gotoDeleteListener(database);
-				gotoAddHistoryListener h = new gotoAddHistoryListener(database);
-				gotoScheduleListener s = new gotoScheduleListener(database);
+				GotoMenuListener m = new GotoMenuListener();
+				GotoReqInputListener n = new GotoReqInputListener();
+				GotoInfoListener i = new GotoInfoListener(database);
+				GotoAddVisitListener v = new GotoAddVisitListener(database);
+				GotoDeleteListener d = new GotoDeleteListener(database);
+				GotoAddHistoryListener h = new GotoAddHistoryListener(database);
+				GotoScheduleListener s = new GotoScheduleListener(database);
 
 				database.addInfoListener(i);
 				database.addVisitListener(v);
@@ -414,10 +414,10 @@ public class PatientController {
 		}
 	}
 
-	static class gotoAddHistoryListener implements ActionListener {
+	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
 
-		public gotoAddHistoryListener(PatientDataPage db) {
+		public GotoAddHistoryListener(PatientDataPage db) {
 			this.db = db;
 		}
 
@@ -428,10 +428,10 @@ public class PatientController {
 				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(),
 						db.whichPatient().getFirstName(), db.whichPatient().getLastName());
 
-				gotoDatabaseListener d = new gotoDatabaseListener();
-				gotoVisitInfoListener i = new gotoVisitInfoListener();
-				gotoSpecificAudioEvalListener a = new gotoSpecificAudioEvalListener();
-				gotoEditVisitHistListener ev = new gotoEditVisitHistListener();
+				GotoDatabaseListener d = new GotoDatabaseListener();
+				GotoVisitInfoListener i = new GotoVisitInfoListener();
+				GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
+				GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
 
 				historyPage.addBackListener(d);
 				historyPage.addEditInfoListener(ev);
@@ -443,7 +443,7 @@ public class PatientController {
 		}
 	}
 
-	static class gotoVisitInfoListener implements ActionListener {
+	static class GotoVisitInfoListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 
@@ -452,7 +452,7 @@ public class PatientController {
 		}
 	}
 
-	static class gotoSpecificAudioEvalListener implements ActionListener {
+	static class GotoSpecificAudioEvalListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 
@@ -461,7 +461,7 @@ public class PatientController {
 		}
 	}
 
-	static class gotoEditVisitHistListener implements ActionListener {
+	static class GotoEditVisitHistListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
 
@@ -470,10 +470,10 @@ public class PatientController {
 		}
 	}
 
-	static class gotoScheduleListener implements ActionListener
+	static class GotoScheduleListener implements ActionListener
 	{
 		PatientDataPage db;
-		public gotoScheduleListener(PatientDataPage db)
+		public GotoScheduleListener(PatientDataPage db)
 		{
 			this.db = db;
 		}
@@ -484,7 +484,7 @@ public class PatientController {
 			{
 				
 				db.addPopup();
-				gotoEnterScheduleListener es = new gotoEnterScheduleListener(db.whichPatient());
+				GotoEnterScheduleListener es = new GotoEnterScheduleListener(db.whichPatient());
 				 JFrame popup= db.addEnterListener(es);
 				 es.retrieveJFrame(popup);
 				
@@ -492,11 +492,11 @@ public class PatientController {
 			
 		}
 	}
-	static class gotoEnterScheduleListener implements ActionListener
+	static class GotoEnterScheduleListener implements ActionListener
 	{
 		Patient p;
 		JFrame popup;
-		public gotoEnterScheduleListener(Patient p)
+		public GotoEnterScheduleListener(Patient p)
 		{
 			this.p = p;
 		}
@@ -510,13 +510,13 @@ public class PatientController {
 			
 			//takes u back to PatientDataPage
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
-			gotoMenuListener m = new gotoMenuListener();
-			gotoReqInputListener n = new gotoReqInputListener();
-			gotoInfoListener i = new gotoInfoListener(database);
-			gotoVisitListener v = new gotoVisitListener(database);
-			gotoDeleteListener d = new gotoDeleteListener(database);
-			gotoAddHistoryListener h = new gotoAddHistoryListener(database);
-			gotoScheduleListener s = new gotoScheduleListener(database);
+			GotoMenuListener m = new GotoMenuListener();
+			GotoReqInputListener n = new GotoReqInputListener();
+			GotoInfoListener i = new GotoInfoListener(database);
+			GotoAddVisitListener v = new GotoAddVisitListener(database);
+			GotoDeleteListener d = new GotoDeleteListener(database);
+			GotoAddHistoryListener h = new GotoAddHistoryListener(database);
+			GotoScheduleListener s = new GotoScheduleListener(database);
 
 			 
 
@@ -537,17 +537,17 @@ public class PatientController {
 		}
 	}
 
-	static class gotoDatabaseListener implements ActionListener {
+	static class GotoDatabaseListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
-			gotoMenuListener m = new gotoMenuListener();
-			gotoReqInputListener n = new gotoReqInputListener();
-			gotoInfoListener i = new gotoInfoListener(database);
-			gotoVisitListener v = new gotoVisitListener(database);
-			gotoDeleteListener d = new gotoDeleteListener(database);
-			gotoAddHistoryListener h = new gotoAddHistoryListener(database);
-			gotoScheduleListener s = new gotoScheduleListener(database);
+			GotoMenuListener m = new GotoMenuListener();
+			GotoReqInputListener n = new GotoReqInputListener();
+			GotoInfoListener i = new GotoInfoListener(database);
+			GotoAddVisitListener v = new GotoAddVisitListener(database);
+			GotoDeleteListener d = new GotoDeleteListener(database);
+			GotoAddHistoryListener h = new GotoAddHistoryListener(database);
+			GotoScheduleListener s = new GotoScheduleListener(database);
 
 			database.addInfoListener(i);
 			database.addVisitListener(v);
@@ -581,23 +581,23 @@ public class PatientController {
 
 			for (int i = 0; i < medButtons.size(); i++) {
 				JButton medButton = medButtons.get(i);
-				gotoSpecificMedListener specMedListener = new gotoSpecificMedListener(p,
+				GotoSpecificMedListener specMedListener = new GotoSpecificMedListener(p,
 						p.getMedicine(medButton.getText()));
 				medButton.addActionListener(specMedListener);
 
 			}
-			gotoInfoListener infoListener = new gotoInfoListener(p);
+			GotoInfoListener infoListener = new GotoInfoListener(p);
 			medListPage.addBackListener(infoListener);
 
 		}
 	}
 
-	static class gotoSpecificMedListener implements ActionListener {
+	static class GotoSpecificMedListener implements ActionListener {
 
 		Patient p;
 		Medicine m;
 
-		public gotoSpecificMedListener(Patient p, Medicine m) {
+		public GotoSpecificMedListener(Patient p, Medicine m) {
 			this.p = p;
 			this.m = m;
 		}
