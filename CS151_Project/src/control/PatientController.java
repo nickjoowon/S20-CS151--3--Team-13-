@@ -451,7 +451,9 @@ public class PatientController {
 				
 				db.addPopup();
 				gotoEnterScheduleListener es = new gotoEnterScheduleListener(db.whichPatient());
-				db.addEnterListener(es);
+				 JFrame popup= db.addEnterListener(es);
+				 es.retrieveJFrame(popup);
+				
 			}
 			
 		}
@@ -459,6 +461,7 @@ public class PatientController {
 	static class gotoEnterScheduleListener implements ActionListener
 	{
 		Patient p;
+		JFrame popup;
 		public gotoEnterScheduleListener(Patient p)
 		{
 			this.p = p;
@@ -468,6 +471,8 @@ public class PatientController {
 		{
 			//add schedule to patient in model
 			
+			//closes popup
+			popup.dispose();
 			
 			//takes u back to PatientDataPage
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
@@ -491,6 +496,10 @@ public class PatientController {
 			database.addNextListener(n);
 			System.out.println(patientModel);
 			
+		}
+		public void retrieveJFrame(JFrame popup)
+		{
+			this.popup = popup;
 		}
 	}
 
