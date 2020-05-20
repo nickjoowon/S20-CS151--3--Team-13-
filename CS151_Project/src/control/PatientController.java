@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import model.Medicine;
 import model.Patient;
 import model.PatientModel;
+import model.Visit;
 import view.*;
 
 public class PatientController {
@@ -375,6 +376,7 @@ public class PatientController {
 				Visit visit = new Visit(visitInfo[0], visitInfo[1], visitInfo[2], visitInfo[3], visitInfoPage.isSoundTherapyChecked(), visitInfoPage.isEarMeasureChecked(), visitInfoPage.isCounselChecked());
 				db.whichPatient().addVisit(visit); 
 			}
+			AudioEvalPage audioEvalPage = new AudioEvalPage(frame, db.whichPatient().getLastName()); 
 			
 		}
 	}
