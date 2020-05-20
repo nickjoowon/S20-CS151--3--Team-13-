@@ -15,7 +15,9 @@ import model.Patient;
 
 /**
  * page 7
- * @author Marco
+ * 
+ * Shows a List of selectable patients
+ * The Doctor/nurse can check their visit history, delete a patient, add a visit, or schedule a visit for them
  *
  */
 public class PatientDataPage {
@@ -32,7 +34,14 @@ public class PatientDataPage {
 	ArrayList<Patient> pList;
 	JFrame popframe;
 	
-	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * takes in a arraylist of patients to display them
+	 * Creates UI
+	 * 
+	 * @param frame
+	 * @param pList
+	 */
 	public PatientDataPage(JFrame frame, ArrayList<Patient> pList)
 	{
 		this.frame = frame;
