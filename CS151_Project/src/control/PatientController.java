@@ -489,10 +489,10 @@ public class PatientController {
 					GotoDatabaseListener d = new GotoDatabaseListener();
 					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
 					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
-					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
+					
 
 					historyPage.addBackListener(d);
-					historyPage.addEditInfoListener(ev);
+					
 					historyPage.addInfoListener(i);
 					historyPage.addEvaluationListener(a);
 
@@ -506,10 +506,10 @@ public class PatientController {
 					GotoDatabaseListener d = new GotoDatabaseListener();
 					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
 					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
-					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
+					
 
 					historyPage.addBackListener(d);
-					historyPage.addEditInfoListener(ev);
+					
 					historyPage.addInfoListener(i);
 					historyPage.addEvaluationListener(a);
 				
