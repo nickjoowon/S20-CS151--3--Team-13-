@@ -682,7 +682,13 @@ public class PatientController {
 			this.popup = popup;
 		}
 	}
-
+	/**
+	 * sends to Page 7 (PatientDataPage)
+	 * 
+	 * options to go to Page 10(PatientInfoPage), 8(VisitInfoPage), 14(VisitHistPage), 15 (PatientDataPage's popup),
+	 *  1 (MenuPage), 2 (OptInfoPage) , and 7(after deleting a patient)
+	 *
+	 */
 	static class GotoDatabaseListener implements ActionListener {
 		private boolean isAssignCat; 
 		private CategoryPage catPage; 
