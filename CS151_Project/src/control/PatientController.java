@@ -434,7 +434,7 @@ public class PatientController {
 			
 			if(db.isPatientSelected() == true) //then button will work
 			{
-				ScheduleVisitPage visitPage = new ScheduleVisitPage(frame, db.whichPatient().getInfo());
+				db.addPopup();
 			}
 			
 		}
