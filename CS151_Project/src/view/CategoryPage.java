@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -26,6 +27,7 @@ public class CategoryPage {
 	private JCheckBox c3;
 	private JCheckBox c4;
 	private JCheckBox c5;
+	private ArrayList<JCheckBox> cList;
 	
 		public CategoryPage(JFrame frame, String patientLastName)
 		{
@@ -143,6 +145,12 @@ public class CategoryPage {
 			boxes.add(c3);
 			boxes.add(c4);
 			boxes.add(c5);
+			//adds to arraylist
+			cList.add(c1);
+			cList.add(c2);
+			cList.add(c3);
+			cList.add(c4);
+			cList.add(c5);
 			
 			
 			//add panels to frame
@@ -161,6 +169,16 @@ public class CategoryPage {
 		public void addBackListener(ActionListener b)
 		{
 			back.addActionListener(b);
+		}
+		public void unselectOthers(int checkboxnum)
+		{
+			for(int i = 0; i < 5; i++)
+			{
+				if( i != checkboxnum - 1)
+				{
+					cList.get(i).setSelected(false);
+				}
+			}
 		}
 		
 }
