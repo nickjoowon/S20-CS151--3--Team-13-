@@ -1,9 +1,10 @@
 package view;
 
 /**
- * page 3
- * @author Nick
- *
+ * Page 10
+ * 
+ * Shows information for a specific Medication
+ * 
  */
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -26,7 +27,14 @@ public class SpecificMedPage {
 	JTable table2; 
 	String[] info; 
 	JTextArea etiologyText; 
-	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Takes in string array of info on the medication to display it
+	 * Creates UI
+	 * 
+	 * @param frame
+	 * @param info
+	 */
 	public SpecificMedPage(JFrame frame, String[] info) {
 		this.info = info; 
 		this.frame = frame; 
