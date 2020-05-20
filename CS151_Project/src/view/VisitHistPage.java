@@ -42,6 +42,7 @@ public class VisitHistPage {
 	 *  Reuses frame from last Page and redraws on it
 	 *  Takes in String of Patient's name and last name to display them in the title
 	 *  Takes in array of Visits from a Patient so it can display them
+	 * Creates UI
 	 *  
 	 * @param frame
 	 * @param visits
