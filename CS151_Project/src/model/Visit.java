@@ -31,9 +31,9 @@ public class Visit {
 		this.date = date;
 		this.setInterviewForm(interviewForm); 
 		this.sequenceNum = sequenceNum;
-		this.isCounseling = isCounseling; 
-		this.isRealEarMeasurement = isRealEarMeasurement; 
-		this.isSoundTherapy = isSoundTherapy; 
+		this.setCounseling(isCounseling); 
+		this.setRealEarMeasurement(isRealEarMeasurement); 
+		this.setSoundTherapy(isSoundTherapy); 
 	}
 	
 	
@@ -107,6 +107,42 @@ public class Visit {
 
 	public void setEvaluation(Evaluation evaluation) {
 		this.evaluation = evaluation;
+	}
+
+
+
+	public boolean isSoundTherapy() {
+		return isSoundTherapy;
+	}
+
+
+
+	public void setSoundTherapy(boolean isSoundTherapy) {
+		this.isSoundTherapy = isSoundTherapy;
+	}
+
+
+
+	public boolean isRealEarMeasurement() {
+		return isRealEarMeasurement;
+	}
+
+
+
+	public void setRealEarMeasurement(boolean isRealEarMeasurement) {
+		this.isRealEarMeasurement = isRealEarMeasurement;
+	}
+
+
+
+	public boolean isCounseling() {
+		return isCounseling;
+	}
+
+
+
+	public void setCounseling(boolean isCounseling) {
+		this.isCounseling = isCounseling;
 	}
 	
 

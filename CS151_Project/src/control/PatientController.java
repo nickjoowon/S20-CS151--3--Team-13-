@@ -460,36 +460,80 @@ public class PatientController {
 
 	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
+		boolean isCheckSelected; 
 
 		public GotoAddHistoryListener(PatientDataPage db) {
 			this.db = db;
+			isCheckSelected = true; 
+		}
+		public GotoAddHistoryListener(PatientDataPage db, boolean isCheckSelected)
+		{
+			this.db = db; 
+			isCheckSelected = false; 
 		}
 
 		public void actionPerformed(ActionEvent e) {
+			if (isCheckSelected == true)
+			{
 
-			if (db.isPatientSelected() == true) // then button will work
+				if (db.isPatientSelected() == true) // then button will work
+				{
+					VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(),
+						db.whichPatient().getFirstName(), db.whichPatient().getLastName());
+
+					GotoDatabaseListener d = new GotoDatabaseListener();
+					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
+					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
+					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
+
+					historyPage.addBackListener(d);
+					historyPage.addEditInfoListener(ev);
+					historyPage.addInfoListener(i);
+					historyPage.addEvaluationListener(a);
+
+				}
+			}
+			else
 			{
 				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(),
 						db.whichPatient().getFirstName(), db.whichPatient().getLastName());
 
-				GotoDatabaseListener d = new GotoDatabaseListener();
-				GotoVisitInfoListener i = new GotoVisitInfoListener();
-				GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
-				GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
+					GotoDatabaseListener d = new GotoDatabaseListener();
+					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
+					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
+					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
 
-				historyPage.addBackListener(d);
-				historyPage.addEditInfoListener(ev);
-				historyPage.addInfoListener(i);
-				historyPage.addEvaluationListener(a);
-
+					historyPage.addBackListener(d);
+					historyPage.addEditInfoListener(ev);
+					historyPage.addInfoListener(i);
+					historyPage.addEvaluationListener(a);
+				
 			}
+			
 
 		}
 	}
 
 	static class GotoVisitInfoListener implements ActionListener {
+		PatientDataPage db; 
+		VisitHistPage historyPage; 
+		public GotoVisitInfoListener(PatientDataPage db, VisitHistPage historyPage)
+		{
+			this.db = db;
+			this.historyPage = historyPage; 
+		}
 
 		public void actionPerformed(ActionEvent e) {
+			if (historyPage.isVisitSelected() == true)
+			{
+				Patient patient = db.whichPatient();
+				Visit visit = historyPage.whichVisit(); 
+				SpecificVisitInfoPage specVisInfoPage = new SpecificVisitInfoPage(frame, patient.getLastName(), visit.getSeqNum(), visit.getDate(), visit.getSeqNum(), visit.getTreatmentProgress(), 
+						visit.getInterviewForm(), visit.isSoundTherapy(), visit.isRealEarMeasurement(), visit.isCounseling()); 
+				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
+				historyPage.addBackListener(aDListener);
+			
+			}
 
 			// add stuff
 

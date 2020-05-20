@@ -30,7 +30,7 @@ public class SpecificVisitInfoPage {
 	private JCheckBox earMeasureCheck;
 	private JCheckBox counselCheck;
 
-	public SpecificVisitInfoPage(JFrame frame, String lastName, int visitNum, String inputDateV, String inputSeqN, String inputTreatP, 
+	public SpecificVisitInfoPage(JFrame frame, String lastName, String visitNum, String inputDateV, String inputSeqN, String inputTreatP, 
 								String inputForm, boolean inputSnd, boolean inputEarMeas, boolean inputCounsel) {
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
@@ -199,7 +199,7 @@ public class SpecificVisitInfoPage {
 	//for testing purposes
  	public static void main(String[] args) {
  		String s = "amazing nick";
- 		SpecificVisitInfoPage n = new SpecificVisitInfoPage(new JFrame(), s, 0, "a", "b", "c", "d", true, true, true);
+ 		//SpecificVisitInfoPage n = new SpecificVisitInfoPage(new JFrame(), s, 0, "a", "b", "c", "d", true, true, true);
  	}
 	
 	
