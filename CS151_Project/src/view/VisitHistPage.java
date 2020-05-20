@@ -27,7 +27,7 @@ public class VisitHistPage {
 	JFrame frame; 
 	JButton back;
 	JButton info;
-	JButton editInfo;
+	
 	JButton eval;
 	JList list;
 	ArrayList<Visit> visits;
@@ -80,13 +80,7 @@ public class VisitHistPage {
 				backInfo.add(bottomDecorationWhite2, BorderLayout.SOUTH);
 				backInfo.add(bottomDecorationWhite3, BorderLayout.SOUTH);
 				
-				editInfo = new JButton("Edit Info"); 
-				editInfo.setPreferredSize(new Dimension(125,50));
-				editInfo.setOpaque(true);
-				editInfo.setForeground(Color.white);
-				editInfo.setBackground(new Color(41,142,208));
-				editInfo.setBorderPainted(false);
-				backInfo.add(editInfo, BorderLayout.EAST);
+				
 				
 				JPanel sbTitle = new JPanel();
 				JLabel titleOfScroll = new JLabel("Select a Visit"); 
@@ -166,10 +160,6 @@ public class VisitHistPage {
 	public void addBackListener(ActionListener b) 
 	{
 		back.addActionListener(b);
-	}
-	public void addEditInfoListener(ActionListener e) 
-	{
-		editInfo.addActionListener(e);
 	}
 	public void addInfoListener(ActionListener i) 
 	{
