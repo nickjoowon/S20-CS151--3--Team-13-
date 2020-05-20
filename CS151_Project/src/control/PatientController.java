@@ -270,6 +270,12 @@ public class PatientController {
 		}
 	}
 
+	/**
+	 * sends to Page 8(PatientInfoPage)
+	 * 
+	 * options to go to Page 9(PatientMedListPage) or Page 7(PatientDataPage)
+	 *
+	 */
 		static class GotoInfoListener implements ActionListener {
 		PatientDataPage db;
 		boolean isCheckSelected;
