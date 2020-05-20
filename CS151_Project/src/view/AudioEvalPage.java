@@ -4,10 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.Point;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -15,6 +20,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.border.Border;
 
 
 /**
@@ -36,6 +42,11 @@ public class AudioEvalPage {
 	private JTextField rMinMaskLevelText;
 	private JTextField addCommentText;
 	private JTextField pureToneAudioText;
+	private int startX;
+	private int startY;
+	private int endX;
+	private int endY;
+
 
 	public AudioEvalPage(JFrame frame, String lastName){
 		this.frame = frame; 
@@ -78,38 +89,38 @@ public class AudioEvalPage {
 		JPanel r1UpperCenterLeft = new JPanel();
 		r1UpperCenterLeft.setLayout(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
-		
+
 		JLabel left = new JLabel("Left");
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		r1UpperCenterLeft.add(left, gbc);
-		
+
 		lDiscomfortText = new JTextField();
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		r1UpperCenterLeft.add(lDiscomfortText, gbc);
-		
+
 		JLabel right = new JLabel(" Right");
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 2;
 		gbc.gridy = 0;
 		r1UpperCenterLeft.add(right, gbc);
-		
+
 		rDiscomfortText = new JTextField();
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 3;
 		gbc.gridy = 0;
 		r1UpperCenterLeft.add(rDiscomfortText, gbc);
-		
+
 		upperCenterLeft.add(r1UpperCenterLeft);
 
-		
+
 		//row 2 of upperCenterLeft panel
 		JLabel tinnitus = new JLabel(" Tinnitus");
 		tinnitus.setFont(new Font("Arial", Font.PLAIN, 14));
@@ -117,28 +128,28 @@ public class AudioEvalPage {
 
 		JPanel r2UpperCenterLeft = new JPanel();
 		r2UpperCenterLeft.setLayout(new GridLayout(3,2));
-		
+
 		JLabel pitch = new JLabel("Pitch");
 		tinPitchText = new JTextField();
 		JLabel match = new JLabel("match");
 		tinMatchText = new JTextField();
 		JLabel matchType = new JLabel("Match Type");
 		tinMatchTypeText = new JTextField();
-		
+
 		r2UpperCenterLeft.add(pitch);
 		r2UpperCenterLeft.add(tinPitchText);
 		r2UpperCenterLeft.add(match);
 		r2UpperCenterLeft.add(tinMatchText);
 		r2UpperCenterLeft.add(matchType);
 		r2UpperCenterLeft.add(tinMatchTypeText);
-		
+
 		upperCenterLeft.add(r2UpperCenterLeft);
 
 		//row 3 of upperCenterLeft panel
 		JLabel hearingThreshold = new JLabel(" Hearing Threshold");
 		hearingThreshold.setFont(new Font("Arial", Font.PLAIN, 14));
 		upperCenterLeft.add(hearingThreshold);
-		
+
 		JPanel r3UpperCenterLeft = new JPanel();
 		r3UpperCenterLeft.setLayout(new GridBagLayout());
 		hearThresholdText = new JTextField();
@@ -147,7 +158,7 @@ public class AudioEvalPage {
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		r3UpperCenterLeft.add(hearThresholdText, gbc);
-		
+
 		upperCenterLeft.add(r3UpperCenterLeft);
 
 		//row 4 of upperCenterLeft panel
@@ -157,36 +168,36 @@ public class AudioEvalPage {
 
 		JPanel r4UpperCenterLeft = new JPanel();
 		r4UpperCenterLeft.setLayout(new GridBagLayout());
-		
+
 		JLabel left4 = new JLabel("Left");
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		r4UpperCenterLeft.add(left4, gbc);
-		
+
 		lMinMaskLevelText = new JTextField();
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 1;
 		gbc.gridy = 0;
 		r4UpperCenterLeft.add(lMinMaskLevelText, gbc);
-		
+
 		JLabel right4 = new JLabel(" Right");
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 2;
 		gbc.gridy = 0;
 		r4UpperCenterLeft.add(right4, gbc);
-		
+
 		rMinMaskLevelText = new JTextField();
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 3;
 		gbc.gridy = 0;
 		r4UpperCenterLeft.add(rMinMaskLevelText, gbc);
-		
-		
+
+
 		upperCenterLeft.add(r4UpperCenterLeft);
 
 
@@ -207,16 +218,60 @@ public class AudioEvalPage {
 		lowerCenterLeft.setPreferredSize(new Dimension(300, 100));
 		centerLeft.setPreferredSize(new Dimension(300, 300));
 
-		
+
 		//right side of the panel
 		JPanel centerRight = new JPanel();
 		centerRight.setLayout(new BorderLayout());
-		
+
 		JLabel pureToneAudio = new JLabel("Pure Tone Audiograph for Left & Right Ear");
 		pureToneAudio.setFont(new Font("Arial", Font.PLAIN, 14));
-		pureToneAudioText = new JTextField();
+		JPanel pureToneAudioGraph = new JPanel() {
+			Point pointStart = null;
+			Point pointEnd = null;
+			{
+				addMouseListener(new MouseAdapter() {
+					public void mousePressed(MouseEvent e) {
+						pointStart = e.getPoint();
+					}
+
+					public void mouseReleased(MouseEvent e) {
+						pointEnd = null;
+					}
+				});
+				addMouseMotionListener(new MouseMotionAdapter() {
+					public void mouseMoved(MouseEvent e) {
+						pointEnd = e.getPoint();
+					}
+
+					public void mouseDragged(MouseEvent e) {
+						pointEnd = e.getPoint();
+						
+						repaint();
+					}
+				});
+			}
+			public void paint(Graphics g) {
+				super.paint(g);
+				if (pointStart != null) {
+					g.setColor(Color.black);
+					g.drawLine(pointStart.x, pointStart.y, pointEnd.x, pointEnd.y);
+					updateXY(pointStart.x, pointStart.y, pointEnd.x, pointEnd.y);
+				}	
+			}
+			public void updateXY(int x1, int y1, int x2, int y2) {
+				startX = x1;
+				startY = y1;
+				endX = x2;
+				endY = y2;
+			}
+			
+		};
+		
+		
+		
+		pureToneAudioGraph.setBackground(Color.white);
 		centerRight.add(pureToneAudio, BorderLayout.NORTH);
-		centerRight.add(pureToneAudioText, BorderLayout.CENTER);
+		centerRight.add(pureToneAudioGraph, BorderLayout.CENTER);
 		centerRight.setPreferredSize(new Dimension(500,500));
 
 
@@ -275,9 +330,9 @@ public class AudioEvalPage {
 	{
 		back.addActionListener(a);
 	}
+
+
 	
-	
-	 
 	public String[] getInfo() 
 	{
 		String[] info =
@@ -291,17 +346,23 @@ public class AudioEvalPage {
 					lMinMaskLevelText.getText(),
 					rMinMaskLevelText.getText(),
 					addCommentText.getText(),
-					pureToneAudioText.getText()
+					Integer.toString(startX),
+					Integer.toString(startY),
+					Integer.toString(endX),
+					Integer.toString(endY),
 			};
 		return info;
 	}
-	
+
 
 
 	//for testing purposes
 	public static void main(String[] args) {
 		String s = "amazing nick";
 		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
+		for(String a : n.getInfo()) {
+			System.out.println(a);
+		}
 	}
 
 
