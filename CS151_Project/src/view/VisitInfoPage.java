@@ -11,6 +11,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import java.awt.event.ActionListener;
@@ -26,7 +27,7 @@ public class VisitInfoPage {
 	private JTextField dateOfVisitText;
 	private JTextField sequenceNumText;
 	private JTextField treatmentProgText;
-	private JTextField tinHypInterviewText;
+	private JTextArea tinHypInterviewText;
 	private JCheckBox sndThrpyCheck;
 	private JCheckBox earMeasureCheck;
 	private JCheckBox counselCheck;
@@ -101,7 +102,7 @@ public class VisitInfoPage {
 
 		JLabel tinHypInterview = new JLabel("Tinnitus/Hyperacusis Interview Form");
 		centerRight.add(tinHypInterview, BorderLayout.NORTH);
-		tinHypInterviewText = new JTextField();
+		tinHypInterviewText = new JTextArea();
 		centerRight.add(tinHypInterviewText, BorderLayout.CENTER);
 
 
