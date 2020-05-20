@@ -623,7 +623,7 @@ public class PatientController {
 				evalPage.addBackListener(aDListener);
 				evalPage.addNextListener((z)-> 
 				{
-					String[] info = evalPage.getInfo(); 
+					String[] infoa = evalPage.getInfo(); 
 					
 				});
 			}
