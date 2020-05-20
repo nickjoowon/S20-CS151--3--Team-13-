@@ -6,8 +6,14 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
+
+/**
+ * Page 2
+ * 
+ * Part 1 of Registering a Patient. Has Required Feilds the user must fill in to go to Part 2.
+ * 
+ */
 public class ReqInfoPage {
     JFrame frame; 
 	JButton next;
@@ -27,6 +33,14 @@ public class ReqInfoPage {
 	private JTextField zipText;
 	private JTextField countryText;
 	private JTextField insuranceNumberText;
+	
+	/**
+	 * 
+	 * Reuses frame from last Page and redraws on it
+	 * Creates UI
+	 * 
+	 * @param frame
+	 */
 	public ReqInfoPage(JFrame frame)
 	{
 		this.frame = frame; 
