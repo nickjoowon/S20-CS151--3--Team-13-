@@ -418,6 +418,13 @@ public class PatientController {
 		}
 	}
 	
+	
+	/**
+	 * sends to page 13(CategoryPage)
+	 * 
+	 *options to go to Page 7(PatientDataPage), 8(PatientInfoPage), 9(PatientMedListPage), 12(AudioEvalPage)
+	 *
+	 */
 	static class GotoAssignCategoryListener implements ActionListener{
 		PatientDataPage db; 
 		boolean isAddEval; 
