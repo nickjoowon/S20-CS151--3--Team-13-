@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -16,7 +17,7 @@ import javax.swing.JTextField;
 
 /**
  * page 16
- *
+ * @author Nick
  */
 public class SpecificAudioEvalPage {
 
@@ -34,12 +35,13 @@ public class SpecificAudioEvalPage {
 	private JTextField addCommentText;
 	private JTextField pureToneAudioText;
 
-	public SpecificAudioEvalPage(JFrame frame, String lastName){
+	public SpecificAudioEvalPage(JFrame frame, String lastName, String inputLDiscom, String inputRDiscom, String inputTinPitch, String inputTinMatch, String inputTinMatchType,
+								 String inputHearThresh, String inputLMinMask, String inputRMinMask, String inputAddComment, String inputPureToneAudio){
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
 		frame.setTitle("Audiological Information"); 
 		//temporary
-//		frame.setSize(910,700); 
+		frame.setSize(910,700); 
 
 		//panel for the top blue part 
 		JPanel top = new JPanel(); 
@@ -84,6 +86,8 @@ public class SpecificAudioEvalPage {
 		r1UpperCenterLeft.add(left, gbc);
 		
 		lDiscomfortText = new JTextField();
+		//setting this JTextField according to input
+		lDiscomfortText.setText(inputLDiscom);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 1;
@@ -98,6 +102,8 @@ public class SpecificAudioEvalPage {
 		r1UpperCenterLeft.add(right, gbc);
 		
 		rDiscomfortText = new JTextField();
+		//setting JTextField according to input
+		rDiscomfortText.setText(inputRDiscom);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 3;
@@ -117,10 +123,16 @@ public class SpecificAudioEvalPage {
 		
 		JLabel pitch = new JLabel("Pitch");
 		tinPitchText = new JTextField();
+		//setting JTextField according to input
+		tinPitchText.setText(inputTinPitch);
 		JLabel match = new JLabel("match");
 		tinMatchText = new JTextField();
+		//setting JTextField according to input
+		tinMatchText.setText(inputTinMatch);
 		JLabel matchType = new JLabel("Match Type");
 		tinMatchTypeText = new JTextField();
+		//setting JTextField according to input
+		tinMatchTypeText.setText(inputTinMatchType);
 		
 		r2UpperCenterLeft.add(pitch);
 		r2UpperCenterLeft.add(tinPitchText);
@@ -139,6 +151,8 @@ public class SpecificAudioEvalPage {
 		JPanel r3UpperCenterLeft = new JPanel();
 		r3UpperCenterLeft.setLayout(new GridBagLayout());
 		hearThresholdText = new JTextField();
+		//setting JTextField according to input
+		hearThresholdText.setText(inputHearThresh);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 0;
@@ -163,6 +177,8 @@ public class SpecificAudioEvalPage {
 		r4UpperCenterLeft.add(left4, gbc);
 		
 		lMinMaskLevelText = new JTextField();
+		//setting JTextField according to input
+		lMinMaskLevelText.setText(inputLMinMask);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 1;
@@ -177,6 +193,8 @@ public class SpecificAudioEvalPage {
 		r4UpperCenterLeft.add(right4, gbc);
 		
 		rMinMaskLevelText = new JTextField();
+		//setting JTextField according to input
+		rMinMaskLevelText.setText(inputRMinMask);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
 		gbc.weightx = 0.5;
 		gbc.gridx = 3;
@@ -195,6 +213,8 @@ public class SpecificAudioEvalPage {
 		addComment.setFont(new Font("Arial", Font.PLAIN, 14));
 		lowerCenterLeft.add(addComment, BorderLayout.NORTH);
 		addCommentText = new JTextField();
+		//setting JTextField according to input
+		addCommentText.setText(inputAddComment);
 		lowerCenterLeft.add(addCommentText, BorderLayout.CENTER);
 
 		//combining lower and upper center left
@@ -212,6 +232,8 @@ public class SpecificAudioEvalPage {
 		JLabel pureToneAudio = new JLabel("Pure Tone Audiograph for Left & Right Ear");
 		pureToneAudio.setFont(new Font("Arial", Font.PLAIN, 14));
 		pureToneAudioText = new JTextField();
+		//setting JTextField according to input
+		pureToneAudioText.setText(inputPureToneAudio);
 		centerRight.add(pureToneAudio, BorderLayout.NORTH);
 		centerRight.add(pureToneAudioText, BorderLayout.CENTER);
 		centerRight.setPreferredSize(new Dimension(500,500));
@@ -233,7 +255,7 @@ public class SpecificAudioEvalPage {
 		backAndNext.add(back, BorderLayout.WEST);
 
 
-		next = new JButton("Next");
+		next = new JButton("Edit Information");
 		next.setPreferredSize(new Dimension(125,50));
 		next.setOpaque(true);
 		next.setForeground(Color.white);
@@ -256,8 +278,8 @@ public class SpecificAudioEvalPage {
 		frame.add(backAndNext, BorderLayout.SOUTH);
 
 		//temprorary
-//		frame.setVisible(true);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 		frame.repaint();
@@ -266,12 +288,45 @@ public class SpecificAudioEvalPage {
 	}
 
 
+	
+	public void addNextListener(ActionListener a)
+	{
+		next.addActionListener(a);
+	}
+	public void addBackListener(ActionListener a)
+	{
+		back.addActionListener(a);
+	}
+	
+	
+	 
+	public String[] getInfo() 
+	{
+		String[] info =
+			{
+					lDiscomfortText.getText(),
+					rDiscomfortText.getText(),
+					tinPitchText.getText(),
+					tinMatchText.getText(),
+					tinMatchTypeText.getText(),
+					hearThresholdText.getText(),
+					lMinMaskLevelText.getText(),
+					rMinMaskLevelText.getText(),
+					addCommentText.getText(),
+					pureToneAudioText.getText()
+			};
+		return info;
+	}
+	
+	
+	
+	
 
 	//for testing purposes
-//	public static void main(String[] args) {
-//		String s = "amazing nick";
-//		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
-//	}
+	public static void main(String[] args) {
+		String s = "amazing nick";
+		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
+	}
 
 
 
