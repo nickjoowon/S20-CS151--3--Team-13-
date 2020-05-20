@@ -536,7 +536,7 @@ public class PatientController {
 				SpecificVisitInfoPage specVisInfoPage = new SpecificVisitInfoPage(frame, patient.getLastName(), visit.getSeqNum(), visit.getDate(), visit.getSeqNum(), visit.getTreatmentProgress(), 
 						visit.getInterviewForm(), visit.isSoundTherapy(), visit.isRealEarMeasurement(), visit.isCounseling()); 
 				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
-				historyPage.addBackListener(aDListener);
+				specVisInfoPage.addBackListener(aDListener);
 			
 			}
 
