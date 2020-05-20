@@ -342,7 +342,7 @@ public class PatientController {
 				VisitInfoPage visitInfoPage = new VisitInfoPage(frame, db.whichPatient().getLastName());
 				GotoDatabaseListener databaseListener = new GotoDatabaseListener(); 
 				visitInfoPage.addBackListener(databaseListener); 
-				GotoInputAudEvalListener b = new GotoInputAudEvalListener(db, true);
+				GotoInputAudEvalListener b = new GotoInputAudEvalListener(db, visitInfoPage);
 				visitInfoPage.addNextListener(b);
 				// VisitInfoPage visitPage = new VisitInfoPage(frame,
 				// db.whichPatient().getInfo());
@@ -355,14 +355,14 @@ public class PatientController {
 		private boolean isAddVisit; 
 		private PatientDataPage db; 
 		VisitInfoPage visitInfoPage; 
-		public GotoInputAudEvalListener(PatientDataPage db, VisitInfoPage visitInfoPage, boolean isAddVisit)
+		public GotoInputAudEvalListener(PatientDataPage db, VisitInfoPage visitInfoPage)
 		{
 			isAddVisit = true; 
-			this.isAddVisit = isAddVisit; 
+			this.db = db; 
 			this.visitInfoPage = visitInfoPage; 
 
 		}
-		public GotoInputAudEvalListener(PatientDataPage db, boolean isAddVisit)
+		public GotoInputAudEvalListener(PatientDataPage db)
 		{
 			this.db = db; 
 			isAddVisit = false; 
@@ -379,7 +379,7 @@ public class PatientController {
 			AudioEvalPage audioEvalPage = new AudioEvalPage(frame, db.whichPatient().getLastName());
 			GotoAddVisitListener addVisitListener = new GotoAddVisitListener(db); 
 			audioEvalPage.addBackListener(addVisitListener);
-			GotoAssignCategoryListener categoryListener = new GotoAssignCategoryListener(db, audioEvalPage, true, isAddVisit, visitInfoPage);
+			GotoAssignCategoryListener categoryListener = new GotoAssignCategoryListener(db, audioEvalPage);
 			audioEvalPage.addNextListener(categoryListener); 
 			
 		}
@@ -387,17 +387,20 @@ public class PatientController {
 	
 	static class GotoAssignCategoryListener implements ActionListener{
 		PatientDataPage db; 
-		AudioEvalPage audioEvalPage;
-		VisitInfoPage visitInfoPage;
 		boolean isAddEval; 
-		boolean isAddVisit;
-		public GotoAssignCategoryListener(PatientDataPage db, AudioEvalPage audioEvalPage, boolean isAddEval, boolean isAddVisit, VisitInfoPage visitInfoPage)
+		AudioEvalPage audioEvalPage; 
+	
+		public GotoAssignCategoryListener(PatientDataPage db, AudioEvalPage audioEvalPage)
 		{
 			this.db = db; 
 			this.audioEvalPage = audioEvalPage;
-			this.isAddEval = true; 
-			this.isAddVisit = true;
-			this.visitInfoPage = visitInfoPage;
+			this.isAddEval = true;
+		}
+		public GotoAssignCategoryListener(PatientDataPage db)
+		{
+			this.db = db;
+			isAddEval = false; 
+			
 		}
 		
 		public void actionPerformed(ActionEvent e) {
@@ -408,7 +411,7 @@ public class PatientController {
 				
 			}
 			CategoryPage catPage = new CategoryPage(frame, db.whichPatient().getLastName()); 
-			GotoInputAudEvalListener b = new GotoInputAudEvalListener(db, visitInfoPage, isAddVisit);
+			GotoInputAudEvalListener b = new GotoInputAudEvalListener(db);
 			GotoDatabaseListener f = new GotoDatabaseListener();
 			catPage.addBackListener(b);
 			catPage.addFinishListener(f);
