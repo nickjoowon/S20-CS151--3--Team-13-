@@ -407,6 +407,7 @@ public class PatientController {
 			if (isAddEval)
 			{
 				
+				
 			}
 			CategoryPage catPage = new CategoryPage(frame, db.whichPatient().getLastName()); 
 			
