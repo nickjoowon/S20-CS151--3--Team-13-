@@ -482,7 +482,13 @@ public class PatientController {
 			
 		}
 	}
-
+	/**
+	 * sends to Page 7(PatientDataPage)
+	 * deletes patient from the selected list in Page 7(PatientDataPage)
+	 * 
+	 * refer to GotoDatabaseListener for options
+	 *
+	 */
 	static class GotoDeleteListener implements ActionListener {
 		PatientDataPage db;
 
