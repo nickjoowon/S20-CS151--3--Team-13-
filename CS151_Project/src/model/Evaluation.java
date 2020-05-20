@@ -13,6 +13,8 @@ public class Evaluation {
 	private String lMinMasking;
 	private String categoryLvl;
 	private String audioComment;
+	private String matchType; 
+	private String audioGraph; 
 	
 	/**
 	 * all of the frequencies are measured in kHz
@@ -28,19 +30,19 @@ public class Evaluation {
 	 * @param categoryLvl assigning a category number to the patient between 0-4
 	 * @param audioComment additional discretionary comments regarding audiology left by physician
 	 */
-	public Evaluation(String rightLDL, String leftLDL, String lAudioTone, String rAudioTone, String tinPitch, String tinMatch, 
-					  String hearingThreshold, String rMinMasking, String lMinMasking, String categoryLvl, String audioComment)
+	public Evaluation(String leftLDL, String rightLDL,String tinPitch, String tinMatch, String matchType,
+					  String hearingThreshold, String lMinMasking, String rMinMasking, String audioComment, String audioGraph)
 	{
 		this.rightLDL = rightLDL;
 		this.leftLDL = leftLDL;
-		this.lAudioTone = lAudioTone;
-		this.rAudioTone = rAudioTone;
+		this.audioGraph = audioGraph; 
 		this.tinPitch = tinPitch;
 		this.tinMatch = tinMatch;
 		this.hearingThreshold = hearingThreshold;
 		this.rMinMasking = rMinMasking;
 		this.lMinMasking = lMinMasking;
-		this.categoryLvl = categoryLvl;
+		this.matchType = matchType; 
+	
 		this.audioComment = audioComment;
 	}
 
@@ -108,19 +110,19 @@ public class Evaluation {
 		this.rMinMasking = rMinMasking;
 	}
 
-	public int getlMinMasking() {
+	public String getlMinMasking() {
 		return lMinMasking;
 	}
 
-	public void setlMinMasking(int lMinMasking) {
+	public void setlMinMasking(String lMinMasking) {
 		this.lMinMasking = lMinMasking;
 	}
 
-	public int getCategoryLvl() {
+	public String getCategoryLvl() {
 		return categoryLvl;
 	}
 
-	public void setCategoryLvl(int categoryLvl) {
+	public void setCategoryLvl(String categoryLvl) {
 		this.categoryLvl = categoryLvl;
 	}
 
