@@ -379,7 +379,7 @@ public class PatientController {
 			AudioEvalPage audioEvalPage = new AudioEvalPage(frame, db.whichPatient().getLastName());
 			GotoAddVisitListener addVisitListener = new GotoAddVisitListener(db); 
 			audioEvalPage.addBackListener(addVisitListener);
-			GotoAssignCategoryListener categoryListener = new GotoAssignCategoryListener(db, audioEvalPage, true);
+			GotoAssignCategoryListener categoryListener = new GotoAssignCategoryListener(db, audioEvalPage, true, isAddVisit, visitInfoPage);
 			audioEvalPage.addNextListener(categoryListener); 
 			
 		}
@@ -387,21 +387,19 @@ public class PatientController {
 	
 	static class GotoAssignCategoryListener implements ActionListener{
 		PatientDataPage db; 
-		AudioEvalPage audioEvalPage; 
+		AudioEvalPage audioEvalPage;
+		VisitInfoPage visitInfoPage;
 		boolean isAddEval; 
-		public GotoAssignCategoryListener(PatientDataPage db, AudioEvalPage audioEvalPage, boolean isAddEval)
+		boolean isAddVisit;
+		public GotoAssignCategoryListener(PatientDataPage db, AudioEvalPage audioEvalPage, boolean isAddEval, boolean isAddVisit, VisitInfoPage visitInfoPage)
 		{
 			this.db = db; 
 			this.audioEvalPage = audioEvalPage;
 			this.isAddEval = true; 
+			this.isAddVisit = true;
+			this.visitInfoPage = visitInfoPage;
 		}
-		public GotoAssignCategoryListener(PatientDataPage db, boolean isAddEval)
-		{
-			this.db = db; 
-			this.isAddEval = false; 
-			
-		}
-		@Override
+		
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			if (isAddEval)
@@ -410,7 +408,10 @@ public class PatientController {
 				
 			}
 			CategoryPage catPage = new CategoryPage(frame, db.whichPatient().getLastName()); 
-			
+			GotoInputAudEvalListener b = new GotoInputAudEvalListener(db, visitInfoPage, isAddVisit);
+			GotoDatabaseListener f = new GotoDatabaseListener();
+			catPage.addBackListener(b);
+			catPage.addFinishListener(f);
 			
 		}
 	}
