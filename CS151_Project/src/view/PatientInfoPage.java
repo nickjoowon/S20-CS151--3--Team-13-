@@ -1,8 +1,10 @@
 package view;
 
 /**
- * page 3
- * @author Nick
+ * page 8
+ * 
+ * Displays information about a patient.
+ * Information is editable on this page
  *
  */
 import java.awt.BorderLayout;
@@ -27,6 +29,14 @@ public class PatientInfoPage {
 	String[] info; 
 	JTextArea etiologyText; 
 	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * takes in a array of string to display info of patient
+	 * Creates UI
+	 * 
+	 * @param frame
+	 * @param info
+	 */
 	public PatientInfoPage(JFrame frame, String[] info) {
 		this.info = info; 
 		this.frame = frame; 
