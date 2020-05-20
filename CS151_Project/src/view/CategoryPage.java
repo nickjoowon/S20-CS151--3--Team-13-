@@ -45,7 +45,11 @@ public class CategoryPage {
 			JLabel titleOfTop = new JLabel(" Assign Category for Patient "+lastname); 
 			titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
 			titleOfTop.setForeground(Color.white);
-			top.add(titleOfTop, BorderLayout.WEST); 
+			top.add(titleOfTop, BorderLayout.WEST);
+			JLabel secondarytitleOfTop = new JLabel(" Check Medical History and Medications "); 
+			secondarytitleOfTop.setFont(new Font("Arial", Font.BOLD, 30));
+			secondarytitleOfTop.setForeground(Color.white);
+			top.add(secondarytitleOfTop, BorderLayout.WEST);
 			
 			JPanel topDecoration = new JPanel();
 			topDecoration.setPreferredSize(new Dimension(440, 15));
