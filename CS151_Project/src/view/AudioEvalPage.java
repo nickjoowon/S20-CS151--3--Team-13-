@@ -360,9 +360,7 @@ public class AudioEvalPage {
 	public static void main(String[] args) {
 		String s = "amazing nick";
 		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
-		for(String a : n.getInfo()) {
-			System.out.println(a);
-		}
+		
 	}
 
 
