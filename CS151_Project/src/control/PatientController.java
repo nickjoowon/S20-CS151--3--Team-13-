@@ -517,7 +517,12 @@ public class PatientController {
 
 		}
 	}
-
+	/**
+	 * sends to Page 14(VisitHistPage)
+	 * 
+	 * options to go to Page 15(SpecificVisitInfoPage), Page 7(PatientDataPage) ,and Page 16 (SpecificAudioEvalPage)
+	 *
+	 */
 	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
 		boolean isCheckSelected; 
@@ -572,7 +577,12 @@ public class PatientController {
 
 		}
 	}
-
+	/**
+	 * sends to Page 15(SpecificVisitInfoPage)
+	 * 
+	 * options to go to Page 14(VisitHistPage)
+	 *
+	 */
 	static class GotoVisitInfoListener implements ActionListener {
 		PatientDataPage db; 
 		VisitHistPage historyPage; 
