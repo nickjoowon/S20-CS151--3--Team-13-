@@ -2,7 +2,9 @@ package view;
 
 /**
  * page 9
- *@author Nick
+ *
+ *Shows a List of selectable medication.
+ *
  */
 import java.awt.*;
 import java.awt.event.ActionListener;
@@ -18,6 +20,16 @@ public class PatientMedListPage {
 	JButton back;
 	ArrayList<JButton> medicationButtonList;
 
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * takes in Array of string to display as medication
+	 * takes in lastname to display to title
+	 * Creates UI
+	 * 
+	 * @param frame
+	 * @param lastName
+	 * @param medList
+	 */
 	public PatientMedListPage(JFrame frame, String lastName, String[] medList) {
 		this.frame = frame;
 		medicationButtonList = new ArrayList<JButton>(); 
