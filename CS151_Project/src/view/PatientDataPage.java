@@ -28,6 +28,7 @@ public class PatientDataPage {
 	JButton schedule;
 	JButton history;
 	JList list;
+	JButton enter;
 	ArrayList<Patient> pList;
 	
 	
@@ -235,6 +236,10 @@ public class PatientDataPage {
 	{
 		schedule.addActionListener(s);
 	}
+	public void addEnterListener(ActionListener e)
+	{
+		enter.addActionListener(e);
+	}
 	public boolean isPatientSelected()
 	{
 		for(int i = 0; i < pList.size();i++)
@@ -269,7 +274,7 @@ public class PatientDataPage {
 		 popframe.getContentPane().add(popup);
 		 
 		 //makes button to update information
-		 JButton enter = new JButton("Enter");
+		 enter = new JButton("Enter");
 		 enter.setFont(new Font("Arial", Font.PLAIN, 45));
 		 
 		 //text fields user has to enter to schedule an appointment
