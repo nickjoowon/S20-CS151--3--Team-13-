@@ -299,7 +299,7 @@ public class PatientDataPage {
 		 popframe.add(fields);
 		 popframe.add(enter, BorderLayout.SOUTH);
 		 
-		 popframe.setSize (600,400);
+		 popframe.setSize (700,400);
 		 popframe.setVisible(true); 
 	}
 }
