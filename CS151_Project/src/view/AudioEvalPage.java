@@ -40,7 +40,7 @@ public class AudioEvalPage {
 	public AudioEvalPage(JFrame frame, String lastName){
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
-		frame.setTitle("Results of Audiological Evaluation for Patient " + lastName); 
+		frame.setTitle("Audiological Information"); 
 		//temporary
 //		frame.setSize(910,700); 
 
@@ -53,7 +53,7 @@ public class AudioEvalPage {
 		top.setLayout(new BorderLayout());
 
 
-		JLabel titleOfTop = new JLabel("New Visit Information for Patient " + lastName); 
+		JLabel titleOfTop = new JLabel("Results of Audiological Evaluation for Patient " + lastName); 
 		titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
 		titleOfTop.setForeground(Color.white);
 		top.add(titleOfTop, BorderLayout.WEST); 
