@@ -37,7 +37,7 @@ public class VisitInfoPage {
 
 	/**
 	 * Reuses frame from last Page and redraws on it
-	 * Takes in String of name to display it to patient
+	 * Takes in String of a Patient's name to display it on the title
 	 * sets dimensions and creates UI
 	 * 
 	 * @param frame
