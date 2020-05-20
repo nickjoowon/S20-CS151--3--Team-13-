@@ -481,6 +481,9 @@ public class Patient {
 		visitHistory.add(visit); 
 	}
 	
-
+	public ArrayList<Visit> getDoneVisit() {
+		return visitHistory;
+	}
+	
 
 }
