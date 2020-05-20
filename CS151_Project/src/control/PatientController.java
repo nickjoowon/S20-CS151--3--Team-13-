@@ -360,7 +360,12 @@ public class PatientController {
 
 		}
 	}
-
+	/**
+	 * sends to Page 11(VisitInfoPage)
+	 * 
+	 * options to go to Page 12(AudioEvalPage) or Page 7(PatientDataPage)
+	 *
+	 */	
 	static class GotoAddVisitListener implements ActionListener {
 		PatientDataPage db;
 
@@ -383,7 +388,12 @@ public class PatientController {
 
 		}
 	}
-	
+	/**
+	 * sends to Page 12(AudioEvalPage)
+	 * 
+	 * options to go to Page 13(CategoryPage) or Page 11(VisitInfoPage)
+	 *
+	 */
 	static class GotoInputAudEvalListener implements ActionListener{
 		private boolean isAddVisit; 
 		private PatientDataPage db; 
