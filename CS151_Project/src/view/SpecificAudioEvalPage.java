@@ -22,7 +22,10 @@ import javax.swing.JTextField;
 
 /**
  * page 16
- * @author Nick
+ * 
+ * Looks at a specific Visit's audio Evaluation.
+ * Can edit information on this page
+ * 
  */
 public class SpecificAudioEvalPage {
 
@@ -44,6 +47,27 @@ public class SpecificAudioEvalPage {
 	private int endY;
 
 
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * takes in various input to display information
+	 * Creates UI and sizes things appropriately
+	 * 
+	 * @param frame
+	 * @param lastName
+	 * @param inputLDiscom
+	 * @param inputRDiscom
+	 * @param inputTinPitch
+	 * @param inputTinMatch
+	 * @param inputTinMatchType
+	 * @param inputHearThresh
+	 * @param inputLMinMask
+	 * @param inputRMinMask
+	 * @param inputAddComment
+	 * @param inputStartX
+	 * @param inputStartY
+	 * @param inputEndX
+	 * @param inputEndY
+	 */
 	public SpecificAudioEvalPage(JFrame frame, String lastName, String inputLDiscom, String inputRDiscom, String inputTinPitch, String inputTinMatch, String inputTinMatchType,
 								 String inputHearThresh, String inputLMinMask, String inputRMinMask, String inputAddComment, String inputStartX, 
 								 String inputStartY, String inputEndX, String inputEndY)
