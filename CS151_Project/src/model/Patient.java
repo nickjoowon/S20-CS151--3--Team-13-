@@ -475,6 +475,10 @@ public class Patient {
 	public ArrayList<Visit> getDoneVisit() {
 		return visitHistory;
 	}
+	public Visit getLastVisit()
+	{
+		return visitHistory.get(visitHistory.size()-1);
+	}
 	
 
 }
