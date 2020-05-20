@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import model.Medicine;
@@ -484,8 +485,14 @@ public class PatientController {
 			}
 	
 			PatientMedListPage medListPage = new PatientMedListPage(frame, p.getLastName(), medNameList);
-			
-			//medListPage.addMedicationListener();
+			ArrayList<JButton> medButtons = medListPage.getMedButtons();
+			for (int i = 0; i < medButtons.size();i++)
+			{
+				JButton medButton = medButtons.get(i);
+				gotoSpecificMedListener specMedListener = new gotoSpecificMedListener(p, p.getMedicine(medButton.getText()));
+				medButton.addActionListener(specMedListener);
+				
+			}
 			
 		}
 	}

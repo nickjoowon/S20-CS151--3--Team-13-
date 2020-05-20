@@ -6,6 +6,7 @@ package view;
  */
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -15,10 +16,11 @@ import model.Patient;
 public class PatientMedListPage {
 	JFrame frame;
 	JButton back;
-	JButton medication;
+	ArrayList<JButton> medicationButtonList;
 
 	public PatientMedListPage(JFrame frame, String lastName, String[] medList) {
 		this.frame = frame;
+		medicationButtonList = new ArrayList<JButton>(); 
 		frame.getContentPane().removeAll();
 		frame.setTitle("Medication List");
 		//temporary
@@ -87,13 +89,14 @@ public class PatientMedListPage {
 			for(int c = 0; c < 4; c++) {
 				if(numMed > medList.length-1)
 					break;
-				medication = new JButton(medList[r*4 + c]);
+				JButton medication = new JButton(medList[r*4 + c]);
 				medication.setPreferredSize(new Dimension(60,27));
 				medication.setOpaque(true);
 				medication.setBackground(Color.white);
 				medication.setBorderPainted(true);
 				medication.setFont(new Font("Arial", Font.PLAIN, 12));
 				medicines.add(medication).setLocation(r+1, c+1);
+				medicationButtonList.add(medication); 
 				numMed++;
 			}
 		}
@@ -148,8 +151,12 @@ public class PatientMedListPage {
 	}
 	
 	
-	public void addMedicationListener(ActionListener m) {
-		medication.addActionListener(m);
+	public void addMedicationListener(int indexOfButton, ActionListener m) {
+		medicationButtonList.get(indexOfButton).addActionListener(m);
+	}
+	public ArrayList<JButton> getMedButtons()
+	{
+		return medicationButtonList; 
 	}
 	
 	

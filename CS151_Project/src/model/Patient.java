@@ -464,6 +464,20 @@ public class Patient {
 		return null; 
 	}
 	
+	public Medicine getMedicine(String medName) {
+		for (Medicine a: medList)
+		{
+			if (a.getMedicineName().equals(medName))
+			{
+				return a;
+	
+			}
+
+		}
+		return null; 
+		
+	}
+	
 	public ArrayList<Visit> getDoneVisit()
 	{
 		return doneSchedule;
