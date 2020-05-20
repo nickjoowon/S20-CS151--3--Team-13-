@@ -10,58 +10,32 @@ public class Visit {
 	/**
 	 * orderNum is the patients identification number
 	 */
-	private String fullName;
+	
 	private String date;
-	private int sequenceNum;
-	private int IDNum;
-	private Evaluation evaluations;
+	private String sequenceNum;
+	private String treatmentProgress; 
+	private String interviewForm; 
+	private boolean isSoundTherapy;
+	private boolean isRealEarMeasurement; 
+	private boolean isCounseling; 
+	private Evaluation evaluation;
 	
 	/**
 	 * @param fullName
 	 * @param date
 	 * @param orderNum
 	 */
-	public Visit(String fullName, String date, int IDNum, int sequenceNum) {
-		this.fullName = fullName;
+	public Visit(String date, String sequenceNum, String treatmentProgress, String interviewForm, 
+			boolean isSoundTherapy,boolean isRealEarMeasurement, boolean isCounseling) {
+		this.setTreatmentProgress(treatmentProgress); 
 		this.date = date;
-		this.IDNum = IDNum;
+		this.setInterviewForm(interviewForm); 
 		this.sequenceNum = sequenceNum;
+		this.isCounseling = isCounseling; 
+		this.isRealEarMeasurement = isRealEarMeasurement; 
+		this.isSoundTherapy = isSoundTherapy; 
 	}
 	
-	
-	/**
-	 * gets patient ID number
-	 * @return patient's ID
-	 */
-	public int IDNum() {
-		return IDNum;
-	}
-	
-	
-	/**
-	 * sets patient ID number
-	 * @param number to set patient's ID number to
-	 */
-	public void setIDNum(int x) {
-		this.IDNum = x;
-	}
-	
-	
-	/**
-	 * @return full name
-	 */
-	public String getFullName() {
-		return fullName;
-	}
-	
-	
-	/**
-	 * sets full name
-	 * @param fullName
-	 */
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
-	}
 	
 	
 	/**
@@ -86,7 +60,7 @@ public class Visit {
 	 * get number of the visit
 	 * @return visit number
 	 */
-	public int getSeqNum() {
+	public String getSeqNum() {
 		return sequenceNum;
 	}
 	
@@ -95,8 +69,44 @@ public class Visit {
 	 * set number of the visit
 	 * @param visitNum
 	 */
-	public void setSeqNum(int x) {
+	public void setSeqNum(String x) {
 		this.sequenceNum = x;
+	}
+
+
+
+	public String getTreatmentProgress() {
+		return treatmentProgress;
+	}
+
+
+
+	public void setTreatmentProgress(String treatmentProgress) {
+		this.treatmentProgress = treatmentProgress;
+	}
+
+
+
+	public String getInterviewForm() {
+		return interviewForm;
+	}
+
+
+
+	public void setInterviewForm(String interviewForm) {
+		this.interviewForm = interviewForm;
+	}
+
+
+
+	public Evaluation getEvaluation() {
+		return evaluation;
+	}
+
+
+
+	public void setEvaluation(Evaluation evaluation) {
+		this.evaluation = evaluation;
 	}
 
 

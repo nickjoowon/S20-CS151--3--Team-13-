@@ -35,9 +35,8 @@ public class Patient {
 	//medicine list
 	ArrayList<Medicine> medList;
 	//Schedules of appointments
-	ArrayList<Visit> nextSchedule;
-	ArrayList<Visit> doneSchedule;
-
+	ArrayList<Visit> visitHistory;
+	
 
 	
 	 
@@ -61,8 +60,8 @@ public class Patient {
 		this.country = country;
 		this.insuranceNum = insuranceNum;
 		medList = new ArrayList<Medicine>(); 
-		nextSchedule = new ArrayList<Visit>(); 
-		doneSchedule = new ArrayList<Visit>(); 
+		visitHistory = new ArrayList<Visit>(); 
+		 
 	}
 	
 
@@ -348,7 +347,7 @@ public class Patient {
 	 * @param the visit to be added to the list schedules
 	 */
 	public void addNextVisit(Visit visit) {
-		nextSchedule.add(visit);
+		visitHistory.add(visit);
 	}
 
 
@@ -356,7 +355,7 @@ public class Patient {
 	 * deletes the most recently scheduled visit
 	 */
 	public void deleteNextVisit() {
-		nextSchedule.remove(nextSchedule.size());
+		visitHistory.remove(visitHistory.size());
 	}
 
 
@@ -477,10 +476,11 @@ public class Patient {
 		return null; 
 		
 	}
-	
-	public ArrayList<Visit> getDoneVisit()
+	public void addVisit(Visit visit)
 	{
-		return doneSchedule;
+		visitHistory.add(visit); 
 	}
+	
+
 
 }

@@ -236,16 +236,16 @@ public class PatientController {
 		}
 	}
 
-	static class gotoInfoListener implements ActionListener {
+		static class GotoInfoListener implements ActionListener {
 		PatientDataPage db;
 		boolean isCheckSelected;
 		Patient patient;
 
-		public gotoInfoListener(PatientDataPage db) {
+		public GotoInfoListener(PatientDataPage db) {
 			this.db = db;
 			isCheckSelected = true;
 		}
-		public gotoInfoListener(Patient p)
+		public GotoInfoListener(Patient p)
 		{
 			patient =p; 
 		}
@@ -256,10 +256,10 @@ public class PatientController {
 				{
 					Patient patient = db.whichPatient();
 					PatientInfoPage infoPage = new PatientInfoPage(frame, patient.getInfo());
-					gotoDatabaseListener gotoData = new gotoDatabaseListener();
-					GotoMedicationListener gotoMedication = new GotoMedicationListener(patient);
-					infoPage.addBackListener(gotoData);
-					infoPage.addNextListener(gotoMedication);
+					GotoDatabaseListener GotoData = new GotoDatabaseListener();
+					GotoMedicationListener GotoMedication = new GotoMedicationListener(patient);
+					infoPage.addBackListener(GotoData);
+					infoPage.addNextListener(GotoMedication);
 
 					infoPage.addUpdateListener((a) -> {
 						String[] info = infoPage.getEditedInfo();
@@ -293,10 +293,10 @@ public class PatientController {
 			{
 				
 				PatientInfoPage infoPage = new PatientInfoPage(frame, patient.getInfo());
-				gotoDatabaseListener gotoData = new gotoDatabaseListener();
-				GotoMedicationListener gotoMedication = new GotoMedicationListener(patient);
-				infoPage.addBackListener(gotoData);
-				infoPage.addNextListener(gotoMedication);
+				GotoDatabaseListener GotoData = new GotoDatabaseListener();
+				GotoMedicationListener GotoMedication = new GotoMedicationListener(patient);
+				infoPage.addBackListener(GotoData);
+				infoPage.addNextListener(GotoMedication);
 
 				infoPage.addUpdateListener((a) -> {
 					String[] info = infoPage.getEditedInfo();
@@ -327,10 +327,10 @@ public class PatientController {
 		}
 	}
 
-	static class gotoVisitListener implements ActionListener {
+	static class GotoAddVisitListener implements ActionListener {
 		PatientDataPage db;
 
-		public gotoVisitListener(PatientDataPage db) {
+		public GotoAddVisitListener(PatientDataPage db) {
 			this.db = db;
 		}
 
@@ -338,10 +338,44 @@ public class PatientController {
 
 			if (db.isPatientSelected() == true) // then button will work
 			{
+				VisitInfoPage visitInfoPage = new VisitInfoPage(frame, db.whichPatient().getLastName());
+				GotoDatabaseListener databaseListener = new GotoDatabaseListener(); 
+				visitInfoPage.addBackListener(databaseListener); 
+				GotoInputAudEvalListener b = new GotoInputAudEvalListener(db, true);
+				visitInfoPage.addNextListener(b);
 				// VisitInfoPage visitPage = new VisitInfoPage(frame,
 				// db.whichPatient().getInfo());
 			}
 
+		}
+	}
+	
+	static class GotoInputAudEvalListener implements ActionListener{
+		private boolean isAddVisit; 
+		private PatientDataPage db; 
+		VisitInfoPage visitInfoPage; 
+		public GotoInputAudEvalListener(PatientDataPage db, VisitInfoPage visitInfoPage, boolean isAddVisit)
+		{
+			isAddVisit = true; 
+			this.isAddVisit = isAddVisit; 
+			this.visitInfoPage = visitInfoPage; 
+
+		}
+		public GotoInputAudEvalListener(PatientDataPage db, boolean isAddVisit)
+		{
+			this.db = db; 
+			isAddVisit = false; 
+		}
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			if (isAddVisit)
+			{
+				String[] visitInfo = visitInfoPage.getInfo(); 
+				Visit visit = new Visit(visitInfo[0], visitInfo[1], visitInfo[2], visitInfo[3], visitInfoPage.isSoundTherapyChecked(), visitInfoPage.isEarMeasureChecked(), visitInfoPage.isCounselChecked());
+				db.whichPatient().addVisit(visit); 
+			}
+			
 		}
 	}
 
