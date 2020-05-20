@@ -13,7 +13,12 @@ import model.Patient;
 import model.PatientModel;
 import model.Visit;
 import view.*;
-
+/**
+ * 
+ * The controllor class of our project. 
+ * This is for our MVC pattern implementation
+ *
+ */
 public class PatientController {
 
 	private static JFrame frame;
@@ -36,9 +41,13 @@ public class PatientController {
 
 	}
 
-	// add what the model should do with the information for each actionlistener
-	// call the approrpiate actionlisteners for each page it goes to
-	// should check if the previous page's text is filled out
+	/**
+	 * Sends to Page 2
+	 * Adds what the model should do with the information for each actionlistener
+	 * Calls the approrpiate actionlisteners for each page it goes to
+	 * should check if the previous page's text is filled out b4 letting it advance to Page 3
+	 * Can return to Page 1
+	 */
 	static class GotoReqInputListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
@@ -50,7 +59,12 @@ public class PatientController {
 			reqInfo.addNextListener(n);
 		}
 	}
-
+ 	/**
+	 * Starts Page 1
+	 * 
+	 * options to go to Page 2 or Page 7
+	 *
+	 */
 	static class GotoMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -67,7 +81,13 @@ public class PatientController {
 		}
 
 	}
-
+	
+	/**
+	 * Sends to Page 3
+	 * 
+	 * options to go to Page 4 or Page 2
+	 *
+	 */
 	static class GotoOptInfoListener implements ActionListener {
 		ReqInfoPage reqInfo;
 		boolean isCheckReqInfo;
@@ -119,6 +139,12 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Sends to Page 4
+	 * 
+	 * options to go to Page 5 or Page 3
+	 *
+	 */
 	static class GotoTinHypStatusListener implements ActionListener {
 		OptInfoPage optInfo;
 		boolean isCheckOptional;
@@ -150,6 +176,12 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Sends to Page 5
+	 * 
+	 * options to go to Page 6 or Page 4
+	 *
+	 */
 	static class GotoInputMedListener implements ActionListener {
 		private InputMedPage inputMedPage;
 		private boolean isCheckMedicine;
@@ -417,8 +449,13 @@ public class PatientController {
 			CategoryPage catPage = new CategoryPage(frame, db.whichPatient().getLastName()); 
 			GotoInputAudEvalListener b = new GotoInputAudEvalListener(db);
 			GotoDatabaseListener f = new GotoDatabaseListener(catPage, db.whichPatient());
+			GotoMedicationListener m  = new GotoMedicationListener(db.whichPatient());
+			GotoInfoListener mh = new GotoInfoListener(db.whichPatient());
+			
 			catPage.addBackListener(b);
 			catPage.addFinishListener(f);
+			catPage.addMedicationListener(m);
+			catPage.addMedHistoryListener(mh);
 			
 		}
 	}
@@ -460,41 +497,106 @@ public class PatientController {
 
 	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
+		boolean isCheckSelected; 
 
 		public GotoAddHistoryListener(PatientDataPage db) {
 			this.db = db;
+			isCheckSelected = true; 
+		}
+		public GotoAddHistoryListener(PatientDataPage db, boolean isCheckSelected)
+		{
+			this.db = db; 
+			isCheckSelected = false; 
 		}
 
 		public void actionPerformed(ActionEvent e) {
+			if (isCheckSelected == true)
+			{
 
-			if (db.isPatientSelected() == true) // then button will work
+				if (db.isPatientSelected() == true) // then button will work
+				{
+					VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(),
+						db.whichPatient().getFirstName(), db.whichPatient().getLastName());
+
+					GotoDatabaseListener d = new GotoDatabaseListener();
+					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
+					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
+					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
+
+					historyPage.addBackListener(d);
+					historyPage.addEditInfoListener(ev);
+					historyPage.addInfoListener(i);
+					historyPage.addEvaluationListener(a);
+
+				}
+			}
+			else
 			{
 				VisitHistPage historyPage = new VisitHistPage(frame, db.whichPatient().getDoneVisit(),
 						db.whichPatient().getFirstName(), db.whichPatient().getLastName());
 
-				GotoDatabaseListener d = new GotoDatabaseListener();
-				GotoVisitInfoListener i = new GotoVisitInfoListener();
-				GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
-				GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
+					GotoDatabaseListener d = new GotoDatabaseListener();
+					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
+					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
+					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
 
-				historyPage.addBackListener(d);
-				historyPage.addEditInfoListener(ev);
-				historyPage.addInfoListener(i);
-				historyPage.addEvaluationListener(a);
-
+					historyPage.addBackListener(d);
+					historyPage.addEditInfoListener(ev);
+					historyPage.addInfoListener(i);
+					historyPage.addEvaluationListener(a);
+				
 			}
+			
 
 		}
 	}
 
 	static class GotoVisitInfoListener implements ActionListener {
+		PatientDataPage db; 
+		VisitHistPage historyPage; 
+		public GotoVisitInfoListener(PatientDataPage db, VisitHistPage historyPage)
+		{
+			this.db = db;
+			this.historyPage = historyPage; 
+		}
 
 		public void actionPerformed(ActionEvent e) {
+			if (historyPage.isVisitSelected() == true)
+			{
+				Patient patient = db.whichPatient();
+				Visit visit = historyPage.whichVisit(); 
+				SpecificVisitInfoPage specVisInfoPage = new SpecificVisitInfoPage(frame, patient.getLastName(), visit.getSeqNum(), visit.getDate(), visit.getSeqNum(), visit.getTreatmentProgress(), 
+						visit.getInterviewForm(), visit.isSoundTherapy(), visit.isRealEarMeasurement(), visit.isCounseling()); 
+				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
+				specVisInfoPage.addBackListener(aDListener);
+				
+				specVisInfoPage.addNextListener((a) -> {
+					
+					String[] info = specVisInfoPage.getInfo(); 
+					visit.setDate(info[0]);
+					visit.setSeqNum(info[1]);
+					visit.setTreatmentProgress(info[2]);
+					visit.setInterviewForm(info[3]);
+					visit.setSoundTherapy(specVisInfoPage.isSoundTherapyChecked());
+					visit.setRealEarMeasurement(specVisInfoPage.isEarMeasureChecked());
+					visit.setCounseling(specVisInfoPage.isCounselChecked());
+					
+				});
+				
+					
+				
+						
+						
+						
+			
+			}
 
 			// add stuff
 
 		}
 	}
+	
+
 
 	static class GotoSpecificAudioEvalListener implements ActionListener {
 

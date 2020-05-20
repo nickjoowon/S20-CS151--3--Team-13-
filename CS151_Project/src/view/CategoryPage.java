@@ -171,6 +171,15 @@ public class CategoryPage {
 		{
 			back.addActionListener(b);
 		}
+
+		public void addMedicationListener(ActionListener m) 
+		{
+			meds.addActionListener(m);
+		}
+		public void addMedHistoryListener(ActionListener mh) 
+		{
+			medH.addActionListener(mh);
+		}
 		public boolean isCheckBoxSelected()
 		{
 			if(c1.isSelected())
