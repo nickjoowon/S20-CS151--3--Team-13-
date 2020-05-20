@@ -589,6 +589,11 @@ public class PatientController {
 						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getlAudioTone());
 				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
 				evalPage.addBackListener(aDListener);
+				evalPage.addNextListener((z)-> 
+				{
+					String[] info = evalPage.getInfo(); 
+					
+				});
 			}
 
 		}
