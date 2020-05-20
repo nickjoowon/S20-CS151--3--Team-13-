@@ -18,7 +18,10 @@ import java.awt.event.ActionListener;
 
 /**
  * page 11
- * @author Nick
+ * 
+ *  The first page for entering information during a patient's visit
+ *  Contains fields and checkboxes for the doctor/nurse to enter information into
+ *  
  */
 public class VisitInfoPage {
 	JFrame frame; 
@@ -32,6 +35,14 @@ public class VisitInfoPage {
 	private JCheckBox earMeasureCheck;
 	private JCheckBox counselCheck;
 
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Takes in String of name to display it to patient
+	 * sets dimensions and creates UI
+	 * 
+	 * @param frame
+	 * @param s
+	 */
 	public VisitInfoPage(JFrame frame, String s) {
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
