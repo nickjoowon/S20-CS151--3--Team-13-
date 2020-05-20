@@ -35,13 +35,13 @@ public class Evaluation {
 	{
 		this.rightLDL = rightLDL;
 		this.leftLDL = leftLDL;
-		this.audioGraph = audioGraph; 
+		this.setAudioGraph(audioGraph); 
 		this.tinPitch = tinPitch;
 		this.tinMatch = tinMatch;
 		this.hearingThreshold = hearingThreshold;
 		this.rMinMasking = rMinMasking;
 		this.lMinMasking = lMinMasking;
-		this.matchType = matchType; 
+		this.setMatchType(matchType); 
 	
 		this.audioComment = audioComment;
 	}
@@ -132,6 +132,22 @@ public class Evaluation {
 
 	public void setAudioComment(String audioComment) {
 		this.audioComment = audioComment;
+	}
+
+	public String getMatchType() {
+		return matchType;
+	}
+
+	public void setMatchType(String matchType) {
+		this.matchType = matchType;
+	}
+
+	public String getAudioGraph() {
+		return audioGraph;
+	}
+
+	public void setAudioGraph(String audioGraph) {
+		this.audioGraph = audioGraph;
 	}
 	
 }

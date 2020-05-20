@@ -488,11 +488,11 @@ public class PatientController {
 
 					GotoDatabaseListener d = new GotoDatabaseListener();
 					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
-					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
-					
+					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener(db, historyPage);
+					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
 
 					historyPage.addBackListener(d);
-					
+					historyPage.addEditInfoListener(ev);
 					historyPage.addInfoListener(i);
 					historyPage.addEvaluationListener(a);
 
@@ -505,11 +505,11 @@ public class PatientController {
 
 					GotoDatabaseListener d = new GotoDatabaseListener();
 					GotoVisitInfoListener i = new GotoVisitInfoListener( db,  historyPage);
-					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener();
-					
+					GotoSpecificAudioEvalListener a = new GotoSpecificAudioEvalListener(db, historyPage);
+					GotoEditVisitHistListener ev = new GotoEditVisitHistListener();
 
 					historyPage.addBackListener(d);
-					
+					historyPage.addEditInfoListener(ev);
 					historyPage.addInfoListener(i);
 					historyPage.addEvaluationListener(a);
 				
@@ -567,10 +567,29 @@ public class PatientController {
 
 
 	static class GotoSpecificAudioEvalListener implements ActionListener {
+		private PatientDataPage db;
+		private VisitHistPage vh; 
+		
+		public GotoSpecificAudioEvalListener(PatientDataPage db, VisitHistPage vh )
+		{
+			this.db = db;
+			this.vh = vh; 
+		}
 
 		public void actionPerformed(ActionEvent e) {
 
 			// add stuff
+			if (vh.isVisitSelected() == true)
+			{
+				Patient patient = db.whichPatient();
+				Visit visit = vh.whichVisit(); 
+				Evaluation eval = visit.getEvaluation(); 
+				SpecificAudioEvalPage evalPage = new SpecificAudioEvalPage(frame, patient.getLastName(),
+						eval.getLeftLDL(), eval.getRightLDL(), eval.getTinPitch(),eval.getTinMatch(),eval.getMatchType(), eval.getHearingThreshold(),
+						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getlAudioTone());
+				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
+				evalPage.addBackListener(aDListener);
+			}
 
 		}
 	}
