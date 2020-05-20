@@ -42,7 +42,7 @@ public class AudioEvalPage {
 		frame.getContentPane().removeAll(); 
 		frame.setTitle("Audiological Information"); 
 		//temporary
-//		frame.setSize(910,700); 
+		frame.setSize(910,700); 
 
 		//panel for the top blue part 
 		JPanel top = new JPanel(); 
@@ -259,8 +259,8 @@ public class AudioEvalPage {
 		frame.add(backAndNext, BorderLayout.SOUTH);
 
 		//temprorary
-//		frame.setVisible(true);
-//		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setVisible(true);
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 		frame.repaint();
@@ -276,14 +276,33 @@ public class AudioEvalPage {
 		back.addActionListener(a);
 	}
 	
-
+	
+	 
+	public String[] getInfo() 
+	{
+		String[] info =
+			{
+					lDiscomfortText.getText(),
+					rDiscomfortText.getText(),
+					tinPitchText.getText(),
+					tinMatchText.getText(),
+					tinMatchTypeText.getText(),
+					hearThresholdText.getText(),
+					lMinMaskLevelText.getText(),
+					rMinMaskLevelText.getText(),
+					addCommentText.getText(),
+					pureToneAudioText.getText()
+			};
+		return info;
+	}
+	
 
 
 	//for testing purposes
-//	public static void main(String[] args) {
-//		String s = "amazing nick";
-//		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
-//	}
+	public static void main(String[] args) {
+		String s = "amazing nick";
+		AudioEvalPage n = new AudioEvalPage(new JFrame(), s);
+	}
 
 
 
