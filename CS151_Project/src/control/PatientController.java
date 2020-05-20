@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import model.Evaluation;
 import model.Medicine;
 import model.Patient;
 import model.PatientModel;
@@ -407,12 +408,15 @@ public class PatientController {
 			// TODO Auto-generated method stub
 			if (isAddEval)
 			{
+				String[] evalInfo = audioEvalPage.getInfo(); 
+				Evaluation eval = new Evaluation(evalInfo[0],evalInfo[1],evalInfo[2],evalInfo[3],evalInfo[4],evalInfo[5],evalInfo[6],evalInfo[7],evalInfo[8],evalInfo[9]);
+				db.whichPatient().getLastVisit().setEvaluation(eval);
 				
 				
 			}
 			CategoryPage catPage = new CategoryPage(frame, db.whichPatient().getLastName()); 
 			GotoInputAudEvalListener b = new GotoInputAudEvalListener(db);
-			GotoDatabaseListener f = new GotoDatabaseListener();
+			GotoDatabaseListener f = new GotoDatabaseListener(catPage, db.whichPatient());
 			catPage.addBackListener(b);
 			catPage.addFinishListener(f);
 			
@@ -578,8 +582,28 @@ public class PatientController {
 	}
 
 	static class GotoDatabaseListener implements ActionListener {
+		private boolean isAssignCat; 
+		private CategoryPage catPage; 
+		private Patient patient; 
+		public GotoDatabaseListener()
+		{
+			
+		}
+		/**
+		 * constructor for coming back from assigning a category
+		 * @param catPage
+		 */
+		public GotoDatabaseListener(CategoryPage catPage, Patient patient)
+		{
+			isAssignCat = true; 
+			this.catPage = catPage; 
+			this.patient = patient; 
+		}
 		public void actionPerformed(ActionEvent e) {
-
+			if (isAssignCat)
+			{
+				//information of catPage and add it to the last visit of the patient. 
+			}
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
 			GotoMenuListener m = new GotoMenuListener();
 			GotoReqInputListener n = new GotoReqInputListener();

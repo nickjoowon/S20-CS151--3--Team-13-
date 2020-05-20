@@ -108,6 +108,7 @@ public class Visit {
 	public void setEvaluation(Evaluation evaluation) {
 		this.evaluation = evaluation;
 	}
+	
 
 
 }
