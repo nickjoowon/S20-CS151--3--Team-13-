@@ -537,6 +537,25 @@ public class PatientController {
 						visit.getInterviewForm(), visit.isSoundTherapy(), visit.isRealEarMeasurement(), visit.isCounseling()); 
 				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
 				specVisInfoPage.addBackListener(aDListener);
+				
+				specVisInfoPage.addNextListener((a) -> {
+					
+					String[] info = specVisInfoPage.getInfo(); 
+					visit.setDate(info[0]);
+					visit.setSeqNum(info[1]);
+					visit.setTreatmentProgress(info[2]);
+					visit.setInterviewForm(info[3]);
+					visit.setSoundTherapy(specVisInfoPage.isSoundTherapyChecked());
+					visit.setRealEarMeasurement(specVisInfoPage.isEarMeasureChecked());
+					visit.setCounseling(specVisInfoPage.isCounselChecked());
+					
+				});
+				
+					
+				
+						
+						
+						
 			
 			}
 
@@ -544,6 +563,8 @@ public class PatientController {
 
 		}
 	}
+	
+
 
 	static class GotoSpecificAudioEvalListener implements ActionListener {
 
