@@ -13,7 +13,12 @@ import model.Patient;
 import model.PatientModel;
 import model.Visit;
 import view.*;
-
+/**
+ * 
+ * The controllor class of our project. 
+ * This is for our MVC pattern implementation
+ *
+ */
 public class PatientController {
 
 	private static JFrame frame;
@@ -36,9 +41,13 @@ public class PatientController {
 
 	}
 
-	// add what the model should do with the information for each actionlistener
-	// call the approrpiate actionlisteners for each page it goes to
-	// should check if the previous page's text is filled out
+	/**
+	 * Sends to Page 2(ReqInfoPage)
+	 * Adds what the model should do with the information for each actionlistener
+	 * Calls the approrpiate actionlisteners for each page it goes to
+	 * should check if the previous page's text is filled out b4 letting it advance to Page 3(OptInfoPage)
+	 * Can return to Page 1(MenuPage)
+	 */
 	static class GotoReqInputListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
@@ -50,7 +59,12 @@ public class PatientController {
 			reqInfo.addNextListener(n);
 		}
 	}
-
+ 	/**
+	 * Starts Page 1(MenuPage)
+	 * 
+	 * options to go to Page 2(ReqInfoPage) or Page 7(PatientDataPage)
+	 *
+	 */
 	static class GotoMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -67,7 +81,13 @@ public class PatientController {
 		}
 
 	}
-
+	
+	/**
+	 * Sends to Page 3(OptInfoPage)
+	 * 
+	 * options to go to Page 4(TinHypInputPage) or Page 2(ReqInfoPage)
+	 *
+	 */
 	static class GotoOptInfoListener implements ActionListener {
 		ReqInfoPage reqInfo;
 		boolean isCheckReqInfo;
@@ -119,6 +139,12 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Sends to Page 4(TinHypInputPage)
+	 * 
+	 * options to go to Page 5(InputMedPage) or Page 3(OptInfoPage)
+	 *
+	 */
 	static class GotoTinHypStatusListener implements ActionListener {
 		OptInfoPage optInfo;
 		boolean isCheckOptional;
@@ -150,6 +176,12 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Sends to Page 5(InputMedPage)
+	 * 
+	 * options to go to Page 1(MenuPage) or Page 4(TinHypInputPage)
+	 *
+	 */
 	static class GotoInputMedListener implements ActionListener {
 		private InputMedPage inputMedPage;
 		private boolean isCheckMedicine;
@@ -608,6 +640,14 @@ public class PatientController {
 		}
 	}
 
+	/**
+	 * 
+	 * Handles Page 7 (PatientDataPage's popup)
+	 * 
+	 * popup deletes itself upon entering info.
+	 * resends to updated Page 7(refer to GotoDatabaseListener for options)
+	 *
+	 */
 	static class GotoScheduleListener implements ActionListener
 	{
 		PatientDataPage db;
@@ -674,7 +714,13 @@ public class PatientController {
 			this.popup = popup;
 		}
 	}
-
+	/**
+	 * sends to Page 7 (PatientDataPage)
+	 * 
+	 * options to go to Page 10(PatientInfoPage), 8(VisitInfoPage), 14(VisitHistPage), 15 (PatientDataPage's popup),
+	 *  1 (MenuPage), 2 (OptInfoPage) , and 7(after deleting a patient)
+	 *
+	 */
 	static class GotoDatabaseListener implements ActionListener {
 		private boolean isAssignCat; 
 		private CategoryPage catPage; 
