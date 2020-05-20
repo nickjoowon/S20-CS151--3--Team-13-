@@ -436,20 +436,56 @@ public class PatientController {
 		}
 	}
 
-	static class gotoScheduleListener implements ActionListener {
+	static class gotoScheduleListener implements ActionListener
+	{
 		PatientDataPage db;
-
-		public gotoScheduleListener(PatientDataPage db) {
+		public gotoScheduleListener(PatientDataPage db)
+		{
 			this.db = db;
 		}
-
-		public void actionPerformed(ActionEvent e) {
-
-			if (db.isPatientSelected() == true) // then button will work
+		public void actionPerformed(ActionEvent e)
+		{
+			
+			if(db.isPatientSelected() == true) //then button will work
 			{
+				
 				db.addPopup();
+				gotoEnterScheduleListener es = new gotoEnterScheduleListener();
+				db.addEnterListener(es);
 			}
+			
+		}
+	}
+	static class gotoEnterScheduleListener implements ActionListener
+	{
+		
+		public void actionPerformed(ActionEvent e)
+		{
+			//add schedule to patient in model
+			
+			
+			//takes u back to PatientDataPage
+			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
+			gotoMenuListener m = new gotoMenuListener();
+			gotoReqInputListener n = new gotoReqInputListener();
+			gotoInfoListener i = new gotoInfoListener(database);
+			gotoVisitListener v = new gotoVisitListener(database);
+			gotoDeleteListener d = new gotoDeleteListener(database);
+			gotoAddHistoryListener h = new gotoAddHistoryListener(database);
+			gotoScheduleListener s = new gotoScheduleListener(database);
 
+			 
+
+			database.addInfoListener(i);
+			database.addVisitListener(v);
+			database.addDeleteListener(d);
+			database.addHistoryListener(h);
+			database.addScheduleListener(s);
+
+			database.addBackListener(m);
+			database.addNextListener(n);
+			System.out.println(patientModel);
+			
 		}
 	}
 
