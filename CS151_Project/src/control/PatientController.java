@@ -517,12 +517,7 @@ public class PatientController {
 
 		}
 	}
-	/**
-	 * sends to Page 14(VisitHistPage)
-	 * 
-	 * options to go to Page 15(SpecificVisitInfoPage), Page 7(PatientDataPage) ,and Page 16 (SpecificAudioEvalPage)
-	 *
-	 */
+
 	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
 		boolean isCheckSelected; 
@@ -577,12 +572,7 @@ public class PatientController {
 
 		}
 	}
-	/**
-	 * sends to Page 15(SpecificVisitInfoPage)
-	 * 
-	 * options to go to Page 14(VisitHistPage)
-	 *
-	 */
+
 	static class GotoVisitInfoListener implements ActionListener {
 		PatientDataPage db; 
 		VisitHistPage historyPage; 
@@ -665,6 +655,10 @@ public class PatientController {
 					eval.setlMinMasking(info[6]);
 					eval.setrMinMasking(info[7]);
 					eval.setAudioComment(info[8]);
+					eval.setStartX(info[9]);
+					eval.setStartY(info[10]);
+					eval.setEndX(info[11]);
+					eval.setEndY(info[12]);
 					
 				});
 			}
