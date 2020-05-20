@@ -358,15 +358,6 @@ public class Patient {
 		visitHistory.remove(visitHistory.size());
 	}
 
-
-	/**
-	 * @param the visit to be added to the list of visits that have occurred
-	 */
-	public void addDoneVisit(Visit visit) {
-		doneSchedule.add(visit);
-	}
-
-
 	/**
 	 * @param med medicine to be added. 
 	 */
