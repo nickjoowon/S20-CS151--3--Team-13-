@@ -616,6 +616,14 @@ public class PatientController {
 		}
 	}
 
+	/**
+	 * 
+	 * Handles Page 7 (PatientDataPage's popup)
+	 * 
+	 * popup deletes itself upon entering info.
+	 * resends to updated Page 7(refer to GotoDatabaseListener for options)
+	 *
+	 */
 	static class GotoScheduleListener implements ActionListener
 	{
 		PatientDataPage db;
