@@ -161,6 +161,7 @@ public class VisitHistPage {
 	{
 		back.addActionListener(b);
 	}
+	
 	public void addInfoListener(ActionListener i) 
 	{
 		info.addActionListener(i);
