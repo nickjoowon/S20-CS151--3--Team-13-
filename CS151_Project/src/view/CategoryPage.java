@@ -46,10 +46,10 @@ public class CategoryPage {
 			titleOfTop.setFont(new Font("Arial", Font.BOLD, 40));
 			titleOfTop.setForeground(Color.white);
 			top.add(titleOfTop, BorderLayout.WEST);
-			JLabel secondarytitleOfTop = new JLabel(" Check Medical History and Medications "); 
-			secondarytitleOfTop.setFont(new Font("Arial", Font.BOLD, 30));
-			secondarytitleOfTop.setForeground(Color.white);
-			top.add(secondarytitleOfTop, BorderLayout.WEST);
+			//JLabel secondarytitleOfTop = new JLabel(" Check Medical History and Medications "); 
+			//secondarytitleOfTop.setFont(new Font("Arial", Font.BOLD, 30));
+			//secondarytitleOfTop.setForeground(Color.white);
+			//top.add(secondarytitleOfTop, BorderLayout.WEST);
 			
 			JPanel topDecoration = new JPanel();
 			topDecoration.setPreferredSize(new Dimension(440, 15));
@@ -84,8 +84,11 @@ public class CategoryPage {
 			
 			//Panel to organize other buttons
 			JPanel buttons = new JPanel(); 
-			buttons.setLayout(new GridLayout(2,1));
+			buttons.setLayout(new GridLayout(5,1));
 			
+			//added whitespace above buttons
+			JPanel aboveButtonDecorationWhite = new JPanel();
+			buttons.add(aboveButtonDecorationWhite, BorderLayout.NORTH);
 			//medications
 			meds = new JButton("Medications"); 
 			meds.setFont(new Font("Arial", Font.BOLD, 30));
@@ -94,7 +97,10 @@ public class CategoryPage {
 			meds.setForeground(Color.white);
 			meds.setBackground(new Color(41,142,208));
 			meds.setBorderPainted(false);
-			buttons.add(meds);
+			buttons.add(meds, BorderLayout.EAST);
+			//added whitespace between buttons
+			JPanel underButtonDecorationWhite = new JPanel();
+			buttons.add(underButtonDecorationWhite, BorderLayout.SOUTH);
 			
 			//medications
 			medH = new JButton("Medical History"); 
@@ -104,18 +110,33 @@ public class CategoryPage {
 			medH.setForeground(Color.white);
 			medH.setBackground(new Color(41,142,208));
 			medH.setBorderPainted(false);
-			buttons.add(medH);
+			buttons.add(medH, BorderLayout.EAST);
 			
 		
 			//panel for checkboxes
 			JPanel boxes = new JPanel();
 			boxes.setLayout(new GridLayout(5,1));
 			
-			c1 = new JCheckBox("0 - tinnitus present but no impact"); 
+			c1 = new JCheckBox("0 - tinnitus present but no impact");
+			c1.setFont(new Font("Arial", Font.BOLD, 20));
+			c1.setBackground(Color.WHITE);
+			
 			c2 = new JCheckBox("1 - tinnitus  w/ high impact"); 
-			c3 = new JCheckBox("2 - hearing problem present & relevant"); 
+			c2.setFont(new Font("Arial", Font.BOLD, 20));
+			c2.setBackground(Color.WHITE);
+			
+			c3 = new JCheckBox("2 - hearing problem present & relevant");
+			c3.setFont(new Font("Arial", Font.BOLD, 20));
+			c3.setBackground(Color.WHITE);
+			
 			c4 = new JCheckBox("3 - hypercausis is a major problem"); 
+			c4.setFont(new Font("Arial", Font.BOLD, 20));
+			c4.setBackground(Color.WHITE);
+			
 			c5 = new JCheckBox("4 - prolonged tinnitus exacerbation"); 
+			c5.setFont(new Font("Arial", Font.BOLD, 20));
+			c5.setBackground(Color.WHITE);
+			
 			
 			boxes.add(c1);
 			boxes.add(c2);
@@ -126,7 +147,7 @@ public class CategoryPage {
 			
 			//add panels to frame
 			frame.add(boxes, BorderLayout.WEST);
-			frame.add(buttons, BorderLayout.EAST);
+			frame.add(buttons, BorderLayout.CENTER);
 			frame.add(top, BorderLayout.NORTH); 
 			frame.add(backAndFinish, BorderLayout.SOUTH);
 			
