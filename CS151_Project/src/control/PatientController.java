@@ -13,7 +13,12 @@ import model.Patient;
 import model.PatientModel;
 import model.Visit;
 import view.*;
-
+/**
+ * 
+ * The controllor class of our project. 
+ * This is for our MVC pattern implementation
+ *
+ */
 public class PatientController {
 
 	private static JFrame frame;
@@ -36,9 +41,13 @@ public class PatientController {
 
 	}
 
-	// add what the model should do with the information for each actionlistener
-	// call the approrpiate actionlisteners for each page it goes to
-	// should check if the previous page's text is filled out
+	/**
+	 * Sends to Page 2
+	 * Adds what the model should do with the information for each actionlistener
+	 * Calls the approrpiate actionlisteners for each page it goes to
+	 * should check if the previous page's text is filled out b4 letting it advance to Page 3
+	 * Can return to Page 1
+	 */
 	static class GotoReqInputListener implements ActionListener {
 
 		public void actionPerformed(ActionEvent e) {
@@ -50,7 +59,12 @@ public class PatientController {
 			reqInfo.addNextListener(n);
 		}
 	}
-
+ 	/**
+	 * Starts Page 1
+	 * 
+	 * options to go to Page 2 or Page 7
+	 *
+	 */
 	static class GotoMenuListener implements ActionListener {
 		public void actionPerformed(ActionEvent e) {
 
@@ -67,7 +81,13 @@ public class PatientController {
 		}
 
 	}
-
+	
+	/**
+	 * Sends to Page 3
+	 * 
+	 * options to go to Page 4 or Page 2
+	 *
+	 */
 	static class GotoOptInfoListener implements ActionListener {
 		ReqInfoPage reqInfo;
 		boolean isCheckReqInfo;
@@ -119,6 +139,12 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Sends to Page 4
+	 * 
+	 * options to go to Page 5 or Page 3
+	 *
+	 */
 	static class GotoTinHypStatusListener implements ActionListener {
 		OptInfoPage optInfo;
 		boolean isCheckOptional;
@@ -150,6 +176,12 @@ public class PatientController {
 
 	}
 
+	/**
+	 * Sends to Page 5
+	 * 
+	 * options to go to Page 6 or Page 4
+	 *
+	 */
 	static class GotoInputMedListener implements ActionListener {
 		private InputMedPage inputMedPage;
 		private boolean isCheckMedicine;
