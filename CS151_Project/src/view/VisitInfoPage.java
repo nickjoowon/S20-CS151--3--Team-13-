@@ -13,6 +13,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import java.awt.event.ActionListener;
+
 /**
  * page 11
  * @author Nick
@@ -34,7 +36,7 @@ public class VisitInfoPage {
 		frame.getContentPane().removeAll(); 
 		frame.setTitle("Visit Information Page"); 
 		//temporary
-//		frame.setSize(910,700); 
+		//		frame.setSize(910,700); 
 
 		//panel for the top blue part 
 		JPanel top = new JPanel(); 
@@ -140,26 +142,60 @@ public class VisitInfoPage {
 
 
 		//temprorary
-// 		frame.setVisible(true);
-// 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// 		frame.setVisible(true);
+		// 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 
 		frame.repaint();
 		frame.revalidate();
 
-		
-		
+
+
 
 
 	}
-	
-	
+
+	public String[] getInfo()
+	{
+		String [] info = 
+			{
+					dateOfVisitText.getText(),
+					sequenceNumText.getText(), 
+					treatmentProgText.getText(), 
+					tinHypInterviewText.getText()
+			}; 
+		return info; 
+	}
+	public void addBackListener(ActionListener a)
+	{
+		back.addActionListener(a);
+	}
+	public void addNextListener(ActionListener a)
+	{
+		next.addActionListener(a);
+	}
+
+
+	public boolean isSoundTherapyChecked()
+	{
+		return sndThrpyCheck.isSelected(); 
+	}
+	public boolean isEarMeasureChecked()
+	{
+		return earMeasureCheck.isSelected(); 
+	}
+	public boolean isCounselChecked()
+	{
+		return counselCheck.isSelected(); 
+	}
+
+
 	//for testing purposes
-// 	public static void main(String[] args) {
-// 		String s = "amazing nick";
-// 		VisitInfoPage n = new VisitInfoPage(new JFrame(), s);
-// 	}
-	
-	
-	
+	// 	public static void main(String[] args) {
+	// 		String s = "amazing nick";
+	// 		VisitInfoPage n = new VisitInfoPage(new JFrame(), s);
+	// 	}
+
+
+
 }
