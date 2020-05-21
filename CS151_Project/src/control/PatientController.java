@@ -785,6 +785,10 @@ public class PatientController {
 			System.out.println(patientModel);
 			
 		}
+		/**
+		 * setter method to retreieve JFrame
+		 * @param popup
+		 */
 		public void retrieveJFrame(JFrame popup)
 		{
 			this.popup = popup;
@@ -808,6 +812,7 @@ public class PatientController {
 		/**
 		 * constructor for coming back from assigning a category
 		 * @param catPage
+		 * @param patient
 		 */
 		public GotoDatabaseListener(CategoryPage catPage, Patient patient)
 		{
@@ -815,6 +820,7 @@ public class PatientController {
 			this.catPage = catPage; 
 			this.patient = patient; 
 		}
+		
 		public void actionPerformed(ActionEvent e) {
 			if (isAssignCat)
 			{
