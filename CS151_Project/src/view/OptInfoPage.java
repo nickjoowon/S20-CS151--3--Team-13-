@@ -111,34 +111,51 @@ public class OptInfoPage {
 		frame.add(top, BorderLayout.NORTH); 
 		frame.add(backAndNext, BorderLayout.SOUTH); 
 		
-		
-		
-		
-		
-		
-		
-		
 	
 		frame.repaint();
 		frame.revalidate();
 	}
 	
+	/**
+	 * actionlistener will work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlistener will work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
+	
+	/**
+	 * gives string containing occupation
+	 * @return
+	 */
 	public String getOccupation() {
 		return occupationText.getText(); 
 		
 	}
+	
+	/**
+	 * gives string containing work status
+	 * @return
+	 */
 	public String getWorkStatus() {
 		return workText.getText(); 
 		
 	}
+	
+	/**
+	 * gives string containing education text
+	 * @return
+	 */
 	public String getEducationDegree() {
 		return educationText.getText(); 
 		
