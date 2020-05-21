@@ -156,16 +156,29 @@ public class PatientMedListPage {
 
 	}
 	
-	
+	/**
+	 * actionlisteners work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
 	
-	
+	/**
+	 * actionListeners work for this AddMedication button at the given index
+	 * 
+	 * @param indexOfButton
+	 * @param m
+	 */
 	public void addMedicationListener(int indexOfButton, ActionListener m) {
 		medicationButtonList.get(indexOfButton).addActionListener(m);
 	}
+	
+	/**
+	 * gives arraylist of buttons from PatientMedListPage
+	 * @return
+	 */
 	public ArrayList<JButton> getMedButtons()
 	{
 		return medicationButtonList; 
@@ -179,10 +192,6 @@ public class PatientMedListPage {
 // 		String[] s = {"1","2","3","","",""};
 // 		PatientMedListPage n = new PatientMedListPage(new JFrame(), null, s);
 // 	}
-
-
-
-
 
 
 
