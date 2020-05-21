@@ -192,18 +192,37 @@ public class InputMedPage {
 		frame.revalidate();
 	}
 	
+	/**
+	 * actionlisteners work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		addMed.addActionListener(a);
 	}
+	
+	/**
+	 * actionlisteners work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
+	
+	/**
+	 * actionlisteners work for this finish button
+	 * @param f
+	 */
 	public void addFinishListener(ActionListener f)
 	{
 		finish.addActionListener(f);
 	}
+	
+	/**
+	 * gives various information from text fields as array of String
+	 * @return
+	 */
 	public String[] getRequiredInfo()
 	{
 		String[] info = new String[] {
@@ -220,8 +239,5 @@ public class InputMedPage {
 		
 	}
 	
-	
-	
-
 
 }
