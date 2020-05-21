@@ -818,7 +818,7 @@ public class PatientController {
 			if (isAssignCat)
 			{
 				patient.getLastVisit().getEvaluation().setCategoryLvl(catPage.whichCheckBox());
-				System.out.println(patient.getLastVisit().getEvaluation().getCategoryLvl());
+				
 				//information of catPage and add it to the last visit of the patient. 
 			}
 			PatientDataPage database = new PatientDataPage(frame, patientModel.patientList);
