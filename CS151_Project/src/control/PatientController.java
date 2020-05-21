@@ -679,7 +679,7 @@ public class PatientController {
 				Evaluation eval = visit.getEvaluation(); 
 				SpecificAudioEvalPage evalPage = new SpecificAudioEvalPage(frame, patient.getLastName(),
 						eval.getLeftLDL(), eval.getRightLDL(), eval.getTinPitch(),eval.getTinMatch(),eval.getMatchType(), eval.getHearingThreshold(),
-						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getStartX(), eval.getStartY(), eval.getEndX(), eval.getEndY());
+						eval.getlMinMasking(), eval.getrMinMasking(), eval.getAudioComment(), eval.getStartX(), eval.getStartY(), eval.getEndX(), eval.getEndY(),eval.getCategoryLvl());
 				GotoAddHistoryListener aDListener = new GotoAddHistoryListener(db, false); 
 				evalPage.addBackListener(aDListener);
 				evalPage.addNextListener((h)-> 
@@ -698,6 +698,7 @@ public class PatientController {
 					eval.setStartY(info[10]);
 					eval.setEndX(info[11]);
 					eval.setEndY(info[12]);
+					eval.setCategoryLvl(info[13]);
 					
 				});
 			}

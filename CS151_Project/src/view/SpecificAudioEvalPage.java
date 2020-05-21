@@ -41,6 +41,7 @@ public class SpecificAudioEvalPage {
 	private JTextField lMinMaskLevelText;
 	private JTextField rMinMaskLevelText;
 	private JTextField addCommentText;
+	private JTextField categoryText; 
 	private int startX;
 	private int startY;
 	private int endX;
@@ -70,7 +71,7 @@ public class SpecificAudioEvalPage {
 	 */
 	public SpecificAudioEvalPage(JFrame frame, String lastName, String inputLDiscom, String inputRDiscom, String inputTinPitch, String inputTinMatch, String inputTinMatchType,
 								 String inputHearThresh, String inputLMinMask, String inputRMinMask, String inputAddComment, String inputStartX, 
-								 String inputStartY, String inputEndX, String inputEndY)
+								 String inputStartY, String inputEndX, String inputEndY, String assignCat)
 	{
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
@@ -251,6 +252,14 @@ public class SpecificAudioEvalPage {
 		//setting JTextField according to input
 		addCommentText.setText(inputAddComment);
 		lowerCenterLeft.add(addCommentText, BorderLayout.CENTER);
+		
+		categoryText = new JTextField(assignCat); 
+		JPanel lowerCenterLeftLower = new JPanel(new BorderLayout()); 
+		lowerCenterLeftLower.add(categoryText, BorderLayout.CENTER);
+		JLabel category = new JLabel("Category"); 
+		lowerCenterLeftLower.add(category, BorderLayout.WEST);
+		
+		lowerCenterLeft.add(lowerCenterLeftLower,BorderLayout.SOUTH);
 
 		//combining lower and upper center left
 		centerLeft.add(upperCenterLeft, BorderLayout.CENTER);
@@ -408,7 +417,8 @@ public class SpecificAudioEvalPage {
 					Integer.toString(startX),
 					Integer.toString(startY),
 					Integer.toString(endX),
-					Integer.toString(endY)
+					Integer.toString(endY),
+					categoryText.getText()
 					
 			};
 		return info;
@@ -417,17 +427,17 @@ public class SpecificAudioEvalPage {
 	
 	
 	
-/*
+
 	//for testing purposes
 	public static void main(String[] args) {
 		String s = "amazing nick";
-		SpecificAudioEvalPage n = new SpecificAudioEvalPage(new JFrame(), s, "a", "b", "c", "d", "e", "f", "g", "h", "l", "100", "400", "400", "100");
+		SpecificAudioEvalPage n = new SpecificAudioEvalPage(new JFrame(), s, "a", "b", "c", "d", "e", "f", "g", "h", "l", "100", "400", "400", "100","hi");
 		for(String v : n.getInfo()) {
 			System.out.println(v);
 		}
 	}
 
-*/
+
 
 
 }
