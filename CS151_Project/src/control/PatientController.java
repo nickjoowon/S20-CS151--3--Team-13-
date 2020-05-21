@@ -179,7 +179,7 @@ public class PatientController {
 	/**
 	 * Sends to Page 5(InputMedPage)
 	 * 
-	 * options to go to Page 1(MenuPage) or Page 4(TinHypInputPage)
+	 * options to go to Page 6(MenuPage with undo) or Page 4(TinHypInputPage)
 	 *
 	 */
 	static class GotoInputMedListener implements ActionListener {
@@ -246,7 +246,7 @@ public class PatientController {
 
 	/**
 	 * 
-	 * Allows for undo button to work for Page 1(MenuPage)
+	 * sends to Page 6(MenuPage with undo)
 	 * You can only hit undo once.
 	 *
 	 * options to go to Page 2(ReqInfoPage) or Page 7(PatientDataPage), or Page 1(MenuPage without undo button)
