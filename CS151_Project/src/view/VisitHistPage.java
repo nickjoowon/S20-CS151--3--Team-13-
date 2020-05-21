@@ -171,20 +171,36 @@ public class VisitHistPage {
 			frame.repaint();
 			frame.revalidate();
 	}
+	/**
+	 * actionlisteners work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b) 
 	{
 		back.addActionListener(b);
 	}
 	
+	/**
+	 * actionlisteners work for this addInfo button
+	 * @param i
+	 */
 	public void addInfoListener(ActionListener i) 
 	{
 		info.addActionListener(i);
 	}
+	/**
+	 * actionlisteners work for this addEvaluation button
+	 * @param ev
+	 */
 	public void addEvaluationListener(ActionListener ev) 
 	{
 		eval.addActionListener(ev);
 	}
 	
+	/**
+	 * gives true value if a visit is selected
+	 * @return
+	 */
 	public boolean isVisitSelected()
 	{
 		for(int i = 0; i < visits.size();i++)
@@ -196,7 +212,11 @@ public class VisitHistPage {
 		
 		return false;
 	}
-	
+	/**
+	 * gives a visit that is selected
+	 * needs to be inside if statement for isVisitSelected returning true
+	 * @return
+	 */
 	public Visit whichVisit() //only use if isVisitSelected() returns true
 	{
 		for(int i = 0; i < visits.size();i++)
