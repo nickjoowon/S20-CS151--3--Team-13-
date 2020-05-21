@@ -369,18 +369,29 @@ public class SpecificAudioEvalPage {
 	}
 
 
-	
+	/**
+	 * actionlisteners will work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlisteners will work for this back button
+	 * @param a
+	 */
 	public void addBackListener(ActionListener a)
 	{
 		back.addActionListener(a);
 	}
 	
 	
-	 
+	 /**
+	  * gives various text field values as a String array
+	  * @return
+	  */
 	public String[] getInfo() 
 	{
 		String[] info =
@@ -406,7 +417,7 @@ public class SpecificAudioEvalPage {
 	
 	
 	
-
+/*
 	//for testing purposes
 	public static void main(String[] args) {
 		String s = "amazing nick";
@@ -416,7 +427,7 @@ public class SpecificAudioEvalPage {
 		}
 	}
 
-
+*/
 
 
 }
