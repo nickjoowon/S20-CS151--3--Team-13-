@@ -256,6 +256,7 @@ public class Evaluation {
 	/**
 	 * sets the ending y-coordinate of audiogram
 	 * @param endY
+	 * 
 	 */
 	public void setEndY(String endY) {
 		this.endY = endY;
