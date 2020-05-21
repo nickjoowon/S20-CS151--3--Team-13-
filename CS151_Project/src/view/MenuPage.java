@@ -5,17 +5,28 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionListener;
-
-
-
 import javax.swing.*; 
 
+/**
+ * 
+ * Page 1 and Page 6
+ * 
+ * The start/Menu screen (Page 1)
+ * 
+ * After registering a patient (Page 6)
+ *
+ */
 public class MenuPage {
   private JButton registerButton; 
 	private JButton viewButton; 
 	private JFrame frame;
 	private JButton undoButton; 
 	boolean isUndo; 
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Creates UI
+	 * @param frame
+	 */
 	public MenuPage(JFrame frame)
 	{
 		this.frame = frame;
@@ -62,7 +73,13 @@ public class MenuPage {
 		frame.repaint();
 		frame.revalidate();
 	}
-	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Accounts for undo button
+	 * Creates UI
+	 * @param frame
+	 * @param isUndo
+	 */
 	public MenuPage(JFrame frame, boolean isUndo)
 	{
 		this.isUndo = isUndo; 
