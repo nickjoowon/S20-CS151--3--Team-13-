@@ -10,7 +10,7 @@ public class Visit {
 	/**
 	 * orderNum is the patients identification number
 	 */
-	
+
 	private String date;
 	private String sequenceNum;
 	private String treatmentProgress; 
@@ -19,11 +19,16 @@ public class Visit {
 	private boolean isRealEarMeasurement; 
 	private boolean isCounseling; 
 	private Evaluation evaluation;
-	
+
 	/**
-	 * @param fullName
+	 * 
 	 * @param date
-	 * @param orderNum
+	 * @param sequenceNum
+	 * @param treatmentProgress
+	 * @param interviewForm
+	 * @param isSoundTherapy
+	 * @param isRealEarMeasurement
+	 * @param isCounseling
 	 */
 	public Visit(String date, String sequenceNum, String treatmentProgress, String interviewForm, 
 			boolean isSoundTherapy,boolean isRealEarMeasurement, boolean isCounseling) {
@@ -35,40 +40,30 @@ public class Visit {
 		this.setRealEarMeasurement(isRealEarMeasurement); 
 		this.setSoundTherapy(isSoundTherapy); 
 	}
-	
-	
-	
+
+
+
 	/**
-	 * gets date of visit
-	 * @return
+	 * Getters and setter methods
 	 */
 	public String getDate() {
 		return date;
 	}
-	
-	
-	/**
-	 * sets date of visit
-	 * @param date
-	 */
+
+
+
 	public void setDate(String s) {
 		this.date = s;
 	}
-	
-	
-	/**
-	 * get number of the visit
-	 * @return visit number
-	 */
+
+
+
 	public String getSeqNum() {
 		return sequenceNum;
 	}
-	
-	
-	/**
-	 * set number of the visit
-	 * @param visitNum
-	 */
+
+
+
 	public void setSeqNum(String x) {
 		this.sequenceNum = x;
 	}
@@ -144,7 +139,7 @@ public class Visit {
 	public void setCounseling(boolean isCounseling) {
 		this.isCounseling = isCounseling;
 	}
-	
+
 
 
 }

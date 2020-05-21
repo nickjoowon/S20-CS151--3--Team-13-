@@ -11,6 +11,9 @@ public class PatientModel {
 
 	public ArrayList<Patient> patientList;
 	
+	/**
+	 * creates a patient list and adds two test case patients
+	 */
 	public PatientModel()
 	{
 		patientList = new ArrayList<Patient>(); 
@@ -30,22 +33,45 @@ public class PatientModel {
 		test1.setWorkStatus("good");
 		patientList.add(test1); 
 	}
+	/**
+	 * adds a patient to the patient list
+	 * @param patient
+	 */
 	public void addPatient(Patient patient)
 	{
 		patientList.add(patient); 
 	}
+	/**
+	 * returns the patient at the index of patient list
+	 * @param index
+	 * @return
+	 */
 	public Patient getPatient(int index)
 	{
 		return patientList.get(index);
 	}
+	
+	/**
+	 * returns the size of the patient list
+	 * @return
+	 */
 	public int getSize()
 	{
 		return patientList.size(); 
 	}
+	
+	/**
+	 * removes the most recently added patient from the patient list
+	 */
 	public void undoPatient()
 	{
 		patientList.remove(patientList.size()-1); 
 	}
+	
+	/**
+	 * removes patient from patient list
+	 * @param p
+	 */
 	public void removePatient(Patient p)
 	{
 		for(int i = 0; i < getSize(); i++)
@@ -56,6 +82,10 @@ public class PatientModel {
 			}
 		}
 	}
+	
+	/**
+	 * returns the string of all patient last names in the patient list 
+	 */
 	public String toString()
 	{
 		String patientNames =" ";

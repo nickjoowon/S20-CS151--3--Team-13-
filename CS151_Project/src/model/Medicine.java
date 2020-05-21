@@ -1,13 +1,13 @@
 package model;
 
-/*
+/**
  * Medicine class deals with the specificity of the medication information. 
  * This class is about medical history.
  */
 
 public class Medicine {
-	
-	
+
+
 	private String medicineName;
 	private String medicantName; 
 	private String doseSize; 
@@ -17,19 +17,19 @@ public class Medicine {
 	private String application;
 	private String usualDose;
 	private String sideEffect;
-	
+
 	/**
-	* medecineName is the name of the medicine
-	* doseSize is the size of the dose for the medicine
-	* duration is how long the medicine has been used
-	* chemCategoryName is the name of the chemicals of the medicine
-	* action is how the medication is applied 
-	* application is the description of the purpose for taking the medication
-	* usualDose is the description of how often the patient uses the medication
-	* sideEffect is for description of the side effects of this medication
-	*/
+	 * @param medecineName is the name of the medicine
+	 * @param doseSize is the size of the dose for the medicine
+	 * @param duration is how long the medicine has been used
+	 * @param chemCategoryName is the name of the chemicals of the medicine
+	 * @param action is how the medication is applied 
+	 * @param application is the description of the purpose for taking the medication
+	 * @param usualDose is the description of how often the patient uses the medication
+	 * @param sideEffect is for description of the side effects of this medication
+	 */
 	public Medicine(String medicineName, String medicantName, String doseSize, String duration, String chemCategoryName, String action, String application, String usualDose, String sideEffect) {
-		
+
 		this.medicineName = medicineName;
 		this.medicantName = medicantName; 
 		this.doseSize = doseSize;
@@ -41,8 +41,8 @@ public class Medicine {
 		this.sideEffect = sideEffect;
 	}
 
-	
-	/*
+
+	/**
 	 * Getters and setter methods
 	 */
 	public String getMedicineName() {
@@ -79,42 +79,46 @@ public class Medicine {
 
 
 	public void setMedicantName(String s) {
-		 medicantName = s;
+		medicantName = s;
 	}
-	
+
 	public void setMedicineName(String s) {
-		 medicineName = s ;
+		medicineName = s ;
 	}
 
 	public void setDoseSize(String s) {
-		 doseSize = s;
+		doseSize = s;
 	}
 
 	public void setDuration(String s) {
-		 duration = s;
+		duration = s;
 	}
 
 	public void setChemCategoryName(String s) {
-		 chemCategoryName = s;
+		chemCategoryName = s;
 	}
 
 	public void setAction(String s) {
-		 action = s;
+		action = s;
 	}
 
 	public void setApplication(String s) {
-		 application = s;
+		application = s;
 	}
 
 	public void setUsualDose(String s) {
-		 usualDose = s;
+		usualDose = s;
 	}
 
 	public void setSideEffect(String s) {
-		 sideEffect = s;
+		sideEffect = s;
 	}
 
-	
+
+	/**
+	 * returns all the information regarding this medication 
+	 * @return
+	 */
 	public String[] getInfo()
 	{
 		String[] info = 
@@ -131,16 +135,20 @@ public class Medicine {
 			};
 		return info; 
 	}
+
+	/**
+	 * returns all the variables as string
+	 */
 	public String toString()
 	{
 		return medicantName +
-		doseSize + 
-		duration + 
-		chemCategoryName +
-		action +
-		 application +
-		usualDose +
-		 sideEffect;
-		
+				doseSize + 
+				duration + 
+				chemCategoryName +
+				action +
+				application +
+				usualDose +
+				sideEffect;
+
 	}
 }
