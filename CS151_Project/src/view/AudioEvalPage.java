@@ -25,7 +25,10 @@ import javax.swing.border.Border;
 
 /**
  * page 12
- * @author Nick
+ * 
+ * Part 2 of adding a visit.
+ * Fields are there for information to be entered before proceeding to part 3
+ * 
  */
 public class AudioEvalPage {
 
@@ -48,6 +51,13 @@ public class AudioEvalPage {
 	private int endY;
 
 
+	/**
+ 	* Reuses frame from last Page and redraws on it
+	* takes in last of patient to display it in the title
+	* Creates UI
+        * @param frame
+        * @param lastName
+        */
 	public AudioEvalPage(JFrame frame, String lastName){
 		this.frame = frame; 
 		frame.getContentPane().removeAll(); 
