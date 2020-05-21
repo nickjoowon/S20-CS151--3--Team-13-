@@ -146,14 +146,29 @@ public class SpecificMedPage {
 		frame.repaint();
 		frame.revalidate();
 	}
+	
+	/**
+	 * actionlisteners will work for back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
+	
+	/**
+	 * actionlisteners will work for update button
+	 * @param c
+	 */
 	public void addUpdateListener(ActionListener c)
 	{
 		updateInfo.addActionListener(c);
 	}
+	
+	/**
+	 * gives various updated information in form of a String array
+	 * @return
+	 */
 	public String[] getEditedInfo()
 	{
 		String[] info = { 
@@ -170,6 +185,7 @@ public class SpecificMedPage {
 		return info; 
 	}
 
+	/*tests
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame(); 
@@ -192,5 +208,5 @@ public class SpecificMedPage {
  
 		
 	}
-	
+	*/
 }
