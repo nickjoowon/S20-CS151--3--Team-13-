@@ -217,40 +217,85 @@ public class PatientDataPage {
 	}
 
 
-	
+	/**
+	 * actionlistener will work on this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b) 
 	{
 		back.addActionListener(b);
 	}
+	
+	/**
+	 * actionlistener will work on this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a) 
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlistener will work on this Info button
+	 * @param i
+	 */
 	public void addInfoListener(ActionListener i)
 	{
 		info.addActionListener(i);
 	}
+	
+	/**
+	 * actionlistener can work on this addvisit button
+	 * @param v
+	 */
 	public void addVisitListener(ActionListener v)
 	{
 		addVisit.addActionListener(v);
 	}
+	
+	/**
+	 * actionlistener can work on this delete button
+	 * @param d
+	 */
 	public void addDeleteListener(ActionListener d)
 	{
 		delete.addActionListener(d);
 	}
+	
+	/**
+	 * actionlistener can work on this visitHistory button
+	 * @param h
+	 */
 	public void addHistoryListener(ActionListener h)
 	{
 		history.addActionListener(h);
 	}
+	
+	/**
+	 * actionlistener can work on this schedule button
+	 * @param s
+	 */
 	public void addScheduleListener(ActionListener s)
 	{
 		schedule.addActionListener(s);
 	}
+	
+	/**
+	 * actionlistener can work on this enter button
+	 * returns Jframe so it can be closed upon pushing enter
+	 * @param e
+	 * @return
+	 */
 	public JFrame addEnterListener(ActionListener e)
 	{
 		enter.addActionListener(e);
 		return popframe;
 	}
+	
+	/**
+	 * gives true value if any patient is selected on PatientDataPage
+	 * @return
+	 */
 	public boolean isPatientSelected()
 	{
 		for(int i = 0; i < pList.size();i++)
@@ -262,6 +307,12 @@ public class PatientDataPage {
 		
 		return false;
 	}
+	
+	/**
+	 * gives patient that is selected.
+	 * don't use this unless inside if statement where isPatientSelected() method returns true
+	 * @return
+	 */
 	public Patient whichPatient() //only use if isPatientSelected() returns true
 	{
 		for(int i = 0; i < pList.size();i++)
@@ -275,6 +326,12 @@ public class PatientDataPage {
 							//so this should hopefully never be reached
 		
 	}
+	
+	/**
+	 * allows for the creation of a popup.
+	 * this will display some text feilds to enter information into
+	 * it has an enter button
+	 */
 	public void addPopup()
 	{
 		//adds popup frame
