@@ -23,6 +23,11 @@ public class PatientController {
 
 	private static JFrame frame;
 	private static PatientModel patientModel;
+	/**
+	 * constructor for patient controller
+	 * @param frame frame to draw the pages
+	 * @param model the model to keep track of information 
+	 */
 
 	public PatientController(JFrame frame, PatientModel model) {
 		this.frame = frame;
@@ -49,6 +54,7 @@ public class PatientController {
 	 * Can return to Page 1(MenuPage)
 	 */
 	static class GotoReqInputListener implements ActionListener {
+	
 
 		public void actionPerformed(ActionEvent e) {
 			ReqInfoPage reqInfo = new ReqInfoPage(frame);
@@ -91,7 +97,10 @@ public class PatientController {
 	static class GotoOptInfoListener implements ActionListener {
 		ReqInfoPage reqInfo;
 		boolean isCheckReqInfo;
-
+		/**
+		 * constructor for taking in the required info 
+		 * @param reqInfo the reqInfoPage to extract information 
+		 */
 		public GotoOptInfoListener(ReqInfoPage reqInfo) {
 			this.reqInfo = reqInfo;
 			isCheckReqInfo = true;
@@ -152,7 +161,10 @@ public class PatientController {
 		public GotoTinHypStatusListener() {
 			isCheckOptional = false;
 		}
-
+		/**
+		 * constructor to signal to extract information from OptInfoPage
+		 * @param optInfo the page
+		 */
 		public GotoTinHypStatusListener(OptInfoPage optInfo) {
 			this.optInfo = optInfo;
 			isCheckOptional = true;
@@ -192,13 +204,19 @@ public class PatientController {
 			isCheckMedicine = false;
 			isCheckStatus = false;
 		}
-
+		/**
+		 * constructor to check extract infromation from InputMedPage
+		 * @param page InputMedPage
+		 */
 		public GotoInputMedListener(InputMedPage page) {
 			inputMedPage = page;
 			isCheckMedicine = true;
 			isCheckStatus = false;
 		}
-
+		/**
+		 * constructor to check extract infromation from TinHypInputPage
+		 * @param page the page to extract info 
+		 */
 		public GotoInputMedListener(TinHypInputPage page) {
 			isCheckMedicine = false;
 			isCheckStatus = true;
@@ -295,11 +313,18 @@ public class PatientController {
 		PatientDataPage db;
 		boolean isCheckSelected;
 		Patient patient;
-
+		/**
+		 * constructor to check extract infromation from PatientDataPage
+		 * @param page the page 
+		 */
 		public GotoInfoListener(PatientDataPage db) {
 			this.db = db;
 			isCheckSelected = true;
 		}
+		/**
+		 * Constructor that takes in patient to display its information 
+		 * @param p the patient displayed 
+		 */
 		public GotoInfoListener(Patient p)
 		{
 			patient =p; 
@@ -389,7 +414,10 @@ public class PatientController {
 	 */	
 	static class GotoAddVisitListener implements ActionListener {
 		PatientDataPage db;
-
+		/**
+		 * Constructor for going to addVisit 
+		 * @param db the database so we can get the selected patient 
+		 */
 		public GotoAddVisitListener(PatientDataPage db) {
 			this.db = db;
 		}
@@ -419,6 +447,11 @@ public class PatientController {
 		private boolean isAddVisit; 
 		private PatientDataPage db; 
 		VisitInfoPage visitInfoPage; 
+		/**
+		 * Constructor for going to AudioEvalPage when previous page needs to be processed
+		 * @param db the patient data page to get patient 
+		 * @param visitInfoPage visit info page to get the visit 
+		 */
 		public GotoInputAudEvalListener(PatientDataPage db, VisitInfoPage visitInfoPage)
 		{
 			isAddVisit = true; 
@@ -426,6 +459,10 @@ public class PatientController {
 			this.visitInfoPage = visitInfoPage; 
 
 		}
+		/**
+		 * Constructor where previous page need not be processed
+		 * @param db to get selected patient 
+		 */
 		public GotoInputAudEvalListener(PatientDataPage db)
 		{
 			this.db = db; 
@@ -460,13 +497,21 @@ public class PatientController {
 		PatientDataPage db; 
 		boolean isAddEval; 
 		AudioEvalPage audioEvalPage; 
-	
+		/**
+		 * Constructor to process previous page 
+		 * @param db for selected patient 
+		 * @param audioEvalPage the previous page 
+		 */
 		public GotoAssignCategoryListener(PatientDataPage db, AudioEvalPage audioEvalPage)
 		{
 			this.db = db; 
 			this.audioEvalPage = audioEvalPage;
 			this.isAddEval = true;
 		}
+		/**
+		 * constructor with no need to process previous page 
+		 * @param db the database page with the selected patient 
+		 */
 		public GotoAssignCategoryListener(PatientDataPage db)
 		{
 			this.db = db;
@@ -507,7 +552,10 @@ public class PatientController {
 	 */
 	static class GotoDeleteListener implements ActionListener {
 		PatientDataPage db;
-
+		/**
+		 * constructor to delete patient 
+		 * @param db the patient data  page 
+		 */
 		public GotoDeleteListener(PatientDataPage db) {
 			this.db = db;
 		}
@@ -548,11 +596,19 @@ public class PatientController {
 	static class GotoAddHistoryListener implements ActionListener {
 		PatientDataPage db;
 		boolean isCheckSelected; 
-
+		/**
+		 * constructor to process previous page 
+		 * @param db the datapage 
+		 */
 		public GotoAddHistoryListener(PatientDataPage db) {
 			this.db = db;
 			isCheckSelected = true; 
 		}
+		/**
+		 * constructor with no need to check previous page 
+		 * @param db the data page 
+		 * @param isCheckSelected if need to check previous page 
+		 */
 		public GotoAddHistoryListener(PatientDataPage db, boolean isCheckSelected)
 		{
 			this.db = db; 
@@ -608,6 +664,11 @@ public class PatientController {
 	static class GotoVisitInfoListener implements ActionListener {
 		PatientDataPage db; 
 		VisitHistPage historyPage; 
+		/**
+		 * constructor to take in info to display a visit. 
+		 * @param db the patient data page 
+		 * @param historyPage the visit history page 
+		 */
 		public GotoVisitInfoListener(PatientDataPage db, VisitHistPage historyPage)
 		{
 			this.db = db;
@@ -662,7 +723,11 @@ public class PatientController {
 	static class GotoSpecificAudioEvalListener implements ActionListener {
 		private PatientDataPage db;
 		private VisitHistPage vh; 
-		
+		/**
+		 * constructor to go to specific audio evaluation
+		 * @param db the data page 
+		 * @param vh the visit history page 
+		 */
 		public GotoSpecificAudioEvalListener(PatientDataPage db, VisitHistPage vh )
 		{
 			this.db = db;
@@ -719,6 +784,10 @@ public class PatientController {
 	static class GotoScheduleListener implements ActionListener
 	{
 		PatientDataPage db;
+		/**
+		 * constructor for scheduling pop up 
+		 * @param db the data page 
+		 */
 		public GotoScheduleListener(PatientDataPage db)
 		{
 			this.db = db;
@@ -749,6 +818,10 @@ public class PatientController {
 	{
 		Patient p;
 		JFrame popup;
+		/**
+		 * constructor to enter schedule 
+		 * @param p the patient 
+		 */
 		public GotoEnterScheduleListener(Patient p)
 		{
 			this.p = p;
@@ -785,10 +858,6 @@ public class PatientController {
 			System.out.println(patientModel);
 			
 		}
-		/**
-		 * setter method to retreieve JFrame
-		 * @param popup
-		 */
 		public void retrieveJFrame(JFrame popup)
 		{
 			this.popup = popup;
@@ -805,6 +874,9 @@ public class PatientController {
 		private boolean isAssignCat; 
 		private CategoryPage catPage; 
 		private Patient patient; 
+		/**
+		 * constructor for no need to process previous page 
+		 */
 		public GotoDatabaseListener()
 		{
 			
@@ -812,7 +884,6 @@ public class PatientController {
 		/**
 		 * constructor for coming back from assigning a category
 		 * @param catPage
-		 * @param patient
 		 */
 		public GotoDatabaseListener(CategoryPage catPage, Patient patient)
 		{
@@ -820,7 +891,6 @@ public class PatientController {
 			this.catPage = catPage; 
 			this.patient = patient; 
 		}
-		
 		public void actionPerformed(ActionEvent e) {
 			if (isAssignCat)
 			{
@@ -858,7 +928,10 @@ public class PatientController {
 	 */
 	static class GotoMedicationListener implements ActionListener {
 		Patient p;
-
+		/**
+		 * constructor to goto medication info  
+		 * @param p the patient taking medicine 
+		 */
 		public GotoMedicationListener(Patient p) {
 			this.p = p;
 		}
@@ -897,7 +970,11 @@ public class PatientController {
 
 		Patient p;
 		Medicine m;
-
+		/*
+		 * constructor to go to specific med info 
+		 * @param p the patient
+		 * @param m the medication 
+		 */
 		public GotoSpecificMedListener(Patient p, Medicine m) {
 			this.p = p;
 			this.m = m;
