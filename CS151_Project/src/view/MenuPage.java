@@ -134,23 +134,46 @@ public class MenuPage {
 		frame.revalidate();
 	}
 	
+	/**
+	 * actionlistener will work for this register button
+	 * @param listenRegister
+	 */
 	public void addRegisterListener(ActionListener listenRegister)
 	{
 		registerButton.addActionListener(listenRegister);
 	}
+	
+	/**
+	 * actionlistener will work for this view Database button
+	 * @param listenView
+	 */
 	public void addViewListener(ActionListener listenView)
 	{
 		viewButton.addActionListener(listenView);
 	
 	}
+	
+	/**
+	 * actionlistener will work for this undo button
+	 * @param undoView
+	 */
 	public void addUndoListener(ActionListener undoView)
 	{
 		undoButton.addActionListener(undoView);
 	}
+	
+	/**
+	 * hides undo button
+	 */
 	public void hideUndo()
 	{
 		undoButton.setVisible(false);
 	}
+	
+	/**
+	 * returns state of undo button
+	 * @return
+	 */
 	public boolean isUndo()
 	{
 		return isUndo; 
