@@ -175,23 +175,47 @@ public class CategoryPage {
 			frame.repaint();
 			frame.revalidate();
 		}
+		
+		/**
+		 * actionlisteners work for this finish button
+		 * @param f
+		 */
 		public void addFinishListener(ActionListener f)
 		{
 			finish.addActionListener(f);
 		}
+		
+		/**
+		 * actionlisteners work for this back button
+		 * @param b
+		 */
 		public void addBackListener(ActionListener b)
 		{
 			back.addActionListener(b);
 		}
 
+		/**
+		 * actionlisteners work for this medications Button
+		 * @param m
+		 */
 		public void addMedicationListener(ActionListener m) 
 		{
 			meds.addActionListener(m);
 		}
+		
+		/**
+		 * actionlisteners work for this medhistory button
+		 * @param mh
+		 */
 		public void addMedHistoryListener(ActionListener mh) 
 		{
 			medH.addActionListener(mh);
 		}
+		
+		/**
+		 * gives true if any one of the checkboxes is selected.
+		 * @return
+		 */
 		public boolean isCheckBoxSelected()
 		{
 			if(c1.isSelected())
@@ -207,6 +231,12 @@ public class CategoryPage {
 			
 			return false;
 		}
+		
+		/**
+		 * gives category as string based on which textbox is selected
+		 * assumes isCheckBoxSelected() returned true b4 this is called
+		 * @return
+		 */
 		public String whichCheckBox()
 		{
 		if(c1.isSelected())
