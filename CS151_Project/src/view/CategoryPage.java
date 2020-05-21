@@ -1,4 +1,3 @@
-package view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,6 +11,8 @@ import javax.swing.*;
 
 /**
  * page 13
+ *
+ * User can select the category level of the Patient and finish the evaluation, or check their medications and medical history
  *
  */
 public class CategoryPage {
@@ -29,6 +30,14 @@ public class CategoryPage {
 	private JCheckBox c5;
 	private ButtonGroup cGroup;
 	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * takes in last of patient to display it in the title
+	 * Creates UI
+	 * 
+	 * @param frame
+	 * @param patientLastName
+	 */
 		public CategoryPage(JFrame frame, String patientLastName)
 		{
 			this.frame = frame;
