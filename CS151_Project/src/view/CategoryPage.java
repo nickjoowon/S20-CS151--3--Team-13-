@@ -9,9 +9,10 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-/**
+/*
  * page 13
  *
+ * Part 3 of adding a visit
  * User can select the category level of the Patient and finish the evaluation, or check their medications and medical history
  *
  */
