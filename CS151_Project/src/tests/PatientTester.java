@@ -1,8 +1,12 @@
-package model;
+package tests;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import model.Medicine;
+import model.Patient;
+import model.Visit;
 
 class PatientTester {
 
