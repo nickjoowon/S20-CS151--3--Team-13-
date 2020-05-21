@@ -214,14 +214,28 @@ public class ReqInfoPage {
 		frame.revalidate();
 	}
 	
+	/**
+	 * actionlisteners will work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlisteners will work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
+	
+	/**
+	 * gives various fields of information in an array of string
+	 * @return
+	 */
 	public String[] getRequiredInfo()
 	{
 		String[] info = new String[] {iDNumberText.getText(), 
@@ -242,8 +256,6 @@ public class ReqInfoPage {
 		return info; 
 		
 	}
-	
-	
 	
 
 
