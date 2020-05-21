@@ -64,7 +64,6 @@ public class TinHypInputPage {
 	
 		
 		
-		
 		//Panel to organize back and next buttons 
 		JPanel backAndNext = new JPanel(); 
 		backAndNext.setLayout(new BorderLayout());
@@ -100,25 +99,32 @@ public class TinHypInputPage {
 		frame.add(backAndNext, BorderLayout.SOUTH); 
 		
 		
-		
-		
-		
-		
-		
-		
 	
 		frame.repaint();
 		frame.revalidate();
 	}
 	
+	/**
+	 * actionlisteners work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlisteners work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
+	/**
+	 * gives value of status in string from field
+	 * @return
+	 */
 	public String getTinHypStatus()
 	{
 		return description.getText(); 
