@@ -167,6 +167,11 @@ public class VisitInfoPage {
 
 	}
 
+	/**
+	 * gets necessary information needed for fields
+	 * 
+	 * @return array of info from fields
+	 */
 	public String[] getInfo()
 	{
 		String [] info = 
@@ -178,24 +183,46 @@ public class VisitInfoPage {
 			}; 
 		return info; 
 	}
+	/**
+	 * actionlisteners work for this back button
+	 * @param a
+	 */
 	public void addBackListener(ActionListener a)
 	{
 		back.addActionListener(a);
 	}
+	/**
+	 * actionlisteners work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
 
 
+	/**
+	 * returns true if box is checked
+	 * @return
+	 */
 	public boolean isSoundTherapyChecked()
 	{
 		return sndThrpyCheck.isSelected(); 
 	}
+	
+	/**
+	 * returns true if box is checked
+	 * @return
+	 */
 	public boolean isEarMeasureChecked()
 	{
 		return earMeasureCheck.isSelected(); 
 	}
+	
+	/**
+	 * returns true if box is checked
+	 * @return
+	 */
 	public boolean isCounselChecked()
 	{
 		return counselCheck.isSelected(); 
