@@ -332,17 +332,30 @@ public class AudioEvalPage {
 		frame.revalidate();
 
 	}
+	
+	/**
+	 * actionlisteners work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlisteners work for this back button
+	 * @param a
+	 */
 	public void addBackListener(ActionListener a)
 	{
 		back.addActionListener(a);
 	}
 
 
-	
+	/**
+	 * gives information from text fields as array of string
+	 * @return
+	 */
 	public String[] getInfo() 
 	{
 		String[] info =
@@ -366,6 +379,7 @@ public class AudioEvalPage {
 
 
 
+	/*
 	//for testing purposes
 	public static void main(String[] args) {
 		String s = "amazing nick";
@@ -374,6 +388,6 @@ public class AudioEvalPage {
 	}
 
 
-
+	 */
 
 }
