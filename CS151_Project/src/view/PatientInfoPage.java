@@ -170,18 +170,37 @@ public class PatientInfoPage {
 		frame.revalidate();
 	}
 	
+	/**
+	 * actionlisteners will work for this next button
+	 * @param a
+	 */
 	public void addNextListener(ActionListener a)
 	{
 		next.addActionListener(a);
 	}
+	
+	/**
+	 * actionlisteners will work for this back button
+	 * @param b
+	 */
 	public void addBackListener(ActionListener b)
 	{
 		back.addActionListener(b);
 	}
+	
+	/**
+	 * actionlisteners will work for this update button
+	 * @param c
+	 */
 	public void addUpdateListener(ActionListener c)
 	{
 		updateInfo.addActionListener(c);
 	}
+	
+	/**
+	 * gives various updated information in the form of a String array
+	 * @return
+	 */
 	public String[] getEditedInfo()
 	{
 		String[] info = { 
@@ -208,6 +227,7 @@ public class PatientInfoPage {
 		return info; 
 	}
 
+	/*test code
 	public static void main(String[] args)
 	{
 		JFrame frame = new JFrame(); 
@@ -230,4 +250,5 @@ public class PatientInfoPage {
 		
 	}
 	
+	*/
 }
