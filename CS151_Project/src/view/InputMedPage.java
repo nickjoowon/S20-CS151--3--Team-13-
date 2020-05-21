@@ -6,8 +6,14 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ActionListener;
-
 import javax.swing.*;
+
+/**
+ * Page 5
+ * 
+ * Part 4 of Registering a new Patient. Options to add medications by entering info in text fields until user hits finish.
+ *
+ */
 public class InputMedPage {
     JFrame frame; 
 	JButton addMed;
@@ -23,6 +29,12 @@ public class InputMedPage {
 	private JTextField usualDoseText;
 	private JTextField sideEffectText; 
 	
+	/**
+	 * Reuses frame from last Page and redraws on it
+	 * Creates UI
+	 * 
+	 * @param frame
+	 */
 	public InputMedPage(JFrame frame)
 	{
 		this.frame = frame; 
